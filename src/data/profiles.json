@@ -1,0 +1,5 @@
+[
+{"iso":"CHN","event":"1975 Banqiao Dam failure","energyRelated":true,"summary":"Dam failures after extreme rainfall caused a large contested death toll.","electrocutionDeathsPer100k":0.4},
+{"iso":"USA","event":"Kansas City Hyatt walkway collapse","energyRelated":false,"summary":"A structural failure, not an electricity-generation event.","electrocutionDeathsPer100k":0.3},
+{"iso":"FRA","event":"No profile event in source spreadsheet","energyRelated":false,"summary":"The profile overlay has no energy disaster entry for this country.","electrocutionDeathsPer100k":0.1}
+]
