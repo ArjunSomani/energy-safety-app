@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "test": "vitest run",
+    "validate:data": "tsx scripts/validate-data.ts",
+    "data:refresh": "tsx scripts/fetch-owid.ts && npm run validate:data"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "tsx": "latest",
+    "typescript": "latest",
+    "vitest": "latest"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=20.11 <23"
+  }
+}
