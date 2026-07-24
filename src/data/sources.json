@@ -1,0 +1,300 @@
+[
+  {
+    "slug": "coal",
+    "label": "Coal",
+    "description": "Electricity from hard coal, lignite, and similar solid fuels.",
+    "deathRate": {
+      "low": 24.6,
+      "central": 24.6,
+      "high": 224,
+      "unit": "deaths/TWh",
+      "source": "owid-safest-sources",
+      "modeledShare": 0.95,
+      "note": "Fossil-fuel rates are dominated by modeled air-pollution deaths; the high bound reflects global-average caution."
+    },
+    "lifecycleCO2": {
+      "low": 740,
+      "central": 820,
+      "high": 910,
+      "unit": "gCO2eq/kWh",
+      "source": "ipcc-ar5-a3"
+    },
+    "landUse": {
+      "low": 6,
+      "central": 9,
+      "high": 18,
+      "unit": "m2/MWh/yr",
+      "source": "unece-2021"
+    },
+    "lcoe": {
+      "low": 68,
+      "central": 118,
+      "high": 166,
+      "unit": "USD/MWh",
+      "source": "lazard-lcoe"
+    }
+  },
+  {
+    "slug": "oil",
+    "label": "Oil",
+    "description": "Electricity from petroleum liquids, commonly used for peaking or isolated grids.",
+    "deathRate": {
+      "low": 18.4,
+      "central": 18.4,
+      "high": 52,
+      "unit": "deaths/TWh",
+      "source": "owid-safest-sources",
+      "modeledShare": 0.94
+    },
+    "lifecycleCO2": {
+      "low": 650,
+      "central": 720,
+      "high": 880,
+      "unit": "gCO2eq/kWh",
+      "source": "ipcc-ar5-a3"
+    },
+    "landUse": {
+      "low": 4,
+      "central": 7,
+      "high": 13,
+      "unit": "m2/MWh/yr",
+      "source": "unece-2021"
+    },
+    "lcoe": {
+      "low": null,
+      "central": null,
+      "high": null,
+      "unit": "USD/MWh",
+      "source": "lazard-lcoe",
+      "status": "NO_COMPARABLE_DATA",
+      "note": "Lazard 2026 does not publish a comparable LCOE figure for this top-level source in the site taxonomy."
+    }
+  },
+  {
+    "slug": "gas",
+    "label": "Gas",
+    "description": "Electricity from natural gas turbines and combined-cycle plants.",
+    "deathRate": {
+      "low": 2.8,
+      "central": 2.8,
+      "high": 8.5,
+      "unit": "deaths/TWh",
+      "source": "owid-safest-sources",
+      "modeledShare": 0.9
+    },
+    "lifecycleCO2": {
+      "low": 410,
+      "central": 490,
+      "high": 650,
+      "unit": "gCO2eq/kWh",
+      "source": "ipcc-ar5-a3"
+    },
+    "landUse": {
+      "low": 2,
+      "central": 4,
+      "high": 8,
+      "unit": "m2/MWh/yr",
+      "source": "unece-2021"
+    },
+    "lcoe": {
+      "low": 45,
+      "central": 78,
+      "high": 108,
+      "unit": "USD/MWh",
+      "source": "lazard-lcoe"
+    }
+  },
+  {
+    "slug": "biomass",
+    "label": "Biomass",
+    "description": "Electricity from burned plant and waste material.",
+    "deathRate": {
+      "low": 4.6,
+      "central": 4.6,
+      "high": 12,
+      "unit": "deaths/TWh",
+      "source": "owid-safest-sources",
+      "modeledShare": 0.86
+    },
+    "lifecycleCO2": {
+      "low": 130,
+      "central": 230,
+      "high": 420,
+      "unit": "gCO2eq/kWh",
+      "source": "ipcc-ar5-a3"
+    },
+    "landUse": {
+      "low": 120,
+      "central": 240,
+      "high": 420,
+      "unit": "m2/MWh/yr",
+      "source": "unece-2021"
+    },
+    "lcoe": {
+      "low": null,
+      "central": null,
+      "high": null,
+      "unit": "USD/MWh",
+      "source": "lazard-lcoe",
+      "status": "NO_COMPARABLE_DATA",
+      "note": "Lazard 2026 does not publish a comparable LCOE figure for this top-level source in the site taxonomy."
+    }
+  },
+  {
+    "slug": "hydro",
+    "label": "Hydro",
+    "description": "Electricity from dams, reservoirs, and flowing water.",
+    "deathRate": {
+      "low": 0.04,
+      "central": 1.3,
+      "high": 1.6,
+      "unit": "deaths/TWh",
+      "source": "owid-safest-sources",
+      "modeledShare": 0.02,
+      "note": "Global figure is dominated by the 1975 Banqiao Dam failure; excluding it gives about 0.04 deaths/TWh."
+    },
+    "lifecycleCO2": {
+      "low": 1,
+      "central": 24,
+      "high": 220,
+      "unit": "gCO2eq/kWh",
+      "source": "ipcc-ar5-a3"
+    },
+    "landUse": {
+      "low": 4,
+      "central": 33,
+      "high": 200,
+      "unit": "m2/MWh/yr",
+      "source": "unece-2021"
+    },
+    "lcoe": {
+      "low": null,
+      "central": null,
+      "high": null,
+      "unit": "USD/MWh",
+      "source": "lazard-lcoe",
+      "status": "NO_COMPARABLE_DATA",
+      "note": "Lazard 2026 does not publish a comparable LCOE figure for this top-level source in the site taxonomy."
+    }
+  },
+  {
+    "slug": "nuclear",
+    "label": "Nuclear",
+    "description": "Electricity from fission reactors and their fuel cycle.",
+    "deathRate": {
+      "low": 0.03,
+      "central": 0.03,
+      "high": 0.07,
+      "unit": "deaths/TWh",
+      "source": "owid-safest-sources",
+      "modeledShare": 0.7,
+      "note": "Long-term cancer deaths are modeled with the linear no-threshold assumption."
+    },
+    "lifecycleCO2": {
+      "low": 3.7,
+      "central": 12,
+      "high": 110,
+      "unit": "gCO2eq/kWh",
+      "source": "ipcc-ar5-a3"
+    },
+    "landUse": {
+      "low": 0.5,
+      "central": 1.3,
+      "high": 4,
+      "unit": "m2/MWh/yr",
+      "source": "unece-2021"
+    },
+    "lcoe": {
+      "low": 141,
+      "central": 180,
+      "high": 221,
+      "unit": "USD/MWh",
+      "source": "lazard-lcoe"
+    }
+  },
+  {
+    "slug": "wind",
+    "label": "Wind",
+    "description": "Electricity from onshore and offshore wind turbines.",
+    "deathRate": {
+      "low": 0.02,
+      "central": 0.04,
+      "high": 0.08,
+      "unit": "deaths/TWh",
+      "source": "owid-safest-sources",
+      "modeledShare": 0.25
+    },
+    "lifecycleCO2": {
+      "low": 7,
+      "central": 11,
+      "high": 56,
+      "unit": "gCO2eq/kWh",
+      "source": "ipcc-ar5-a3"
+    },
+    "landUse": {
+      "low": 6.2,
+      "central": 62,
+      "high": 62,
+      "unit": "km2/TWh/yr",
+      "source": "vanzalk-behrens-2018",
+      "note": "Central is total wind-farm area including turbine spacing; direct land occupation is about 10% of that area and is stored as the low figure."
+    },
+    "lcoe": {
+      "low": 27,
+      "central": 50,
+      "high": 73,
+      "unit": "USD/MWh",
+      "source": "lazard-lcoe"
+    },
+    "firmingCost": {
+      "low": 11,
+      "central": 25,
+      "high": 62,
+      "unit": "USD/MWh",
+      "source": "lazard-lcoe",
+      "note": "Illustrative Lazard 2026 firming-cost adder based on grid-operator ELCC and Net CONE frameworks."
+    }
+  },
+  {
+    "slug": "solar",
+    "label": "Solar",
+    "description": "Electricity from photovoltaic panels and solar thermal plants.",
+    "deathRate": {
+      "low": 0.01,
+      "central": 0.02,
+      "high": 0.06,
+      "unit": "deaths/TWh",
+      "source": "owid-safest-sources",
+      "modeledShare": 0.25
+    },
+    "lifecycleCO2": {
+      "low": 18,
+      "central": 48,
+      "high": 180,
+      "unit": "gCO2eq/kWh",
+      "source": "ipcc-ar5-a3"
+    },
+    "landUse": {
+      "low": 5,
+      "central": 16,
+      "high": 40,
+      "unit": "m2/MWh/yr",
+      "source": "unece-2021"
+    },
+    "lcoe": {
+      "low": 29,
+      "central": 46,
+      "high": 92,
+      "unit": "USD/MWh",
+      "source": "lazard-lcoe"
+    },
+    "firmingCost": {
+      "low": 8,
+      "central": 22,
+      "high": 37,
+      "unit": "USD/MWh",
+      "source": "lazard-lcoe",
+      "note": "Illustrative Lazard 2026 firming-cost adder based on grid-operator ELCC and Net CONE frameworks."
+    }
+  }
+]

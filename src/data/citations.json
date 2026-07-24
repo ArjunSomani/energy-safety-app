@@ -1,0 +1,27 @@
+{
+  "owid-safest-sources": {
+    "label": "Our World in Data, What are the safest and cleanest sources of energy?",
+    "url": "https://ourworldindata.org/safest-sources-of-energy",
+    "year": 2024
+  },
+  "ipcc-ar5-a3": {
+    "label": "IPCC AR5 WGIII Annex III lifecycle emissions medians",
+    "url": "https://www.ipcc.ch/report/ar5/wg3/",
+    "year": 2014
+  },
+  "unece-2021": {
+    "label": "UNECE lifecycle assessment of electricity generation options",
+    "url": "https://unece.org/sed/documents/2021/10/reports/life-cycle-assessment-electricity-generation-options",
+    "year": 2021
+  },
+  "lazard-lcoe": {
+    "label": "Lazard LCOE+ 2026, version 19.0",
+    "url": "https://www.lazard.com/research-insights/levelized-cost-of-energyplus-lcoeplus/",
+    "year": 2026
+  },
+  "vanzalk-behrens-2018": {
+    "label": "Van Zalk & Behrens 2018, spatial extent of energy generation",
+    "url": "https://doi.org/10.1016/j.energy.2018.08.056",
+    "year": 2018
+  }
+}

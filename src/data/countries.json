@@ -1,0 +1,7 @@
+[
+{"iso":"USA","country":"United States","year":2024,"population":341000000,"demandTwh":4300,"mix":{"coal":16,"oil":1,"gas":43,"biomass":1,"hydro":6,"nuclear":18,"wind":10,"solar":5}},
+{"iso":"FRA","country":"France","year":2024,"population":68000000,"demandTwh":465,"mix":{"coal":1,"oil":1,"gas":6,"biomass":2,"hydro":12,"nuclear":65,"wind":9,"solar":4}},
+{"iso":"CHN","country":"China","year":2024,"population":1410000000,"demandTwh":9450,"mix":{"coal":58,"oil":1,"gas":3,"biomass":2,"hydro":14,"nuclear":5,"wind":10,"solar":7}},
+{"iso":"NOR","country":"Norway","year":2024,"population":5500000,"demandTwh":140,"mix":{"coal":0,"oil":0,"gas":1,"biomass":1,"hydro":88,"nuclear":0,"wind":9,"solar":1}},
+{"iso":"WLD","country":"World","year":2024,"population":8100000000,"demandTwh":30000,"mix":{"coal":35,"oil":3,"gas":23,"biomass":2,"hydro":15,"nuclear":9,"wind":8,"solar":5}}
+]
