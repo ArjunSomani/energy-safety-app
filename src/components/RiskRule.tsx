@@ -1,9 +1,8 @@
 import sources from '@/data/sources.json';
 
-// Warm sequential "risk" ramp — rows are ordered high→low death rate, so the
-// darkest/hottest bar (coal) is the most dangerous and the palest (solar) the
-// least. Deliberately off-accent so the chart never competes with the blue UI.
-const colors = ['#7f1d1d', '#9a2f1a', '#b4442a', '#c26a2e', '#cf8a3f', '#dba85f', '#e6c489', '#eddcb6'];
+// Blue sequential "risk" ramp — rows are ordered high→low death rate, so the
+// darkest bar (coal) is the most dangerous and the palest (solar) the least.
+const colors = ['#0f2f6b', '#17408c', '#1f52ad', '#3568bd', '#5a83c9', '#85a3d6', '#b0c4e4', '#d7e2f2'];
 const ticks = [0.01, 0.1, 1, 10, 100, 1000];
 const min = -2;
 const max = 3;
@@ -68,7 +67,7 @@ export default function RiskRule({ items = sources }: { items?: typeof sources }
       </div>
 
       <p className="mt-3 text-sm text-[var(--ink-soft)]">
-        <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: '#b4442a' }} /> counted
+        <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: '#1f52ad' }} /> counted
         deaths ·{' '}
         <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: 'var(--hatch)' }} /> modeled
         deaths

@@ -36,9 +36,9 @@
   --signal-ink: var(--accent-ink);
   --signal-soft: var(--accent-soft);
 
-  /* warnings — amber, kept distinct from the blue UI accent */
-  --warn: #b45309;
-  --warn-soft: #fbf3e6;
+  /* warnings — accent blue */
+  --warn: var(--accent);
+  --warn-soft: var(--accent-soft);
 
   /* chart: warm sequential "risk" ramp (deep = higher death rate). Off-accent
      on purpose, per the reference's charts-never-use-accent rule. */
@@ -74,8 +74,8 @@
   --accent-ink: #0a1220;
   --accent-soft: #17233b;
 
-  --warn: #d99a5b;
-  --warn-soft: #241a10;
+  --warn: var(--accent);
+  --warn-soft: var(--accent-soft);
 
   --chart-gridline: #2c2c2a;
   --chart-baseline: #3a3a37;
@@ -103,8 +103,8 @@
     --accent-ink: #0a1220;
     --accent-soft: #17233b;
 
-    --warn: #d99a5b;
-    --warn-soft: #241a10;
+    --warn: var(--accent);
+    --warn-soft: var(--accent-soft);
 
     --chart-gridline: #2c2c2a;
     --chart-baseline: #3a3a37;
