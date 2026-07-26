@@ -1,7 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const links = [
   ['How we count', '/how-we-count'],
@@ -23,6 +23,7 @@ export default function SiteHeader() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
+  const fadeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -41,10 +42,20 @@ export default function SiteHeader() {
     return () => document.removeEventListener('keydown', onKey);
   }, [open]);
 
+  useEffect(() => () => {
+    if (fadeTimer.current) clearTimeout(fadeTimer.current);
+  }, []);
+
   function toggleTheme() {
     const next = theme === 'dark' ? 'light' : 'dark';
+    const root = document.documentElement;
+    // Enable the 2s cross-fade for the duration of the switch, then remove it
+    // so it never affects ordinary hover/interaction transitions.
+    root.classList.add('theme-transition');
+    if (fadeTimer.current) clearTimeout(fadeTimer.current);
+    fadeTimer.current = setTimeout(() => root.classList.remove('theme-transition'), 2000);
     setTheme(next);
-    document.documentElement.dataset.theme = next;
+    root.dataset.theme = next;
     try {
       localStorage.setItem('cs-theme', next);
     } catch {
