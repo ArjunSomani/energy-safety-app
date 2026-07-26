@@ -1,25 +1,19 @@
 import './globals.css';
-import { Archivo, IBM_Plex_Mono, Literata } from 'next/font/google';
+import { Fraunces, Geist, Geist_Mono } from 'next/font/google';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 
-const serif = Literata({
-  subsets: ['latin'],
-  variable: '--font-serif',
-  display: 'swap',
-});
+// Body + UI: Geist (clean modern sans, legible at small sizes).
+const sans = Geist({ subsets: ['latin'], variable: '--font-geist-sans', display: 'swap' });
 
-const display = Archivo({
-  subsets: ['latin'],
-  weight: ['500', '600', '700'],
-  variable: '--font-display',
-  display: 'swap',
-});
+// Data/tabular figures: Geist Mono.
+const mono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono', display: 'swap' });
 
-const mono = IBM_Plex_Mono({
+// Display serif for headings only — editorial, energy/climate-storytelling feel.
+const display = Fraunces({
   subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-mono',
+  variable: '--font-fraunces',
+  axes: ['opsz', 'SOFT', 'WONK'],
   display: 'swap',
 });
 
@@ -33,7 +27,7 @@ const themeScript = `(function(){try{var t=localStorage.getItem('cs-theme');if(t
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${serif.variable} ${display.variable} ${mono.variable}`}>
+    <html lang="en" className={`${sans.variable} ${display.variable} ${mono.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
