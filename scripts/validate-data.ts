@@ -20,7 +20,7 @@ for (const source of sources as any[]) {
 }
 
 for (const country of countries as any[]) {
-  const sum = Object.values(country.mix).reduce((a: any, b: any) => a + b, 0);
+  const sum = (Object.values(country.mix) as number[]).reduce((a: number, b: number) => a + b, 0);
   if (Math.abs(sum - 100) > 0.5) fail(`${country.iso} mix sums ${sum}`);
 }
 
