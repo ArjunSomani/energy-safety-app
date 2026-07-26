@@ -497,6 +497,117 @@ a.panel h1 {
   color: var(--accent);
 }
 
+/* ---- Skip link (keyboard / screen-reader) ---- */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 var(--radius-sm) 0;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+}
+.skip-link:focus {
+  left: 0;
+}
+
+/* ---- Explainer building blocks (how-we-count, etc.) ---- */
+.tile-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  width: 5.5rem;
+  padding: 0.85rem 0.5rem;
+  text-align: center;
+}
+.tile-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+.icon {
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  text-align: center;
+}
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+.stepper {
+  display: flex;
+  flex-direction: column;
+}
+.step {
+  display: flex;
+  gap: 1rem;
+}
+.step-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.step-badge {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--accent-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.step-line {
+  flex: 1;
+  width: 2px;
+  background: var(--rule);
+  margin-top: 0.35rem;
+  border-radius: 2px;
+}
+.step-body {
+  padding-bottom: 1.4rem;
+}
+.step-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+/* Counted vs modeled swatch inline in prose */
+.swatch {
+  display: inline-block;
+  width: 1.5rem;
+  height: 0.75rem;
+  border-radius: 3px;
+  border: 1px solid var(--bar-border);
+  vertical-align: middle;
+}
+
 /* ---- Segmented toggle (chart scale, etc.) ---- */
 .scale-toggle {
   display: inline-flex;
