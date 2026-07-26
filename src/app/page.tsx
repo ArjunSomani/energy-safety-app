@@ -13,10 +13,10 @@ export default function Home() {
         <div className="hero-glow" aria-hidden="true" />
         <div className="mx-auto max-w-4xl p-6" style={{ paddingTop: '5rem', paddingBottom: '1rem', textAlign: 'center' }}>
           <p className="kicker">Deaths per terawatt-hour · a neutral reference</p>
-          <h1 className="text-4xl md:text-6xl">The safety of electricity, on one honest scale</h1>
+          <h1 className="text-4xl md:text-6xl">The safety of electricity, on one scale</h1>
           <p className="lede mx-auto mt-4" style={{ maxWidth: '36rem' }}>
-            Every source of electricity carries some risk. Common Scale places them side by side using
-            deaths per unit of electricity generated — with the uncertainty shown, not hidden.
+            Every source of electricity carries some risk. Level places them side by side using deaths
+            per unit of electricity generated — with the uncertainty shown, not hidden.
           </p>
           <div className="mt-6 flex gap-3" style={{ justifyContent: 'center' }}>
             <a className="btn btn-primary" href="/sources">

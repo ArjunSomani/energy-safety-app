@@ -18,7 +18,7 @@ const display = Fraunces({
 });
 
 export const metadata = {
-  title: 'Common Scale',
+  title: 'Level',
   description: 'A neutral reference for comparing electricity-source safety on a shared scale.',
 };
 

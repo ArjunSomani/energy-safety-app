@@ -1,5 +1,5 @@
 /* ============================================================
-   Common Scale — design system
+   Level — design system
    Editorial identity modeled on the "Optimize" reference:
    Fraunces (display serif headings) · Geist (sans body/UI) · Geist Mono (data)
    Warm near-white / near-black ground · dark-blue accent
@@ -480,6 +480,29 @@ a.panel h1 {
 .card-arrow::after {
   content: ' →';
   color: var(--accent);
+}
+
+/* ---- Segmented toggle (chart scale, etc.) ---- */
+.scale-toggle {
+  display: inline-flex;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+}
+
+.scale-toggle button {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  padding: 0.35rem 0.85rem;
+  background: transparent;
+  color: var(--ink-soft);
+  border: none;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.scale-toggle button[aria-pressed='true'] {
+  background: var(--accent);
+  color: var(--accent-ink);
 }
 
 /* ---- Tables ---- */

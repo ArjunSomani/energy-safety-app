@@ -3,7 +3,7 @@
 import WarningStrip from '@/components/WarningStrip';
 import countries from '@/data/countries.json';
 import { computeMix, normalizeMix, slugs } from '@/lib/engine';
-import { bandText, fmt } from '@/lib/format';
+import { bandText, landAnchor, peoplePerDeathForMix } from '@/lib/format';
 import type { SourceSlug } from '@/lib/types';
 import { useEffect, useMemo, useState } from 'react';
 
@@ -28,7 +28,8 @@ export default function Page() {
   const [percentMix, setPercentMix] = useState<Record<SourceSlug, number>>(world.mix as Record<SourceSlug, number>);
   const [includeFirming, setIncludeFirming] = useState(false);
   const mix = useMemo(() => normalizeMix(percentMix), [percentMix]);
-  const result = computeMix(mix, demand, includeFirming);
+  const result = computeMix(mix, demand, { includeFirmingCost: includeFirming });
+  const peoplePerDeath = peoplePerDeathForMix(result.deaths.total, demand);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -94,9 +95,9 @@ export default function Page() {
           ))}
         </section>
         <section className="grid gap-3">
-          <div className="panel p-4"><h2>Deaths</h2><p className="mono">{bandText(result.deaths.total, 'per year')}</p><p>≈ 1 death per <span className="mono">{fmt(demand / result.deaths.total.central)}</span> TWh</p></div>
+          <div className="panel p-4"><h2>Deaths</h2><p className="mono">{bandText(result.deaths.total, 'per year')}</p>{peoplePerDeath ? <p className="text-sm">≈ one death for every <span className="mono">{peoplePerDeath}</span>&apos;s annual electricity, at this mix.</p> : null}</div>
           <div className="panel p-4"><h2>CO₂</h2><p className="mono">{bandText(result.co2.totalMt, 'Mt/yr')}</p><p className="mono">{bandText(result.co2.gPerKwh, 'gCO₂eq/kWh')}</p></div>
-          <div className="panel p-4"><h2>Land</h2><p className="mono">{bandText(result.land.km2, 'km²')}</p><p className="text-sm">Wind uses a dual land figure: direct occupation to total wind-farm area.</p></div>
+          <div className="panel p-4"><h2>Land</h2><p className="mono">{bandText(result.land.km2, 'km²')}</p><p className="text-sm">{landAnchor(result.land.km2.high)}</p><p className="text-sm">Wind uses a dual land figure: direct occupation to total wind-farm area.</p></div>
           <div className="panel p-4">
             <h2>Cost</h2>
             <label className="block text-sm"><input type="checkbox" checked={includeFirming} onChange={(event) => setIncludeFirming(event.target.checked)} /> Include Lazard 2026 firming-cost adder for wind and solar</label>

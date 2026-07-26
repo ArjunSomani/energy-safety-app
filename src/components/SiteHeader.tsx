@@ -56,7 +56,7 @@ export default function SiteHeader() {
     <header className="site-header">
       <div className="site-header-inner">
         <a className="brand" href="/" onClick={() => setOpen(false)}>
-          Common Scale
+          Level
         </a>
         <nav className="site-nav" aria-label="Primary">
           {links.map(([label, href]) => (
