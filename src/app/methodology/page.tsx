@@ -21,8 +21,16 @@ export default function Page() {
         <li>Supply-chain labor conditions, waste-disposal long tails, wartime scenarios, terrorism, and siting-specific land use are outside the calculation.</li>
         <li>Country-level estimates apply global-average rates and will misstate some countries.</li>
       </ul>
+      <h2>Country adjustments</h2>
+      <p>
+        Country estimates differ from the global source table in two deliberate ways. Hydro uses the rate excluding the
+        1975 Banqiao Dam failure, and fossil death rates are re-anchored to a coarse three-way pollution-controls tier
+        (stringent / moderate / limited) using the geometric mean of the global range as the interior split. This is a
+        site-derived adjustment, not a published per-country figure.
+      </p>
       <h2>Changelog</h2>
-      <p className="mono">2026-07-24 — Renamed to Common Scale; added firming-cost toggle, no-comparable-cost handling, and wind dual land-use treatment.</p>
+      <p className="mono">2026-07-26 — Renamed to Level; split hydro ex-Banqiao, added pollution-controls tiers, human-scale anchor, log/linear scale toggle, and dominance warnings.</p>
+      <p className="mono">2026-07-24 — Added firming-cost toggle, no-comparable-cost handling, and wind dual land-use treatment.</p>
     </main>
   );
 }

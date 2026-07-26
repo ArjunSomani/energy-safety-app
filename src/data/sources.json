@@ -10,7 +10,9 @@
       "unit": "deaths/TWh",
       "source": "owid-safest-sources",
       "modeledShare": 0.95,
-      "note": "Fossil-fuel rates are dominated by modeled air-pollution deaths; the high bound reflects global-average caution."
+      "note": "Fossil-fuel rates are dominated by modeled air-pollution deaths; the high bound reflects global-average caution.",
+      "howItKills": "Almost entirely through chronic air pollution — fine particulates, sulphur and nitrogen oxides — inhaled across the whole downwind population over years. Mining and transport accidents are real but a small fraction of the total.",
+      "whatDominates": "Long-term particulate exposure across the public. Chronic effects account for roughly 88–99% of the total; acute accidents are the remainder."
     },
     "lifecycleCO2": {
       "low": 740,
@@ -44,7 +46,11 @@
       "high": 52,
       "unit": "deaths/TWh",
       "source": "owid-safest-sources",
-      "modeledShare": 0.94
+      "modeledShare": 0.94,
+      "highBoundDerived": true,
+      "highBoundNote": "The 18.4 low bound is OWID's published figure. The upper bound is a site-derived caution estimate scaling OWID's reasoning that newer research suggests higher impacts; it is not itself a published number.",
+      "howItKills": "Combustion air pollution, much like coal — particulates and sulphur oxides from burning heavy petroleum liquids, often in older peaking plants — plus accidents in extraction, refining, and transport.",
+      "whatDominates": "Modeled air-pollution deaths dominate. Oil-fired generation is now rare, so the estimate leans on the same combustion-pollution mechanism as coal."
     },
     "lifecycleCO2": {
       "low": 650,
@@ -80,7 +86,11 @@
       "high": 8.5,
       "unit": "deaths/TWh",
       "source": "owid-safest-sources",
-      "modeledShare": 0.9
+      "modeledShare": 0.9,
+      "highBoundDerived": true,
+      "highBoundNote": "The 2.8 low bound is OWID's published figure. The upper bound is a site-derived caution estimate scaling OWID's reasoning that newer research suggests higher impacts; it is not itself a published number.",
+      "howItKills": "Air pollution from combustion — lower than coal or oil per unit of electricity — plus accidents in gas extraction and pipelines and occasional plant explosions.",
+      "whatDominates": "Modeled combustion-pollution deaths dominate; accidents are a small share. Upstream methane leakage is a climate concern but not counted here as a death mechanism."
     },
     "lifecycleCO2": {
       "low": 410,
@@ -114,7 +124,11 @@
       "high": 12,
       "unit": "deaths/TWh",
       "source": "owid-safest-sources",
-      "modeledShare": 0.86
+      "modeledShare": 0.86,
+      "highBoundDerived": true,
+      "highBoundNote": "The 4.6 low bound is OWID's published figure. The upper bound is a site-derived caution estimate scaling OWID's reasoning that newer research suggests higher impacts; it is not itself a published number.",
+      "howItKills": "Burning plant and waste material produces particulate smoke similar to other combustion sources, inhaled by nearby populations, plus harvesting and supply-chain accidents.",
+      "whatDominates": "Modeled particulate-exposure deaths from combustion dominate. How clean the feedstock and stack controls are moves this figure a lot."
     },
     "lifecycleCO2": {
       "low": 130,
@@ -151,7 +165,9 @@
       "unit": "deaths/TWh",
       "source": "owid-safest-sources",
       "modeledShare": 0.02,
-      "note": "Global figure is dominated by the 1975 Banqiao Dam failure; excluding it gives about 0.04 deaths/TWh."
+      "note": "Global figure is dominated by the 1975 Banqiao Dam failure; excluding it gives about 0.04 deaths/TWh.",
+      "howItKills": "Overwhelmingly through catastrophic dam-failure events, which are rare but can kill on a massive scale. Routine operation is one of the safest sources there is.",
+      "whatDominates": "A single event — the 1975 Banqiao Dam failure in China — dominates the global average. Excluding it, hydro sits near 0.04 deaths/TWh, comparable to wind and solar."
     },
     "lifecycleCO2": {
       "low": 1,
@@ -188,7 +204,9 @@
       "unit": "deaths/TWh",
       "source": "owid-safest-sources",
       "modeledShare": 0.7,
-      "note": "Long-term cancer deaths are modeled with the linear no-threshold assumption."
+      "note": "Long-term cancer deaths are modeled with the linear no-threshold assumption.",
+      "howItKills": "Mostly through modeled long-term cancer deaths projected from low-dose radiation exposure — not through reactor accidents. The counted fatalities of Chernobyl and Fukushima are a small part of the number.",
+      "whatDominates": "Modeled cancer projections under the linear no-threshold (LNT) model dominate, not acute accident deaths. LNT is contested, and dropping it would push the rate lower still."
     },
     "lifecycleCO2": {
       "low": 3.7,
@@ -198,18 +216,20 @@
       "source": "ipcc-ar5-a3"
     },
     "landUse": {
-      "low": 0.5,
-      "central": 1.3,
-      "high": 4,
-      "unit": "m2/MWh/yr",
-      "source": "unece-2021"
+      "low": 0.3,
+      "central": 0.47,
+      "high": 1.9,
+      "unit": "km2/TWh/yr",
+      "source": "vanzalk-behrens-2018",
+      "note": "Direct plant footprint. Van Zalk & Behrens (2018) give a nuclear median of about 0.47 km²/TWh/yr (240.8 We/m²)."
     },
     "lcoe": {
-      "low": 141,
-      "central": 180,
-      "high": 221,
+      "low": 175,
+      "central": 215,
+      "high": 255,
       "unit": "USD/MWh",
-      "source": "lazard-lcoe"
+      "source": "lazard-lcoe",
+      "note": "Lazard LCOE+ 2026 (v19.0) US nuclear, roughly $175–$255/MWh, average about $215."
     }
   },
   {
@@ -222,7 +242,9 @@
       "high": 0.08,
       "unit": "deaths/TWh",
       "source": "owid-safest-sources",
-      "modeledShare": 0.25
+      "modeledShare": 0.25,
+      "howItKills": "Almost entirely through occupational accidents during construction and maintenance — falls from turbine height and road transport incidents. There is no combustion and no pollution term.",
+      "whatDominates": "Installation and maintenance accidents dominate. Manufacturing supply-chain risk is a smaller modeled contribution."
     },
     "lifecycleCO2": {
       "low": 7,
@@ -265,7 +287,9 @@
       "high": 0.06,
       "unit": "deaths/TWh",
       "source": "owid-safest-sources",
-      "modeledShare": 0.25
+      "modeledShare": 0.25,
+      "howItKills": "Mainly through falls during rooftop installation and maintenance, plus accidents in panel manufacturing and transport. Like wind, there is no combustion and no pollution term.",
+      "whatDominates": "Occupational accidents — installation falls above all — dominate. Manufacturing risk is a smaller modeled share."
     },
     "lifecycleCO2": {
       "low": 18,
