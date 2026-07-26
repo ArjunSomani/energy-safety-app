@@ -11,8 +11,11 @@
     "react": "latest",
     "react-dom": "latest",
     "tsx": "latest",
-    "typescript": "latest",
+    "typescript": "5.9.3",
     "vitest": "latest"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/node": "26.1.1",
+    "@types/react": "19.2.17"
+  }
 }
