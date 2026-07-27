@@ -43,17 +43,31 @@ type EiaResponse<T> = {
 };
 
 // Single GET against the EIA API. `params` values may repeat (e.g. multiple
-// data[] columns), so we accept an array of [key, value] pairs.
-async function eiaGet<T>(route: string, params: [string, string][]): Promise<EiaResponse<T>> {
+// data[] columns), so we accept an array of [key, value] pairs. Transient 5xx
+// and network errors are retried with exponential backoff — the public API
+// occasionally returns a 500 under load.
+async function eiaGet<T>(route: string, params: [string, string][], attempt = 0): Promise<EiaResponse<T>> {
   const usp = new URLSearchParams();
   usp.set('api_key', KEY as string);
   for (const [k, v] of params) usp.append(k, v);
   const url = `${API}${route}?${usp.toString()}`;
-  const res = await fetch(url);
-  if (!res.ok) {
-    throw new Error(`EIA ${route} → HTTP ${res.status} ${res.statusText}\n${await res.text()}`);
+  try {
+    const res = await fetch(url);
+    if (!res.ok) {
+      if (res.status >= 500 && attempt < 4) {
+        await sleep(1000 * 2 ** attempt);
+        return eiaGet<T>(route, params, attempt + 1);
+      }
+      throw new Error(`EIA ${route} → HTTP ${res.status} ${res.statusText}\n${await res.text()}`);
+    }
+    return (await res.json()) as EiaResponse<T>;
+  } catch (err) {
+    if (attempt < 4) {
+      await sleep(1000 * 2 ** attempt);
+      return eiaGet<T>(route, params, attempt + 1);
+    }
+    throw err;
   }
-  return (await res.json()) as EiaResponse<T>;
 }
 
 // Fetch every page of a data route, respecting the rate limit.
@@ -322,6 +336,68 @@ async function fetchLoadProfiles(year: number): Promise<{
   return { year, region: 'US48', annualMeanMw: +annualMeanMw.toFixed(0), seasonDays, profiles };
 }
 
+// ---- 7. Hourly wind & solar shape (EIA-930 generation by fuel) ----
+// Representative season × 24-hour shapes for the variable renewables, each
+// normalized so its own annual-mean hour is 1.0. Multiplying a shape by
+// (capacity × capacity factor) reconstructs hourly output whose annual energy
+// equals the stock-and-flow generation exactly, while capturing when the energy
+// actually arrives — solar zero at night, wind flatter. Same UTC hour indexing
+// as the demand profile, so supply and demand line up hour-for-hour in dispatch.
+async function fetchVreShapes(
+  year: number,
+  seasonDays: Record<string, number>,
+): Promise<Record<'wind' | 'solar', Record<string, number[]>>> {
+  const seasons = ['winter', 'spring', 'summer', 'autumn'] as const;
+  const seasonOf = (m: number) => (m === 11 || m <= 1 ? 'winter' : m <= 4 ? 'spring' : m <= 7 ? 'summer' : 'autumn');
+  const totalHours = seasons.reduce((a, s) => a + (seasonDays[s] ?? 0) * 24, 0);
+  const out: Record<'wind' | 'solar', Record<string, number[]>> = { wind: {}, solar: {} };
+
+  for (const [tech, fuel] of [
+    ['wind', 'WND'],
+    ['solar', 'SUN'],
+  ] as const) {
+    const rows = await eiaGetAll<{ period: string; value?: string | number }>('/electricity/rto/fuel-type-data/data/', [
+      ['frequency', 'hourly'],
+      ['data[]', 'value'],
+      ['facets[respondent][]', 'US48'],
+      ['facets[fueltype][]', fuel],
+      ['start', `${year}-01-01T00`],
+      ['end', `${year}-12-31T23`],
+    ]);
+    const sums: Record<string, number[]> = Object.fromEntries(seasons.map((s) => [s, new Array(24).fill(0)]));
+    const counts: Record<string, number[]> = Object.fromEntries(seasons.map((s) => [s, new Array(24).fill(0)]));
+    for (const r of rows) {
+      const value = Number(r.value);
+      if (!Number.isFinite(value) || value < 0) continue; // storage-hour negatives excluded
+      const p = String(r.period);
+      const month = Number(p.slice(5, 7)) - 1;
+      const hour = Number(p.slice(11, 13));
+      if (!Number.isFinite(month) || !Number.isFinite(hour)) continue;
+      const s = seasonOf(month);
+      sums[s][hour] += value;
+      counts[s][hour] += 1;
+    }
+    // Hour-of-day averages within each season (robust to data gaps).
+    const avg: Record<string, number[]> = Object.fromEntries(
+      seasons.map((s) => [s, sums[s].map((sum, h) => (counts[s][h] ? sum / counts[s][h] : 0))]),
+    );
+    // Normalize by the DAY-WEIGHTED mean (the same seasonDays the dispatch uses),
+    // so Σ shape[s][h]·seasonDays[s] = totalHours exactly. This makes the
+    // dispatch's reconstructed VRE energy equal the stock-and-flow generation
+    // (capacity × capacity factor × hours), rather than drifting when hours are
+    // missing from EIA's raw series.
+    const weightedMean =
+      totalHours > 0
+        ? seasons.reduce((acc, s) => acc + avg[s].reduce((a, b) => a + b, 0) * (seasonDays[s] ?? 0), 0) / totalHours
+        : 0;
+    for (const s of seasons) {
+      out[tech][s] = avg[s].map((v) => +(weightedMean ? v / weightedMean : 0).toFixed(4));
+    }
+    await sleep(THROTTLE_MS);
+  }
+  return out;
+}
+
 async function main() {
   console.log('Fetching EIA data (direct API v2)…');
   const baseYear = await latestCapabilityYear();
@@ -347,6 +423,9 @@ async function main() {
 
   await sleep(THROTTLE_MS);
   const loadProfiles = await fetchLoadProfiles(baseYear);
+
+  await sleep(THROTTLE_MS);
+  const vreShapes = await fetchVreShapes(baseYear, loadProfiles.seasonDays);
 
   // Reconciliation, reported up front (the model spec's gate). Net summer vs
   // net summer, same year — the difference should be small.
@@ -392,6 +471,10 @@ async function main() {
   );
   await writeFile('src/data/capacity-factors.json', `${JSON.stringify(capacityFactors, null, 2)}\n`);
   await writeFile('src/data/load-profiles.json', `${JSON.stringify(loadProfiles, null, 2)}\n`);
+  await writeFile(
+    'src/data/vre-profiles.json',
+    `${JSON.stringify({ year: loadProfiles.year, region: 'US48', normalization: 'annual-mean hour = 1.0', wind: vreShapes.wind, solar: vreShapes.solar }, null, 2)}\n`,
+  );
   await writeFile(
     'src/data/eia-meta.json',
     `${JSON.stringify(
