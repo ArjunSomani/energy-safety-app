@@ -22,7 +22,6 @@ import {
 } from '@/lib/model-run';
 import type { Band } from '@/lib/types';
 import { useEffect, useMemo, useState } from 'react';
-import eiaMeta from '@/data/eia-meta.json';
 
 const COLOR_A = 'var(--ink)';
 const COLOR_B = '#c2762f';
@@ -43,6 +42,7 @@ function fmt(n: number, digits = 3) {
 export default function ModelPage() {
   const [a, setA] = useState<UiScenario>(DEFAULT_UI_SCENARIO);
   const [b, setB] = useState<UiScenario>(B_DEFAULT);
+  const [showB, setShowB] = useState(false);
   const [mode, setMode] = useState<'annual' | 'cumulative'>('annual');
   const [relYear, setRelYear] = useState<number>(END_YEAR);
 
@@ -51,22 +51,23 @@ export default function ModelPage() {
     const params = new URLSearchParams(window.location.search);
     if ([...params.keys()].length) {
       setA(uiScenarioFromQuery(params, DEFAULT_UI_SCENARIO, ''));
-      setB(uiScenarioFromQuery(params, B_DEFAULT, 'B_'));
+      if ([...params.keys()].some((k) => k.startsWith('B_'))) {
+        setB(uiScenarioFromQuery(params, B_DEFAULT, 'B_'));
+        setShowB(true);
+      }
     }
   }, []);
 
   const runA = useMemo(() => runScenario(a), [a]);
   const runB = useMemo(() => runScenario(b), [b]);
 
-  // Keep the URL shareable.
+  // Keep the URL shareable (B only once revealed).
   useEffect(() => {
-    const pa = uiScenarioToQuery(a, '');
-    const pb = uiScenarioToQuery(b, 'B_');
     const merged = new URLSearchParams();
-    for (const [k, v] of pa) merged.set(k, v);
-    for (const [k, v] of pb) merged.set(k, v);
+    for (const [k, v] of uiScenarioToQuery(a, '')) merged.set(k, v);
+    if (showB) for (const [k, v] of uiScenarioToQuery(b, 'B_')) merged.set(k, v);
     window.history.replaceState(null, '', `/model?${merged.toString()}`);
-  }, [a, b]);
+  }, [a, b, showB]);
 
   const years = runA.model.years.map((y) => y.year);
 
@@ -82,37 +83,48 @@ export default function ModelPage() {
           rates, retirement policy, demand growth — and evolves the fleet; the mix is an output, not an input.
         </p>
         <p className="text-sm" style={{ margin: '0.6rem 0 0', color: 'var(--ink-soft)' }}>
-          Base fleet: EIA {BASE_YEAR}, reconciled to {fmt(eiaMeta.nationalCapabilityMw / 1000, 4)} GW national capability
-          ({eiaMeta.reconciliationDiffPct}% off). It answers “what would this fleet produce and cost,” not “could this
-          happen.” Transmission, market clearing, siting, supply chains and policy feasibility are out of scope. See{' '}
-          <a href="/model/assumptions">every assumption, its default and its source</a>.
+          It starts from the real US power fleet (EIA {BASE_YEAR}) and answers “what would this fleet produce and cost,”
+          not “could this happen” — transmission, markets, permitting and supply chains are out of scope. The base data
+          is checked against EIA’s national totals; see <a href="/model/assumptions">every assumption, its source, and
+          how the fleet reconciles</a>.
         </p>
       </div>
 
       <HowItWorks />
 
-      {/* Controls: A vs B */}
-      <div className="grid gap-6 md:grid-cols-2">
+      {/* Controls — Scenario A always; B revealed on demand (progressive disclosure) */}
+      <div className={`grid gap-6 ${showB ? 'md:grid-cols-2' : ''}`}>
         <section className="panel p-4">
           <div className="flex items-end justify-between" style={{ marginBottom: '0.6rem' }}>
             <h2 style={{ margin: 0, display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ width: 12, height: 12, borderRadius: 3, background: COLOR_A, display: 'inline-block' }} /> Scenario A
+              {showB ? <span style={{ width: 12, height: 12, borderRadius: 3, background: COLOR_A, display: 'inline-block' }} /> : null}
+              {showB ? 'Scenario A' : 'Your scenario'}
             </h2>
           </div>
           <ScenarioControls scenario={a} onChange={setA} accent={COLOR_A} />
         </section>
-        <section className="panel p-4">
-          <div className="flex items-end justify-between" style={{ marginBottom: '0.6rem' }}>
-            <h2 style={{ margin: 0, display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
-              <span style={{ width: 12, height: 12, borderRadius: 3, background: COLOR_B, display: 'inline-block' }} /> Scenario B
-            </h2>
-          </div>
-          <ScenarioControls scenario={b} onChange={setB} accent={COLOR_B} />
-        </section>
+        {showB ? (
+          <section className="panel p-4">
+            <div className="flex items-end justify-between" style={{ marginBottom: '0.6rem' }}>
+              <h2 style={{ margin: 0, display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ width: 12, height: 12, borderRadius: 3, background: COLOR_B, display: 'inline-block' }} /> Scenario B
+              </h2>
+              <button type="button" className="btn btn-ghost" style={{ padding: '0.3rem 0.7rem', fontSize: '0.75rem' }} onClick={() => setShowB(false)}>
+                Hide
+              </button>
+            </div>
+            <ScenarioControls scenario={b} onChange={setB} accent={COLOR_B} />
+          </section>
+        ) : null}
       </div>
+      {!showB ? (
+        <button type="button" className="btn btn-ghost" style={{ marginTop: '0.8rem' }} onClick={() => setShowB(true)}>
+          + Compare against a second scenario
+        </button>
+      ) : null}
 
-      {/* Plain-language headline for Scenario A */}
-      <h2>In plain terms — Scenario A</h2>
+      {/* Plain-language headline for the primary scenario */}
+      <h2>In plain terms — {showB ? 'Scenario A' : 'your scenario'}</h2>
       <p className="text-sm text-[var(--ink-soft)]" style={{ maxWidth: '48rem', marginTop: '-0.2rem' }}>
         The short version of what the settings above produce. Dotted words have plain definitions — hover or tap them.
       </p>
@@ -126,13 +138,15 @@ export default function ModelPage() {
         demand. Hover any year to read the numbers. (“Fossil fuels” combines coal, gas and oil; per-source detail is in
         the harm figures below.)
       </p>
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className={`grid gap-6 ${showB ? 'md:grid-cols-2' : ''}`}>
         <div className="panel p-4">
-          <StackedAreaMix years={runA.model.years} title="Scenario A" />
+          <StackedAreaMix years={runA.model.years} title={showB ? 'Scenario A' : undefined} />
         </div>
-        <div className="panel p-4">
-          <StackedAreaMix years={runB.model.years} title="Scenario B" />
-        </div>
+        {showB ? (
+          <div className="panel p-4">
+            <StackedAreaMix years={runB.model.years} title="Scenario B" />
+          </div>
+        ) : null}
       </div>
 
       {/* Impacts */}
@@ -150,14 +164,14 @@ export default function ModelPage() {
       <p className="text-sm text-[var(--ink-soft)]" style={{ maxWidth: '48rem' }}>
         The model applies the same per-source figures as the rest of the site to the electricity above. Each result is a
         shaded <Term k="uncertainty band">range, not one number</Term>, and the range <b>widens further into the future</b>,
-        where less is knowable. The solid band is Scenario A; the dashed line is Scenario B. Switch to “Added up” to see
+        where less is knowable.{showB ? ' The solid band is Scenario A; the dashed line is Scenario B.' : ''} Switch to “Added up” to see
         the <Term k="cumulative">cumulative</Term> total over all years.
       </p>
       <div className="grid gap-6 md:grid-cols-2" style={{ marginTop: '0.5rem' }}>
         <div className="panel p-4">
           <BandTimeline
             a={series(runA, mode, 'deaths')}
-            b={series(runB, mode, 'deaths')}
+            b={showB ? series(runB, mode, 'deaths') : undefined}
             unit={mode === 'annual' ? 'deaths/yr' : 'deaths, cumulative'}
             title="Deaths"
             colorA={COLOR_A}
@@ -166,7 +180,7 @@ export default function ModelPage() {
         <div className="panel p-4">
           <BandTimeline
             a={series(runA, mode, 'co2')}
-            b={series(runB, mode, 'co2')}
+            b={showB ? series(runB, mode, 'co2') : undefined}
             unit={mode === 'annual' ? 'Mt CO₂/yr' : 'Mt CO₂, cumulative'}
             title="CO₂"
             colorA={COLOR_A}
@@ -175,14 +189,14 @@ export default function ModelPage() {
         <div className="panel p-4">
           <BandTimeline
             a={series(runA, mode, 'cost')}
-            b={series(runB, mode, 'cost')}
+            b={showB ? series(runB, mode, 'cost') : undefined}
             unit={mode === 'annual' ? 'USD bn/yr' : 'USD bn, cumulative'}
             title="Cost"
             colorA={COLOR_A}
           />
         </div>
         <div className="panel p-4">
-          <BandTimeline a={landSeries(runA)} b={landSeries(runB)} unit="km² (annual footprint)" title="Land" colorA={COLOR_A} />
+          <BandTimeline a={landSeries(runA)} b={showB ? landSeries(runB) : undefined} unit="km² (annual footprint)" title="Land" colorA={COLOR_A} />
           <p className="text-xs text-[var(--ink-soft)]" style={{ margin: '0.4rem 0 0' }}>
             Land is a standing footprint, not a flow, so it is always shown annually — a cumulative integral would be
             area·years.
@@ -216,40 +230,48 @@ export default function ModelPage() {
         <Term k="unserved energy">unserved energy</Term> — the lights flicker. Notice how solar vanishes through the evening
         and overnight just as demand stays high.
       </p>
-      <div className="grid gap-6 md:grid-cols-2" style={{ marginTop: '0.5rem' }}>
+      <div className={`grid gap-6 ${showB ? 'md:grid-cols-2' : ''}`} style={{ marginTop: '0.5rem' }}>
         <div className="panel p-4">
-          <p className="label" style={{ marginTop: 0, display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-            <span style={{ width: 10, height: 10, borderRadius: 3, background: COLOR_A, display: 'inline-block' }} /> Scenario A · a day in {relYear}
-          </p>
+          {showB ? (
+            <p className="label" style={{ marginTop: 0, display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+              <span style={{ width: 10, height: 10, borderRadius: 3, background: COLOR_A, display: 'inline-block' }} /> Scenario A · a day in {relYear}
+            </p>
+          ) : null}
           <DayProfileChart d={dispatchFor(runA, relYear)} accent={COLOR_A} />
         </div>
-        <div className="panel p-4">
-          <p className="label" style={{ marginTop: 0, display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-            <span style={{ width: 10, height: 10, borderRadius: 3, background: COLOR_B, display: 'inline-block' }} /> Scenario B · a day in {relYear}
-          </p>
-          <DayProfileChart d={dispatchFor(runB, relYear)} accent={COLOR_B} />
-        </div>
+        {showB ? (
+          <div className="panel p-4">
+            <p className="label" style={{ marginTop: 0, display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+              <span style={{ width: 10, height: 10, borderRadius: 3, background: COLOR_B, display: 'inline-block' }} /> Scenario B · a day in {relYear}
+            </p>
+            <DayProfileChart d={dispatchFor(runB, relYear)} accent={COLOR_B} />
+          </div>
+        ) : null}
       </div>
-      <div className="grid gap-6 md:grid-cols-2" style={{ marginTop: '1rem' }}>
+      <div className={`grid gap-6 ${showB ? 'md:grid-cols-2' : ''}`} style={{ marginTop: '1rem' }}>
         <ReliabilityPanel d={dispatchFor(runA, relYear)} accent={COLOR_A} />
-        <ReliabilityPanel d={dispatchFor(runB, relYear)} accent={COLOR_B} />
+        {showB ? <ReliabilityPanel d={dispatchFor(runB, relYear)} accent={COLOR_B} /> : null}
       </div>
 
-      {/* Deltas */}
-      <h2 style={{ marginTop: '1.8rem' }}>A vs B — the trade-off</h2>
-      <PlainCompare runA={runA} runB={runB} />
-      <details style={{ marginTop: '0.8rem' }}>
-        <summary style={{ cursor: 'pointer', fontSize: '0.85rem', color: 'var(--accent)' }}>Show the exact numbers (A − B in {END_YEAR})</summary>
-        <p className="text-sm text-[var(--ink-soft)]" style={{ maxWidth: '48rem', marginTop: '0.6rem' }}>
-          The two scenarios share the <b>same</b> per-source coefficients — coal’s death rate is one number applied to two
-          different amounts of coal — so this is a <b>paired</b> comparison: the coefficient uncertainty largely cancels,
-          and the difference is far more certain than either scenario’s own range. Where the paired range still crosses
-          zero, the difference is genuinely <b>smaller than the uncertainty</b> — flagged in the last column. (Horizon
-          uncertainty, which widens toward 2050, is scenario-specific and is shown on the charts above, not differenced
-          here.)
-        </p>
-        <DeltaTable runA={runA} runB={runB} />
-      </details>
+      {/* Deltas — only meaningful once B is revealed */}
+      {showB ? (
+        <>
+          <h2 style={{ marginTop: '1.8rem' }}>A vs B — the trade-off</h2>
+          <PlainCompare runA={runA} runB={runB} />
+          <details style={{ marginTop: '0.8rem' }}>
+            <summary style={{ cursor: 'pointer', fontSize: '0.85rem', color: 'var(--accent)' }}>Show the exact numbers (A − B in {END_YEAR})</summary>
+            <p className="text-sm text-[var(--ink-soft)]" style={{ maxWidth: '48rem', marginTop: '0.6rem' }}>
+              The two scenarios share the <b>same</b> per-source coefficients — coal’s death rate is one number applied to
+              two different amounts of coal — so this is a <b>paired</b> comparison: the coefficient uncertainty largely
+              cancels, and the difference is far more certain than either scenario’s own range. Where the paired range
+              still crosses zero, the difference is genuinely <b>smaller than the uncertainty</b> — flagged in the last
+              column. (Horizon uncertainty, which widens toward 2050, is scenario-specific and is shown on the charts
+              above, not differenced here.)
+            </p>
+            <DeltaTable runA={runA} runB={runB} />
+          </details>
+        </>
+      ) : null}
 
       {/* Context: the risk rule */}
       <h2 style={{ marginTop: '2rem' }}>The coefficients behind the death figures</h2>

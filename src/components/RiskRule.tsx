@@ -1,7 +1,12 @@
 'use client';
 
 import sourcesData from '@/data/sources.json';
+import { peoplePerDeath } from '@/lib/format';
 import { useState } from 'react';
+
+// Compact people count for the tight risk-rule label: 6,000 → "6k", 2.5M → "2.5M".
+const compactPeople = (n: number) =>
+  n >= 1_000_000 ? `${(n / 1_000_000).toFixed(n < 10_000_000 ? 1 : 0)}M` : n >= 1000 ? `${Math.round(n / 1000)}k` : `${Math.round(n)}`;
 
 // Blue sequential "risk" ramp — rows are ordered high→low death rate, so the
 // darkest bar (coal) is the most dangerous and the palest (solar) the least.
@@ -63,10 +68,17 @@ export default function RiskRule({ items = sourcesData }: { items?: typeof sourc
           const lo = s.deathRate.low;
           const hi = s.deathRate.high;
           const countedPct = (1 - s.deathRate.modeledShare) * 100;
+          const pp = peoplePerDeath(s.deathRate);
+          const anchor = pp.low != null && pp.high != null ? `${compactPeople(pp.low)}–${compactPeople(pp.high)}` : null;
           return (
             <div key={s.slug} className="absolute left-0 right-0" style={{ top: y }}>
-              <span className="absolute w-24 text-sm" style={{ fontWeight: 500 }}>
+              <span className="absolute w-24 text-sm" style={{ fontWeight: 500, lineHeight: 1.1 }}>
                 {s.label}
+                {anchor ? (
+                  <span className="mono" style={{ display: 'block', fontSize: '0.62rem', color: 'var(--ink-muted)', fontWeight: 400, whiteSpace: 'nowrap' }}>
+                    1 death / {anchor}
+                  </span>
+                ) : null}
               </span>
               <div className="absolute left-28 right-0 top-2 h-5">
                 <div
@@ -98,6 +110,10 @@ export default function RiskRule({ items = sourcesData }: { items?: typeof sourc
         deaths ·{' '}
         <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: 'var(--hatch)' }} /> modeled
         deaths
+      </p>
+      <p className="mt-3 text-sm text-[var(--ink-soft)]">
+        The small grey figure under each source is the same rate turned human: roughly how many people’s yearly
+        electricity corresponds to one death. Coal, about 700–6,000 people; solar, a few million.
       </p>
     </section>
   );
