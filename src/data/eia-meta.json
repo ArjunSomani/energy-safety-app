@@ -1,0 +1,30 @@
+{
+  "eiaFetchDate": "2026-07-27",
+  "baseYear": 2024,
+  "generatorPeriod": "2024-12",
+  "capacityBasis": "net-summer capacity (MW)",
+  "nationalCapabilityYear": 2024,
+  "nationalCapabilityMw": 1230416.3,
+  "fleetTotalMw": 1209364.6,
+  "fleetNameplateMw": 1292458.5,
+  "reconciliationDiffPct": -1.71,
+  "loadProfileYear": 2024,
+  "nationalGenerationTwh": 4295.5,
+  "generationTwhByTech": {
+    "coal": 655.8,
+    "gas": 1869.9,
+    "nuclear": 781.9,
+    "wind": 451.9,
+    "solar": 219.8,
+    "hydro": 242.9,
+    "oil": 11.5,
+    "biomass": 46.4,
+    "geothermal": 15.4
+  },
+  "gasBlendedCf": 0.4286,
+  "notes": {
+    "reconciliation": "Fleet net-summer sum vs EIA state-electricity-profiles national capability (energysourceid=ALL), same year. Nameplate is ~7% higher and is not the basis.",
+    "gasCapacityFactor": "Gas generation is not reported combined-cycle vs peaker at national scale. Peakers use a disclosed assumption of CF=0.12; the combined-cycle CF is the residual so total gas generation reconciles exactly. Blended gas CF was 0.4286.",
+    "solarCapacityFactor": "Capacity factors use base-year net-summer capacity as the denominator so the model reproduces EIA base-year generation exactly. For fast-growing resources (solar, battery) this yields a fleet-average realized CF below the per-unit CF of a plant that operated the full year."
+  }
+}

@@ -1,0 +1,8151 @@
+{
+  "baseYear": 2024,
+  "period": "2024-12",
+  "capacityBasis": "net-summer-mw",
+  "totalMw": 1209364.6,
+  "totalNameplateMw": 1292458.5,
+  "byTech": {
+    "oil": 24001.2,
+    "hydro": 75033.6,
+    "gas_peaker": 207619.1,
+    "coal": 175108.3,
+    "gas_cc": 290469.5,
+    "nuclear": 96819.9,
+    "wind": 151748.2,
+    "battery": 48713.1,
+    "solar": 123442.7,
+    "geothermal": 2582,
+    "biomass": 10701.2,
+    "other": 3125.8
+  },
+  "cohorts": [
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2002,
+      "retirementYear": null,
+      "capacityMw": 38834.4,
+      "count": 230
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2003,
+      "retirementYear": null,
+      "capacityMw": 37922.3,
+      "count": 214
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2024,
+      "retirementYear": null,
+      "capacityMw": 30761,
+      "count": 689
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2004,
+      "retirementYear": null,
+      "capacityMw": 19530.4,
+      "count": 104
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2023,
+      "retirementYear": null,
+      "capacityMw": 19250.6,
+      "count": 585
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2001,
+      "retirementYear": null,
+      "capacityMw": 18265.3,
+      "count": 311
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2001,
+      "retirementYear": null,
+      "capacityMw": 17569.1,
+      "count": 108
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2002,
+      "retirementYear": null,
+      "capacityMw": 17128.8,
+      "count": 269
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2018,
+      "retirementYear": null,
+      "capacityMw": 17067.6,
+      "count": 55
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2020,
+      "retirementYear": null,
+      "capacityMw": 14376.5,
+      "count": 95
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2021,
+      "retirementYear": null,
+      "capacityMw": 13790.2,
+      "count": 75
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2021,
+      "retirementYear": null,
+      "capacityMw": 13684.5,
+      "count": 692
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2012,
+      "retirementYear": null,
+      "capacityMw": 13282.6,
+      "count": 158
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2000,
+      "retirementYear": null,
+      "capacityMw": 12036.9,
+      "count": 161
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2005,
+      "retirementYear": null,
+      "capacityMw": 11867.7,
+      "count": 79
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2000,
+      "retirementYear": null,
+      "capacityMw": 11858.3,
+      "count": 74
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2022,
+      "retirementYear": null,
+      "capacityMw": 11186.5,
+      "count": 487
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2024,
+      "retirementYear": null,
+      "capacityMw": 11055.4,
+      "count": 188
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2020,
+      "retirementYear": null,
+      "capacityMw": 10799.6,
+      "count": 670
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2009,
+      "retirementYear": null,
+      "capacityMw": 9746.4,
+      "count": 124
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2022,
+      "retirementYear": null,
+      "capacityMw": 9458.3,
+      "count": 42
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1986,
+      "retirementYear": null,
+      "capacityMw": 9403.5,
+      "count": 8
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2016,
+      "retirementYear": null,
+      "capacityMw": 8743.9,
+      "count": 84
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1980,
+      "retirementYear": null,
+      "capacityMw": 8431.5,
+      "count": 13
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1985,
+      "retirementYear": null,
+      "capacityMw": 8336,
+      "count": 7
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2015,
+      "retirementYear": null,
+      "capacityMw": 8224.3,
+      "count": 70
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2017,
+      "retirementYear": null,
+      "capacityMw": 8220.2,
+      "count": 33
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1982,
+      "retirementYear": null,
+      "capacityMw": 8200.2,
+      "count": 16
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2008,
+      "retirementYear": null,
+      "capacityMw": 8179.4,
+      "count": 95
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2019,
+      "retirementYear": null,
+      "capacityMw": 8160.9,
+      "count": 57
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1974,
+      "retirementYear": null,
+      "capacityMw": 8126.1,
+      "count": 9
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2014,
+      "retirementYear": null,
+      "capacityMw": 8088.1,
+      "count": 36
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2011,
+      "retirementYear": null,
+      "capacityMw": 8070.8,
+      "count": 50
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2016,
+      "retirementYear": null,
+      "capacityMw": 8037.2,
+      "count": 536
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2006,
+      "retirementYear": null,
+      "capacityMw": 8000.1,
+      "count": 47
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1987,
+      "retirementYear": null,
+      "capacityMw": 7744.6,
+      "count": 7
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2003,
+      "retirementYear": null,
+      "capacityMw": 7511.1,
+      "count": 103
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1979,
+      "retirementYear": null,
+      "capacityMw": 7256.5,
+      "count": 13
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1974,
+      "retirementYear": null,
+      "capacityMw": 6989.9,
+      "count": 40
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2018,
+      "retirementYear": null,
+      "capacityMw": 6978.8,
+      "count": 65
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1981,
+      "retirementYear": null,
+      "capacityMw": 6872.2,
+      "count": 15
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2012,
+      "retirementYear": null,
+      "capacityMw": 6802.3,
+      "count": 43
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1984,
+      "retirementYear": null,
+      "capacityMw": 6740.2,
+      "count": 6
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2011,
+      "retirementYear": null,
+      "capacityMw": 6627.7,
+      "count": 100
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2017,
+      "retirementYear": null,
+      "capacityMw": 6618.7,
+      "count": 71
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2023,
+      "retirementYear": null,
+      "capacityMw": 6577.9,
+      "count": 39
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1972,
+      "retirementYear": null,
+      "capacityMw": 6556,
+      "count": 12
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2023,
+      "retirementYear": null,
+      "capacityMw": 6549.5,
+      "count": 123
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1971,
+      "retirementYear": null,
+      "capacityMw": 6427.2,
+      "count": 11
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2009,
+      "retirementYear": null,
+      "capacityMw": 6242.3,
+      "count": 31
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1984,
+      "retirementYear": null,
+      "capacityMw": 6217,
+      "count": 10
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2023,
+      "retirementYear": null,
+      "capacityMw": 6189.5,
+      "count": 17
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2019,
+      "retirementYear": null,
+      "capacityMw": 6123.2,
+      "count": 24
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1988,
+      "retirementYear": null,
+      "capacityMw": 6085.3,
+      "count": 5
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1977,
+      "retirementYear": null,
+      "capacityMw": 5960.4,
+      "count": 6
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1978,
+      "retirementYear": null,
+      "capacityMw": 5929.9,
+      "count": 12
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1973,
+      "retirementYear": null,
+      "capacityMw": 5807.6,
+      "count": 10
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1975,
+      "retirementYear": null,
+      "capacityMw": 5769.9,
+      "count": 6
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1975,
+      "retirementYear": null,
+      "capacityMw": 5706,
+      "count": 27
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2019,
+      "retirementYear": null,
+      "capacityMw": 5631.6,
+      "count": 550
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1977,
+      "retirementYear": null,
+      "capacityMw": 5466.3,
+      "count": 11
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2010,
+      "retirementYear": null,
+      "capacityMw": 5369.1,
+      "count": 9
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2017,
+      "retirementYear": null,
+      "capacityMw": 5220.2,
+      "count": 626
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2007,
+      "retirementYear": null,
+      "capacityMw": 5196.9,
+      "count": 57
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2020,
+      "retirementYear": null,
+      "capacityMw": 5182.2,
+      "count": 27
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2024,
+      "retirementYear": null,
+      "capacityMw": 5154.3,
+      "count": 31
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1975,
+      "retirementYear": null,
+      "capacityMw": 5104.3,
+      "count": 10
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1983,
+      "retirementYear": null,
+      "capacityMw": 5096.6,
+      "count": 12
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1973,
+      "retirementYear": null,
+      "capacityMw": 4986.1,
+      "count": 18
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1994,
+      "retirementYear": null,
+      "capacityMw": 4956.3,
+      "count": 58
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2014,
+      "retirementYear": null,
+      "capacityMw": 4944.3,
+      "count": 52
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2018,
+      "retirementYear": null,
+      "capacityMw": 4934.5,
+      "count": 578
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2016,
+      "retirementYear": null,
+      "capacityMw": 4872.8,
+      "count": 21
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2022,
+      "retirementYear": null,
+      "capacityMw": 4852.1,
+      "count": 15
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2010,
+      "retirementYear": null,
+      "capacityMw": 4811.8,
+      "count": 62
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2015,
+      "retirementYear": null,
+      "capacityMw": 4696.8,
+      "count": 23
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1974,
+      "retirementYear": null,
+      "capacityMw": 4652,
+      "count": 6
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2007,
+      "retirementYear": null,
+      "capacityMw": 4638.4,
+      "count": 33
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2008,
+      "retirementYear": null,
+      "capacityMw": 4559.1,
+      "count": 28
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1973,
+      "retirementYear": null,
+      "capacityMw": 4528.7,
+      "count": 34
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1977,
+      "retirementYear": null,
+      "capacityMw": 4430.4,
+      "count": 21
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1981,
+      "retirementYear": null,
+      "capacityMw": 4344.9,
+      "count": 4
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2021,
+      "retirementYear": null,
+      "capacityMw": 4334.7,
+      "count": 17
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2022,
+      "retirementYear": null,
+      "capacityMw": 4279.6,
+      "count": 126
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2010,
+      "retirementYear": null,
+      "capacityMw": 4197.9,
+      "count": 28
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1972,
+      "retirementYear": null,
+      "capacityMw": 4090.3,
+      "count": 5
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1972,
+      "retirementYear": null,
+      "capacityMw": 4034.4,
+      "count": 78
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1999,
+      "retirementYear": null,
+      "capacityMw": 4023.2,
+      "count": 73
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2011,
+      "retirementYear": null,
+      "capacityMw": 3818.4,
+      "count": 8
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2014,
+      "retirementYear": null,
+      "capacityMw": 3750.3,
+      "count": 387
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2012,
+      "retirementYear": null,
+      "capacityMw": 3734,
+      "count": 5
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2016,
+      "retirementYear": null,
+      "capacityMw": 3709.6,
+      "count": 78
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1990,
+      "retirementYear": null,
+      "capacityMw": 3577.1,
+      "count": 3
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2005,
+      "retirementYear": null,
+      "capacityMw": 3545.9,
+      "count": 83
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2013,
+      "retirementYear": null,
+      "capacityMw": 3528.6,
+      "count": 286
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2015,
+      "retirementYear": null,
+      "capacityMw": 3506,
+      "count": 382
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1970,
+      "retirementYear": null,
+      "capacityMw": 3473.9,
+      "count": 7
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2013,
+      "retirementYear": null,
+      "capacityMw": 3455.5,
+      "count": 25
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1970,
+      "retirementYear": null,
+      "capacityMw": 3426.7,
+      "count": 52
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2021,
+      "retirementYear": null,
+      "capacityMw": 3357.8,
+      "count": 121
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2013,
+      "retirementYear": null,
+      "capacityMw": 3356.7,
+      "count": 48
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1995,
+      "retirementYear": null,
+      "capacityMw": 3332.4,
+      "count": 50
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1969,
+      "retirementYear": null,
+      "capacityMw": 3322.7,
+      "count": 40
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1961,
+      "retirementYear": null,
+      "capacityMw": 3304.5,
+      "count": 36
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2008,
+      "retirementYear": null,
+      "capacityMw": 3128,
+      "count": 79
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1986,
+      "retirementYear": null,
+      "capacityMw": 3019.6,
+      "count": 6
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1985,
+      "retirementYear": null,
+      "capacityMw": 3015.1,
+      "count": 6
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2004,
+      "retirementYear": null,
+      "capacityMw": 2924.2,
+      "count": 70
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1968,
+      "retirementYear": null,
+      "capacityMw": 2831.9,
+      "count": 8
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1999,
+      "retirementYear": null,
+      "capacityMw": 2806.2,
+      "count": 24
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1976,
+      "retirementYear": null,
+      "capacityMw": 2740.8,
+      "count": 3
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1965,
+      "retirementYear": null,
+      "capacityMw": 2702.8,
+      "count": 25
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1976,
+      "retirementYear": null,
+      "capacityMw": 2657.1,
+      "count": 27
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2023,
+      "retirementYear": null,
+      "capacityMw": 2647.6,
+      "count": 92
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1958,
+      "retirementYear": null,
+      "capacityMw": 2639.8,
+      "count": 58
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2009,
+      "retirementYear": null,
+      "capacityMw": 2638.8,
+      "count": 50
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2012,
+      "retirementYear": null,
+      "capacityMw": 2623.4,
+      "count": 59
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1967,
+      "retirementYear": null,
+      "capacityMw": 2597,
+      "count": 5
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2006,
+      "retirementYear": null,
+      "capacityMw": 2592.3,
+      "count": 43
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1973,
+      "retirementYear": null,
+      "capacityMw": 2546,
+      "count": 3
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1967,
+      "retirementYear": null,
+      "capacityMw": 2539.7,
+      "count": 35
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1989,
+      "retirementYear": null,
+      "capacityMw": 2432,
+      "count": 2
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1995,
+      "retirementYear": null,
+      "capacityMw": 2430.3,
+      "count": 33
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2021,
+      "retirementYear": null,
+      "capacityMw": 2311.7,
+      "count": 267
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1971,
+      "retirementYear": null,
+      "capacityMw": 2271,
+      "count": 3
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1990,
+      "retirementYear": null,
+      "capacityMw": 2261.7,
+      "count": 34
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1983,
+      "retirementYear": null,
+      "capacityMw": 2234,
+      "count": 2
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1968,
+      "retirementYear": null,
+      "capacityMw": 2224.5,
+      "count": 26
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1964,
+      "retirementYear": null,
+      "capacityMw": 2192.5,
+      "count": 38
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1958,
+      "retirementYear": null,
+      "capacityMw": 2192.2,
+      "count": 25
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1985,
+      "retirementYear": null,
+      "capacityMw": 2190.1,
+      "count": 4
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2005,
+      "retirementYear": null,
+      "capacityMw": 2157.7,
+      "count": 29
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1955,
+      "retirementYear": null,
+      "capacityMw": 2145.4,
+      "count": 17
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1971,
+      "retirementYear": null,
+      "capacityMw": 2144,
+      "count": 52
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1979,
+      "retirementYear": null,
+      "capacityMw": 2141,
+      "count": 17
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1967,
+      "retirementYear": null,
+      "capacityMw": 2124.8,
+      "count": 36
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1978,
+      "retirementYear": null,
+      "capacityMw": 2116,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1975,
+      "retirementYear": null,
+      "capacityMw": 2093.8,
+      "count": 21
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1978,
+      "retirementYear": null,
+      "capacityMw": 2091.8,
+      "count": 18
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1992,
+      "retirementYear": null,
+      "capacityMw": 2082.9,
+      "count": 31
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1994,
+      "retirementYear": null,
+      "capacityMw": 2076.9,
+      "count": 41
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1970,
+      "retirementYear": null,
+      "capacityMw": 2072.5,
+      "count": 3
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1979,
+      "retirementYear": null,
+      "capacityMw": 2069.6,
+      "count": 21
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1963,
+      "retirementYear": null,
+      "capacityMw": 2017.1,
+      "count": 91
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1973,
+      "retirementYear": 2028,
+      "capacityMw": 2012,
+      "count": 2
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2024,
+      "retirementYear": null,
+      "capacityMw": 1996.3,
+      "count": 90
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1975,
+      "retirementYear": null,
+      "capacityMw": 1994.6,
+      "count": 36
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1963,
+      "retirementYear": null,
+      "capacityMw": 1985.4,
+      "count": 17
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2018,
+      "retirementYear": null,
+      "capacityMw": 1977.6,
+      "count": 119
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1962,
+      "retirementYear": null,
+      "capacityMw": 1973.7,
+      "count": 29
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2010,
+      "retirementYear": null,
+      "capacityMw": 1965.3,
+      "count": 83
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1984,
+      "retirementYear": 2028,
+      "capacityMw": 1935,
+      "count": 2
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1980,
+      "retirementYear": null,
+      "capacityMw": 1931.2,
+      "count": 2
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1996,
+      "retirementYear": null,
+      "capacityMw": 1930.6,
+      "count": 24
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1993,
+      "retirementYear": null,
+      "capacityMw": 1928,
+      "count": 32
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1953,
+      "retirementYear": null,
+      "capacityMw": 1916.6,
+      "count": 54
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1980,
+      "retirementYear": 2025,
+      "capacityMw": 1895.7,
+      "count": 4
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1996,
+      "retirementYear": null,
+      "capacityMw": 1892.4,
+      "count": 47
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1997,
+      "retirementYear": null,
+      "capacityMw": 1881.4,
+      "count": 21
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2007,
+      "retirementYear": null,
+      "capacityMw": 1879.4,
+      "count": 43
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1968,
+      "retirementYear": null,
+      "capacityMw": 1808.8,
+      "count": 26
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2015,
+      "retirementYear": null,
+      "capacityMw": 1758.8,
+      "count": 63
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2009,
+      "retirementYear": null,
+      "capacityMw": 1754.9,
+      "count": 6
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1976,
+      "retirementYear": null,
+      "capacityMw": 1753.5,
+      "count": 9
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1974,
+      "retirementYear": null,
+      "capacityMw": 1720.9,
+      "count": 20
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1952,
+      "retirementYear": null,
+      "capacityMw": 1711.6,
+      "count": 52
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1991,
+      "retirementYear": null,
+      "capacityMw": 1680,
+      "count": 4
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1992,
+      "retirementYear": null,
+      "capacityMw": 1662.3,
+      "count": 51
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2011,
+      "retirementYear": null,
+      "capacityMw": 1628.4,
+      "count": 58
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1966,
+      "retirementYear": null,
+      "capacityMw": 1607.6,
+      "count": 5
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1959,
+      "retirementYear": null,
+      "capacityMw": 1603.1,
+      "count": 31
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2012,
+      "retirementYear": null,
+      "capacityMw": 1602,
+      "count": 249
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1972,
+      "retirementYear": null,
+      "capacityMw": 1600.1,
+      "count": 69
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1965,
+      "retirementYear": null,
+      "capacityMw": 1585.4,
+      "count": 25
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1955,
+      "retirementYear": null,
+      "capacityMw": 1555.3,
+      "count": 47
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2003,
+      "retirementYear": null,
+      "capacityMw": 1549.9,
+      "count": 39
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2019,
+      "retirementYear": null,
+      "capacityMw": 1545.7,
+      "count": 133
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1978,
+      "retirementYear": null,
+      "capacityMw": 1541.8,
+      "count": 17
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1997,
+      "retirementYear": null,
+      "capacityMw": 1533.2,
+      "count": 21
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1973,
+      "retirementYear": null,
+      "capacityMw": 1530.4,
+      "count": 48
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1966,
+      "retirementYear": null,
+      "capacityMw": 1514,
+      "count": 29
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1974,
+      "retirementYear": null,
+      "capacityMw": 1511.4,
+      "count": 40
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1987,
+      "retirementYear": null,
+      "capacityMw": 1496.4,
+      "count": 9
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2013,
+      "retirementYear": null,
+      "capacityMw": 1487.6,
+      "count": 2
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1969,
+      "retirementYear": null,
+      "capacityMw": 1485,
+      "count": 6
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2007,
+      "retirementYear": null,
+      "capacityMw": 1481.2,
+      "count": 4
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1960,
+      "retirementYear": null,
+      "capacityMw": 1480.7,
+      "count": 18
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1991,
+      "retirementYear": null,
+      "capacityMw": 1478.8,
+      "count": 23
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2008,
+      "retirementYear": null,
+      "capacityMw": 1466.6,
+      "count": 4
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1978,
+      "retirementYear": null,
+      "capacityMw": 1466.4,
+      "count": 34
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1957,
+      "retirementYear": null,
+      "capacityMw": 1455.9,
+      "count": 35
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1989,
+      "retirementYear": null,
+      "capacityMw": 1453.3,
+      "count": 23
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1967,
+      "retirementYear": null,
+      "capacityMw": 1437.2,
+      "count": 17
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1976,
+      "retirementYear": null,
+      "capacityMw": 1426.5,
+      "count": 5
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1969,
+      "retirementYear": null,
+      "capacityMw": 1424.3,
+      "count": 17
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1951,
+      "retirementYear": null,
+      "capacityMw": 1409.1,
+      "count": 38
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1995,
+      "retirementYear": null,
+      "capacityMw": 1405,
+      "count": 7
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1987,
+      "retirementYear": null,
+      "capacityMw": 1391.5,
+      "count": 26
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1989,
+      "retirementYear": null,
+      "capacityMw": 1390.1,
+      "count": 44
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1960,
+      "retirementYear": null,
+      "capacityMw": 1367.3,
+      "count": 16
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1984,
+      "retirementYear": 2029,
+      "capacityMw": 1363,
+      "count": 3
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1971,
+      "retirementYear": null,
+      "capacityMw": 1343.5,
+      "count": 66
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1990,
+      "retirementYear": null,
+      "capacityMw": 1339.5,
+      "count": 52
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1981,
+      "retirementYear": null,
+      "capacityMw": 1329.9,
+      "count": 19
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2049,
+      "retirementYear": null,
+      "capacityMw": 1302.2,
+      "count": 46
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1989,
+      "retirementYear": 2028,
+      "capacityMw": 1300,
+      "count": 1
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1979,
+      "retirementYear": null,
+      "capacityMw": 1296.8,
+      "count": 5
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1990,
+      "retirementYear": null,
+      "capacityMw": 1281.3,
+      "count": 13
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2001,
+      "retirementYear": null,
+      "capacityMw": 1272.3,
+      "count": 30
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1986,
+      "retirementYear": 2025,
+      "capacityMw": 1261,
+      "count": 2
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1961,
+      "retirementYear": null,
+      "capacityMw": 1250.7,
+      "count": 19
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1978,
+      "retirementYear": null,
+      "capacityMw": 1250.6,
+      "count": 10
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2017,
+      "retirementYear": null,
+      "capacityMw": 1249.5,
+      "count": 93
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1998,
+      "retirementYear": null,
+      "capacityMw": 1244.9,
+      "count": 14
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2022,
+      "retirementYear": null,
+      "capacityMw": 1241.1,
+      "count": 80
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1973,
+      "retirementYear": 2026,
+      "capacityMw": 1231,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1985,
+      "retirementYear": null,
+      "capacityMw": 1222.2,
+      "count": 97
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1974,
+      "retirementYear": 2028,
+      "capacityMw": 1217,
+      "count": 2
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2006,
+      "retirementYear": null,
+      "capacityMw": 1213.6,
+      "count": 45
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1993,
+      "retirementYear": null,
+      "capacityMw": 1210.4,
+      "count": 39
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1993,
+      "retirementYear": null,
+      "capacityMw": 1195,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1980,
+      "retirementYear": null,
+      "capacityMw": 1188.4,
+      "count": 21
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1950,
+      "retirementYear": null,
+      "capacityMw": 1187.1,
+      "count": 52
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1985,
+      "retirementYear": 2028,
+      "capacityMw": 1170,
+      "count": 2
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2020,
+      "retirementYear": null,
+      "capacityMw": 1163.2,
+      "count": 136
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1954,
+      "retirementYear": null,
+      "capacityMw": 1158.8,
+      "count": 41
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1970,
+      "retirementYear": null,
+      "capacityMw": 1132.8,
+      "count": 17
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1982,
+      "retirementYear": null,
+      "capacityMw": 1125.7,
+      "count": 1
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1996,
+      "retirementYear": null,
+      "capacityMw": 1123,
+      "count": 1
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 2016,
+      "retirementYear": null,
+      "capacityMw": 1122,
+      "count": 1
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 2023,
+      "retirementYear": null,
+      "capacityMw": 1114,
+      "count": 1
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 2024,
+      "retirementYear": null,
+      "capacityMw": 1114,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1968,
+      "retirementYear": null,
+      "capacityMw": 1107.1,
+      "count": 57
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1962,
+      "retirementYear": null,
+      "capacityMw": 1103.8,
+      "count": 18
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1977,
+      "retirementYear": 2027,
+      "capacityMw": 1097,
+      "count": 2
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1966,
+      "retirementYear": null,
+      "capacityMw": 1068.3,
+      "count": 34
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2042,
+      "retirementYear": null,
+      "capacityMw": 1051.5,
+      "count": 36
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1956,
+      "retirementYear": null,
+      "capacityMw": 1049.7,
+      "count": 24
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1995,
+      "retirementYear": null,
+      "capacityMw": 1035,
+      "count": 3
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1973,
+      "retirementYear": null,
+      "capacityMw": 1010,
+      "count": 19
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1976,
+      "retirementYear": null,
+      "capacityMw": 1008.1,
+      "count": 28
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1991,
+      "retirementYear": null,
+      "capacityMw": 1006.3,
+      "count": 24
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2044,
+      "retirementYear": null,
+      "capacityMw": 1000.8,
+      "count": 23
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1971,
+      "retirementYear": 2031,
+      "capacityMw": 984.2,
+      "count": 2
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1959,
+      "retirementYear": null,
+      "capacityMw": 954.5,
+      "count": 13
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1954,
+      "retirementYear": null,
+      "capacityMw": 951,
+      "count": 19
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1965,
+      "retirementYear": null,
+      "capacityMw": 938.4,
+      "count": 6
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1974,
+      "retirementYear": null,
+      "capacityMw": 936.5,
+      "count": 3
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1970,
+      "retirementYear": 2027,
+      "capacityMw": 934,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2043,
+      "retirementYear": null,
+      "capacityMw": 928.8,
+      "count": 24
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1996,
+      "retirementYear": null,
+      "capacityMw": 906.4,
+      "count": 2
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2014,
+      "retirementYear": null,
+      "capacityMw": 904.7,
+      "count": 55
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1971,
+      "retirementYear": null,
+      "capacityMw": 900.1,
+      "count": 18
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1987,
+      "retirementYear": 2025,
+      "capacityMw": 900,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1975,
+      "retirementYear": 2028,
+      "capacityMw": 889.1,
+      "count": 11
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1979,
+      "retirementYear": null,
+      "capacityMw": 883,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1979,
+      "retirementYear": null,
+      "capacityMw": 879,
+      "count": 12
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1987,
+      "retirementYear": 2034,
+      "capacityMw": 876,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1991,
+      "retirementYear": null,
+      "capacityMw": 868,
+      "count": 3
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2013,
+      "retirementYear": null,
+      "capacityMw": 864.4,
+      "count": 24
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1977,
+      "retirementYear": null,
+      "capacityMw": 861,
+      "count": 4
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1969,
+      "retirementYear": null,
+      "capacityMw": 847.2,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2028,
+      "retirementYear": null,
+      "capacityMw": 817.2,
+      "count": 63
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1989,
+      "retirementYear": null,
+      "capacityMw": 809.7,
+      "count": 5
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1968,
+      "retirementYear": null,
+      "capacityMw": 803.1,
+      "count": 15
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2036,
+      "retirementYear": null,
+      "capacityMw": 802.2,
+      "count": 26
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2048,
+      "retirementYear": null,
+      "capacityMw": 783.8,
+      "count": 29
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1973,
+      "retirementYear": 2032,
+      "capacityMw": 773,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1969,
+      "retirementYear": 2031,
+      "capacityMw": 770,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1970,
+      "retirementYear": 2031,
+      "capacityMw": 770,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2013,
+      "retirementYear": null,
+      "capacityMw": 769.8,
+      "count": 90
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1982,
+      "retirementYear": null,
+      "capacityMw": 769.3,
+      "count": 22
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1971,
+      "retirementYear": 2032,
+      "capacityMw": 758,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2011,
+      "retirementYear": null,
+      "capacityMw": 755.2,
+      "count": 181
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1973,
+      "retirementYear": 2027,
+      "capacityMw": 750,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2030,
+      "retirementYear": null,
+      "capacityMw": 749.7,
+      "count": 46
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1971,
+      "retirementYear": 2027,
+      "capacityMw": 741,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1988,
+      "retirementYear": null,
+      "capacityMw": 739.4,
+      "count": 36
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1973,
+      "retirementYear": 2033,
+      "capacityMw": 738.3,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1983,
+      "retirementYear": null,
+      "capacityMw": 727.1,
+      "count": 59
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1975,
+      "retirementYear": 2035,
+      "capacityMw": 706.5,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1970,
+      "retirementYear": null,
+      "capacityMw": 698.5,
+      "count": 61
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2013,
+      "retirementYear": null,
+      "capacityMw": 681.7,
+      "count": 101
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1988,
+      "retirementYear": null,
+      "capacityMw": 680.9,
+      "count": 7
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1976,
+      "retirementYear": 2026,
+      "capacityMw": 680,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2041,
+      "retirementYear": null,
+      "capacityMw": 679.6,
+      "count": 26
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1964,
+      "retirementYear": null,
+      "capacityMw": 678.6,
+      "count": 14
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1987,
+      "retirementYear": null,
+      "capacityMw": 672.7,
+      "count": 25
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1973,
+      "retirementYear": 2025,
+      "capacityMw": 670,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2025,
+      "retirementYear": null,
+      "capacityMw": 669.4,
+      "count": 97
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2002,
+      "retirementYear": null,
+      "capacityMw": 656.1,
+      "count": 16
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1976,
+      "retirementYear": null,
+      "capacityMw": 652,
+      "count": 8
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1977,
+      "retirementYear": null,
+      "capacityMw": 650,
+      "count": 6
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1972,
+      "retirementYear": null,
+      "capacityMw": 643,
+      "count": 7
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1986,
+      "retirementYear": null,
+      "capacityMw": 642.4,
+      "count": 97
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1991,
+      "retirementYear": 2029,
+      "capacityMw": 638,
+      "count": 1
+    },
+    {
+      "tech": "nuclear",
+      "engineSlug": "nuclear",
+      "commissionYear": 1969,
+      "retirementYear": null,
+      "capacityMw": 621.4,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1977,
+      "retirementYear": 2028,
+      "capacityMw": 620,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2038,
+      "retirementYear": null,
+      "capacityMw": 618.6,
+      "count": 26
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1982,
+      "retirementYear": null,
+      "capacityMw": 618.3,
+      "count": 43
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1989,
+      "retirementYear": null,
+      "capacityMw": 605.4,
+      "count": 25
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1999,
+      "retirementYear": 2026,
+      "capacityMw": 600,
+      "count": 4
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1986,
+      "retirementYear": null,
+      "capacityMw": 586.5,
+      "count": 29
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1991,
+      "retirementYear": null,
+      "capacityMw": 581.3,
+      "count": 23
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1973,
+      "retirementYear": 2027,
+      "capacityMw": 581,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1984,
+      "retirementYear": null,
+      "capacityMw": 577.7,
+      "count": 80
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1970,
+      "retirementYear": 2027,
+      "capacityMw": 576,
+      "count": 1
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2020,
+      "retirementYear": null,
+      "capacityMw": 573.4,
+      "count": 62
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1978,
+      "retirementYear": 2029,
+      "capacityMw": 568,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1975,
+      "retirementYear": 2029,
+      "capacityMw": 563.9,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1992,
+      "retirementYear": 2028,
+      "capacityMw": 560,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2031,
+      "retirementYear": null,
+      "capacityMw": 557.3,
+      "count": 45
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1967,
+      "retirementYear": 2027,
+      "capacityMw": 556,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1968,
+      "retirementYear": 2027,
+      "capacityMw": 556,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2016,
+      "retirementYear": null,
+      "capacityMw": 546.7,
+      "count": 73
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1962,
+      "retirementYear": 2026,
+      "capacityMw": 537.5,
+      "count": 2
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1954,
+      "retirementYear": 2033,
+      "capacityMw": 536,
+      "count": 4
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1988,
+      "retirementYear": null,
+      "capacityMw": 532.8,
+      "count": 11
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1982,
+      "retirementYear": 2028,
+      "capacityMw": 532,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1977,
+      "retirementYear": null,
+      "capacityMw": 530,
+      "count": 9
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1990,
+      "retirementYear": null,
+      "capacityMw": 529.9,
+      "count": 16
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1959,
+      "retirementYear": 2031,
+      "capacityMw": 526,
+      "count": 2
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2006,
+      "retirementYear": null,
+      "capacityMw": 524,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2000,
+      "retirementYear": null,
+      "capacityMw": 522.6,
+      "count": 119
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2004,
+      "retirementYear": null,
+      "capacityMw": 521,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2012,
+      "retirementYear": null,
+      "capacityMw": 514.5,
+      "count": 75
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1958,
+      "retirementYear": 2028,
+      "capacityMw": 511,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1989,
+      "retirementYear": null,
+      "capacityMw": 510.8,
+      "count": 63
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1975,
+      "retirementYear": 2027,
+      "capacityMw": 510,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1978,
+      "retirementYear": 2027,
+      "capacityMw": 510,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1981,
+      "retirementYear": 2027,
+      "capacityMw": 502,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1956,
+      "retirementYear": null,
+      "capacityMw": 497.1,
+      "count": 13
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1972,
+      "retirementYear": 2027,
+      "capacityMw": 496,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2039,
+      "retirementYear": null,
+      "capacityMw": 494.6,
+      "count": 21
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1969,
+      "retirementYear": 2029,
+      "capacityMw": 493.7,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1974,
+      "retirementYear": 2026,
+      "capacityMw": 490.1,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1967,
+      "retirementYear": 2028,
+      "capacityMw": 487,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1968,
+      "retirementYear": 2028,
+      "capacityMw": 487,
+      "count": 1
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1965,
+      "retirementYear": null,
+      "capacityMw": 482.1,
+      "count": 4
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1985,
+      "retirementYear": null,
+      "capacityMw": 480.1,
+      "count": 18
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1964,
+      "retirementYear": 2026,
+      "capacityMw": 480,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1985,
+      "retirementYear": 2026,
+      "capacityMw": 478.9,
+      "count": 1
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1999,
+      "retirementYear": null,
+      "capacityMw": 478.1,
+      "count": 16
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2003,
+      "retirementYear": 2043,
+      "capacityMw": 477,
+      "count": 3
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2024,
+      "retirementYear": null,
+      "capacityMw": 473.5,
+      "count": 91
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1981,
+      "retirementYear": null,
+      "capacityMw": 465.9,
+      "count": 16
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1958,
+      "retirementYear": 2030,
+      "capacityMw": 460,
+      "count": 2
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1998,
+      "retirementYear": null,
+      "capacityMw": 458.5,
+      "count": 13
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1970,
+      "retirementYear": null,
+      "capacityMw": 453,
+      "count": 3
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2000,
+      "retirementYear": 2027,
+      "capacityMw": 450,
+      "count": 3
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2001,
+      "retirementYear": 2026,
+      "capacityMw": 450,
+      "count": 3
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1955,
+      "retirementYear": 2026,
+      "capacityMw": 444,
+      "count": 3
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1990,
+      "retirementYear": null,
+      "capacityMw": 443.7,
+      "count": 60
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1963,
+      "retirementYear": null,
+      "capacityMw": 440,
+      "count": 2
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2001,
+      "retirementYear": null,
+      "capacityMw": 440,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2017,
+      "retirementYear": null,
+      "capacityMw": 439.1,
+      "count": 58
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1985,
+      "retirementYear": 2040,
+      "capacityMw": 437,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1988,
+      "retirementYear": null,
+      "capacityMw": 433.8,
+      "count": 18
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1970,
+      "retirementYear": null,
+      "capacityMw": 433.5,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2015,
+      "retirementYear": null,
+      "capacityMw": 433.2,
+      "count": 55
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1963,
+      "retirementYear": null,
+      "capacityMw": 422.2,
+      "count": 7
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1989,
+      "retirementYear": null,
+      "capacityMw": 417.3,
+      "count": 22
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2040,
+      "retirementYear": null,
+      "capacityMw": 413.7,
+      "count": 42
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1987,
+      "retirementYear": null,
+      "capacityMw": 413.6,
+      "count": 22
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1954,
+      "retirementYear": 2027,
+      "capacityMw": 413,
+      "count": 4
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2023,
+      "retirementYear": null,
+      "capacityMw": 411.8,
+      "count": 66
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2001,
+      "retirementYear": null,
+      "capacityMw": 410.9,
+      "count": 78
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1974,
+      "retirementYear": 2029,
+      "capacityMw": 410,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1979,
+      "retirementYear": 2028,
+      "capacityMw": 410,
+      "count": 1
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1986,
+      "retirementYear": null,
+      "capacityMw": 409.7,
+      "count": 7
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1988,
+      "retirementYear": null,
+      "capacityMw": 409.1,
+      "count": 80
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1990,
+      "retirementYear": 2032,
+      "capacityMw": 406,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2045,
+      "retirementYear": null,
+      "capacityMw": 405.7,
+      "count": 8
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1966,
+      "retirementYear": 2029,
+      "capacityMw": 405.6,
+      "count": 1
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1982,
+      "retirementYear": null,
+      "capacityMw": 403.6,
+      "count": 6
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2027,
+      "retirementYear": null,
+      "capacityMw": 402.1,
+      "count": 63
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1972,
+      "retirementYear": 2029,
+      "capacityMw": 397,
+      "count": 1
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1975,
+      "retirementYear": null,
+      "capacityMw": 390,
+      "count": 2
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1980,
+      "retirementYear": 2032,
+      "capacityMw": 382,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1960,
+      "retirementYear": null,
+      "capacityMw": 381.9,
+      "count": 4
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1985,
+      "retirementYear": 2027,
+      "capacityMw": 381,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1974,
+      "retirementYear": 2025,
+      "capacityMw": 380,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1976,
+      "retirementYear": 2025,
+      "capacityMw": 380,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1979,
+      "retirementYear": 2032,
+      "capacityMw": 380,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2005,
+      "retirementYear": null,
+      "capacityMw": 373,
+      "count": 2
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1962,
+      "retirementYear": 2025,
+      "capacityMw": 372,
+      "count": 2
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1965,
+      "retirementYear": 2034,
+      "capacityMw": 370,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1966,
+      "retirementYear": 2034,
+      "capacityMw": 370,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1966,
+      "retirementYear": 2026,
+      "capacityMw": 369.3,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1957,
+      "retirementYear": null,
+      "capacityMw": 365.8,
+      "count": 16
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1983,
+      "retirementYear": 2025,
+      "capacityMw": 361,
+      "count": 1
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2004,
+      "retirementYear": null,
+      "capacityMw": 360.2,
+      "count": 20
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1972,
+      "retirementYear": 2026,
+      "capacityMw": 360,
+      "count": 8
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2037,
+      "retirementYear": null,
+      "capacityMw": 349.4,
+      "count": 12
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1974,
+      "retirementYear": null,
+      "capacityMw": 346.3,
+      "count": 6
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1969,
+      "retirementYear": null,
+      "capacityMw": 345.1,
+      "count": 42
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2021,
+      "retirementYear": null,
+      "capacityMw": 343.1,
+      "count": 70
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1997,
+      "retirementYear": null,
+      "capacityMw": 342,
+      "count": 31
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1980,
+      "retirementYear": 2040,
+      "capacityMw": 340,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1976,
+      "retirementYear": 2036,
+      "capacityMw": 339,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1978,
+      "retirementYear": 2038,
+      "capacityMw": 339,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1984,
+      "retirementYear": null,
+      "capacityMw": 334.4,
+      "count": 9
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1975,
+      "retirementYear": 2025,
+      "capacityMw": 330,
+      "count": 1
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1967,
+      "retirementYear": null,
+      "capacityMw": 329,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1961,
+      "retirementYear": 2026,
+      "capacityMw": 327,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1985,
+      "retirementYear": null,
+      "capacityMw": 323.7,
+      "count": 23
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1972,
+      "retirementYear": null,
+      "capacityMw": 322,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1990,
+      "retirementYear": null,
+      "capacityMw": 314.3,
+      "count": 37
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1968,
+      "retirementYear": 2027,
+      "capacityMw": 310,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1967,
+      "retirementYear": 2026,
+      "capacityMw": 309.5,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1965,
+      "retirementYear": 2026,
+      "capacityMw": 306.5,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1966,
+      "retirementYear": 2029,
+      "capacityMw": 305,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2014,
+      "retirementYear": null,
+      "capacityMw": 302,
+      "count": 57
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2001,
+      "retirementYear": 2025,
+      "capacityMw": 300,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2010,
+      "retirementYear": null,
+      "capacityMw": 299.8,
+      "count": 40
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1974,
+      "retirementYear": 2027,
+      "capacityMw": 297,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2000,
+      "retirementYear": 2031,
+      "capacityMw": 293.6,
+      "count": 4
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2026,
+      "retirementYear": null,
+      "capacityMw": 292.8,
+      "count": 42
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1973,
+      "retirementYear": null,
+      "capacityMw": 291.9,
+      "count": 5
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1955,
+      "retirementYear": null,
+      "capacityMw": 291.6,
+      "count": 14
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1955,
+      "retirementYear": 2027,
+      "capacityMw": 290,
+      "count": 2
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2012,
+      "retirementYear": null,
+      "capacityMw": 287.6,
+      "count": 69
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2002,
+      "retirementYear": null,
+      "capacityMw": 286.3,
+      "count": 91
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1975,
+      "retirementYear": 2031,
+      "capacityMw": 286,
+      "count": 4
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1977,
+      "retirementYear": 2030,
+      "capacityMw": 285,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1980,
+      "retirementYear": 2030,
+      "capacityMw": 285,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1981,
+      "retirementYear": 2030,
+      "capacityMw": 285,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1959,
+      "retirementYear": null,
+      "capacityMw": 283.4,
+      "count": 3
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1992,
+      "retirementYear": null,
+      "capacityMw": 283.2,
+      "count": 28
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1975,
+      "retirementYear": 2025,
+      "capacityMw": 282.6,
+      "count": 6
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1991,
+      "retirementYear": null,
+      "capacityMw": 282.4,
+      "count": 27
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1967,
+      "retirementYear": 2025,
+      "capacityMw": 279.8,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2011,
+      "retirementYear": null,
+      "capacityMw": 279.7,
+      "count": 52
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1975,
+      "retirementYear": 2030,
+      "capacityMw": 275,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1967,
+      "retirementYear": null,
+      "capacityMw": 274.1,
+      "count": 35
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1976,
+      "retirementYear": null,
+      "capacityMw": 270.5,
+      "count": 1
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1959,
+      "retirementYear": null,
+      "capacityMw": 268.2,
+      "count": 4
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1953,
+      "retirementYear": 2033,
+      "capacityMw": 268,
+      "count": 2
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1955,
+      "retirementYear": 2033,
+      "capacityMw": 268,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1994,
+      "retirementYear": null,
+      "capacityMw": 267.1,
+      "count": 24
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1980,
+      "retirementYear": null,
+      "capacityMw": 266.8,
+      "count": 4
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1966,
+      "retirementYear": null,
+      "capacityMw": 265.4,
+      "count": 30
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2011,
+      "retirementYear": null,
+      "capacityMw": 263.1,
+      "count": 55
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1976,
+      "retirementYear": 2027,
+      "capacityMw": 262,
+      "count": 1
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1965,
+      "retirementYear": null,
+      "capacityMw": 258.2,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1977,
+      "retirementYear": null,
+      "capacityMw": 257.4,
+      "count": 12
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1961,
+      "retirementYear": null,
+      "capacityMw": 256.3,
+      "count": 3
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2032,
+      "retirementYear": null,
+      "capacityMw": 254.9,
+      "count": 18
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1951,
+      "retirementYear": null,
+      "capacityMw": 253,
+      "count": 16
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1970,
+      "retirementYear": 2034,
+      "capacityMw": 250,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1971,
+      "retirementYear": 2034,
+      "capacityMw": 250,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2001,
+      "retirementYear": null,
+      "capacityMw": 250,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1987,
+      "retirementYear": null,
+      "capacityMw": 246.6,
+      "count": 70
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1988,
+      "retirementYear": null,
+      "capacityMw": 245,
+      "count": 7
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2019,
+      "retirementYear": null,
+      "capacityMw": 244.7,
+      "count": 45
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1968,
+      "retirementYear": 2030,
+      "capacityMw": 244,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2020,
+      "retirementYear": null,
+      "capacityMw": 243.5,
+      "count": 46
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1974,
+      "retirementYear": 2034,
+      "capacityMw": 243,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2018,
+      "retirementYear": null,
+      "capacityMw": 242.3,
+      "count": 31
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1971,
+      "retirementYear": 2025,
+      "capacityMw": 241.6,
+      "count": 16
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2010,
+      "retirementYear": null,
+      "capacityMw": 235.7,
+      "count": 70
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1981,
+      "retirementYear": 2036,
+      "capacityMw": 232,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1988,
+      "retirementYear": null,
+      "capacityMw": 230,
+      "count": 18
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2029,
+      "retirementYear": null,
+      "capacityMw": 229,
+      "count": 26
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1961,
+      "retirementYear": null,
+      "capacityMw": 228,
+      "count": 4
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1976,
+      "retirementYear": null,
+      "capacityMw": 226.8,
+      "count": 7
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1953,
+      "retirementYear": null,
+      "capacityMw": 226.3,
+      "count": 8
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1958,
+      "retirementYear": 2026,
+      "capacityMw": 225.8,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1956,
+      "retirementYear": 2031,
+      "capacityMw": 225,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1957,
+      "retirementYear": 2031,
+      "capacityMw": 225,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1982,
+      "retirementYear": null,
+      "capacityMw": 224.1,
+      "count": 7
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1989,
+      "retirementYear": null,
+      "capacityMw": 221.8,
+      "count": 9
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2015,
+      "retirementYear": null,
+      "capacityMw": 220.5,
+      "count": 26
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1975,
+      "retirementYear": 2031,
+      "capacityMw": 220,
+      "count": 3
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1964,
+      "retirementYear": 2027,
+      "capacityMw": 220,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1981,
+      "retirementYear": null,
+      "capacityMw": 218.2,
+      "count": 12
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1972,
+      "retirementYear": null,
+      "capacityMw": 211.2,
+      "count": 5
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2018,
+      "retirementYear": 1958,
+      "capacityMw": 209,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1998,
+      "retirementYear": 2040,
+      "capacityMw": 207,
+      "count": 2
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1985,
+      "retirementYear": null,
+      "capacityMw": 205.7,
+      "count": 5
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1966,
+      "retirementYear": null,
+      "capacityMw": 205.5,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2003,
+      "retirementYear": null,
+      "capacityMw": 204.1,
+      "count": 50
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2018,
+      "retirementYear": null,
+      "capacityMw": 200.3,
+      "count": 32
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2023,
+      "retirementYear": 2042,
+      "capacityMw": 200,
+      "count": 2
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1987,
+      "retirementYear": null,
+      "capacityMw": 199.8,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2004,
+      "retirementYear": null,
+      "capacityMw": 199.5,
+      "count": 105
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1984,
+      "retirementYear": null,
+      "capacityMw": 199.5,
+      "count": 3
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1980,
+      "retirementYear": null,
+      "capacityMw": 199.2,
+      "count": 6
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1994,
+      "retirementYear": 2040,
+      "capacityMw": 196,
+      "count": 2
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1956,
+      "retirementYear": null,
+      "capacityMw": 195.5,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1980,
+      "retirementYear": 2029,
+      "capacityMw": 195,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2011,
+      "retirementYear": null,
+      "capacityMw": 194.7,
+      "count": 74
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1981,
+      "retirementYear": null,
+      "capacityMw": 194.3,
+      "count": 29
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1979,
+      "retirementYear": null,
+      "capacityMw": 193.6,
+      "count": 4
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1965,
+      "retirementYear": null,
+      "capacityMw": 193,
+      "count": 25
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1984,
+      "retirementYear": null,
+      "capacityMw": 191.5,
+      "count": 3
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1964,
+      "retirementYear": 2027,
+      "capacityMw": 190,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1973,
+      "retirementYear": 2025,
+      "capacityMw": 189,
+      "count": 4
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1975,
+      "retirementYear": null,
+      "capacityMw": 188.5,
+      "count": 3
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1995,
+      "retirementYear": null,
+      "capacityMw": 185.8,
+      "count": 21
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1972,
+      "retirementYear": 2025,
+      "capacityMw": 185.6,
+      "count": 4
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1993,
+      "retirementYear": null,
+      "capacityMw": 185.4,
+      "count": 28
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1965,
+      "retirementYear": 2027,
+      "capacityMw": 183,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2010,
+      "retirementYear": null,
+      "capacityMw": 181.5,
+      "count": 90
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1992,
+      "retirementYear": null,
+      "capacityMw": 181.3,
+      "count": 15
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1952,
+      "retirementYear": null,
+      "capacityMw": 180.9,
+      "count": 7
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2019,
+      "retirementYear": null,
+      "capacityMw": 180.5,
+      "count": 45
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1962,
+      "retirementYear": null,
+      "capacityMw": 180,
+      "count": 9
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1971,
+      "retirementYear": null,
+      "capacityMw": 179.2,
+      "count": 4
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1965,
+      "retirementYear": 2028,
+      "capacityMw": 179,
+      "count": 1
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1958,
+      "retirementYear": null,
+      "capacityMw": 178.7,
+      "count": 2
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1968,
+      "retirementYear": null,
+      "capacityMw": 178,
+      "count": 6
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1983,
+      "retirementYear": null,
+      "capacityMw": 177.9,
+      "count": 12
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2008,
+      "retirementYear": null,
+      "capacityMw": 177.7,
+      "count": 123
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1969,
+      "retirementYear": null,
+      "capacityMw": 176.2,
+      "count": 4
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1963,
+      "retirementYear": null,
+      "capacityMw": 173,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2012,
+      "retirementYear": null,
+      "capacityMw": 172.7,
+      "count": 29
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2017,
+      "retirementYear": null,
+      "capacityMw": 172.4,
+      "count": 31
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2047,
+      "retirementYear": null,
+      "capacityMw": 172,
+      "count": 7
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1991,
+      "retirementYear": null,
+      "capacityMw": 171.1,
+      "count": 28
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1983,
+      "retirementYear": null,
+      "capacityMw": 170,
+      "count": 4
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1986,
+      "retirementYear": null,
+      "capacityMw": 169.7,
+      "count": 12
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2007,
+      "retirementYear": null,
+      "capacityMw": 168.6,
+      "count": 122
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2013,
+      "retirementYear": 1958,
+      "capacityMw": 168,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2006,
+      "retirementYear": null,
+      "capacityMw": 167.7,
+      "count": 76
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1999,
+      "retirementYear": null,
+      "capacityMw": 167.3,
+      "count": 69
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1980,
+      "retirementYear": null,
+      "capacityMw": 166.2,
+      "count": 11
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2011,
+      "retirementYear": 1956,
+      "capacityMw": 166,
+      "count": 1
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2002,
+      "retirementYear": 2031,
+      "capacityMw": 165,
+      "count": 1
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2002,
+      "retirementYear": null,
+      "capacityMw": 164,
+      "count": 2
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2016,
+      "retirementYear": null,
+      "capacityMw": 163.9,
+      "count": 15
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2022,
+      "retirementYear": null,
+      "capacityMw": 163.7,
+      "count": 43
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1998,
+      "retirementYear": null,
+      "capacityMw": 162.8,
+      "count": 3
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1966,
+      "retirementYear": null,
+      "capacityMw": 162.3,
+      "count": 6
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1983,
+      "retirementYear": null,
+      "capacityMw": 160.5,
+      "count": 3
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1992,
+      "retirementYear": null,
+      "capacityMw": 160,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2013,
+      "retirementYear": null,
+      "capacityMw": 159.7,
+      "count": 283
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2019,
+      "retirementYear": null,
+      "capacityMw": 159.7,
+      "count": 15
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1982,
+      "retirementYear": null,
+      "capacityMw": 158.2,
+      "count": 7
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2009,
+      "retirementYear": null,
+      "capacityMw": 157.8,
+      "count": 37
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2014,
+      "retirementYear": null,
+      "capacityMw": 157.3,
+      "count": 58
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1959,
+      "retirementYear": 2029,
+      "capacityMw": 156.3,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1996,
+      "retirementYear": null,
+      "capacityMw": 156.1,
+      "count": 3
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1996,
+      "retirementYear": null,
+      "capacityMw": 154.9,
+      "count": 29
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1974,
+      "retirementYear": 2025,
+      "capacityMw": 154,
+      "count": 4
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1994,
+      "retirementYear": null,
+      "capacityMw": 152.2,
+      "count": 16
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1977,
+      "retirementYear": null,
+      "capacityMw": 151.7,
+      "count": 7
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1984,
+      "retirementYear": null,
+      "capacityMw": 148.1,
+      "count": 9
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1985,
+      "retirementYear": null,
+      "capacityMw": 148,
+      "count": 4
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1992,
+      "retirementYear": null,
+      "capacityMw": 146,
+      "count": 21
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1981,
+      "retirementYear": null,
+      "capacityMw": 146,
+      "count": 2
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2009,
+      "retirementYear": null,
+      "capacityMw": 145,
+      "count": 79
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2006,
+      "retirementYear": null,
+      "capacityMw": 144.9,
+      "count": 41
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2012,
+      "retirementYear": null,
+      "capacityMw": 144.1,
+      "count": 13
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1953,
+      "retirementYear": null,
+      "capacityMw": 143.5,
+      "count": 3
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2010,
+      "retirementYear": null,
+      "capacityMw": 143.4,
+      "count": 49
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1996,
+      "retirementYear": null,
+      "capacityMw": 140.5,
+      "count": 16
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2024,
+      "retirementYear": 1958,
+      "capacityMw": 140,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1980,
+      "retirementYear": null,
+      "capacityMw": 139.9,
+      "count": 6
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1972,
+      "retirementYear": 2033,
+      "capacityMw": 139,
+      "count": 1
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1984,
+      "retirementYear": null,
+      "capacityMw": 138.3,
+      "count": 5
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1993,
+      "retirementYear": null,
+      "capacityMw": 134,
+      "count": 31
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1993,
+      "retirementYear": null,
+      "capacityMw": 133.5,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2001,
+      "retirementYear": null,
+      "capacityMw": 132.6,
+      "count": 18
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1984,
+      "retirementYear": null,
+      "capacityMw": 129.6,
+      "count": 5
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1957,
+      "retirementYear": 2026,
+      "capacityMw": 128.4,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1956,
+      "retirementYear": 2025,
+      "capacityMw": 126,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1978,
+      "retirementYear": null,
+      "capacityMw": 125.7,
+      "count": 3
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1980,
+      "retirementYear": null,
+      "capacityMw": 125,
+      "count": 2
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1978,
+      "retirementYear": 2035,
+      "capacityMw": 125,
+      "count": 2
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1982,
+      "retirementYear": null,
+      "capacityMw": 124,
+      "count": 4
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2017,
+      "retirementYear": null,
+      "capacityMw": 123.2,
+      "count": 18
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1964,
+      "retirementYear": null,
+      "capacityMw": 122.5,
+      "count": 23
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2001,
+      "retirementYear": null,
+      "capacityMw": 122.1,
+      "count": 72
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1995,
+      "retirementYear": null,
+      "capacityMw": 121.5,
+      "count": 12
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2003,
+      "retirementYear": null,
+      "capacityMw": 119.2,
+      "count": 39
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2027,
+      "retirementYear": null,
+      "capacityMw": 119,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1974,
+      "retirementYear": 2030,
+      "capacityMw": 119,
+      "count": 2
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1954,
+      "retirementYear": 2031,
+      "capacityMw": 117,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1967,
+      "retirementYear": 2028,
+      "capacityMw": 117,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1998,
+      "retirementYear": null,
+      "capacityMw": 116.8,
+      "count": 26
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2002,
+      "retirementYear": 2032,
+      "capacityMw": 116.1,
+      "count": 3
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2006,
+      "retirementYear": null,
+      "capacityMw": 115.7,
+      "count": 7
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1954,
+      "retirementYear": null,
+      "capacityMw": 115.6,
+      "count": 4
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2003,
+      "retirementYear": null,
+      "capacityMw": 113.9,
+      "count": 126
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1968,
+      "retirementYear": 2028,
+      "capacityMw": 113,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1971,
+      "retirementYear": 2028,
+      "capacityMw": 113,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1995,
+      "retirementYear": null,
+      "capacityMw": 113,
+      "count": 12
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1969,
+      "retirementYear": null,
+      "capacityMw": 112.4,
+      "count": 1
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2009,
+      "retirementYear": null,
+      "capacityMw": 110.3,
+      "count": 10
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1960,
+      "retirementYear": 2029,
+      "capacityMw": 110,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1999,
+      "retirementYear": null,
+      "capacityMw": 109.6,
+      "count": 8
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1984,
+      "retirementYear": null,
+      "capacityMw": 108.1,
+      "count": 3
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2007,
+      "retirementYear": null,
+      "capacityMw": 107.7,
+      "count": 35
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2007,
+      "retirementYear": null,
+      "capacityMw": 106.9,
+      "count": 32
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1988,
+      "retirementYear": null,
+      "capacityMw": 106.9,
+      "count": 3
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1962,
+      "retirementYear": 2027,
+      "capacityMw": 106,
+      "count": 1
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2018,
+      "retirementYear": null,
+      "capacityMw": 105.3,
+      "count": 11
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1963,
+      "retirementYear": null,
+      "capacityMw": 105.1,
+      "count": 12
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1958,
+      "retirementYear": 2029,
+      "capacityMw": 105,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2000,
+      "retirementYear": null,
+      "capacityMw": 105,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1955,
+      "retirementYear": 2032,
+      "capacityMw": 104.5,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2022,
+      "retirementYear": null,
+      "capacityMw": 103.5,
+      "count": 10
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2018,
+      "retirementYear": null,
+      "capacityMw": 103.4,
+      "count": 18
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1983,
+      "retirementYear": null,
+      "capacityMw": 101.9,
+      "count": 4
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2005,
+      "retirementYear": null,
+      "capacityMw": 101.2,
+      "count": 43
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1991,
+      "retirementYear": 2032,
+      "capacityMw": 101,
+      "count": 3
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2004,
+      "retirementYear": null,
+      "capacityMw": 99.8,
+      "count": 18
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1972,
+      "retirementYear": null,
+      "capacityMw": 98.8,
+      "count": 4
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2019,
+      "retirementYear": null,
+      "capacityMw": 98.2,
+      "count": 26
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 2024,
+      "retirementYear": null,
+      "capacityMw": 97.8,
+      "count": 2
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2009,
+      "retirementYear": null,
+      "capacityMw": 96.8,
+      "count": 39
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2007,
+      "retirementYear": null,
+      "capacityMw": 96.5,
+      "count": 23
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1966,
+      "retirementYear": 2030,
+      "capacityMw": 94.6,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1965,
+      "retirementYear": null,
+      "capacityMw": 94.1,
+      "count": 3
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1959,
+      "retirementYear": 2026,
+      "capacityMw": 93.6,
+      "count": 1
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2022,
+      "retirementYear": null,
+      "capacityMw": 93.6,
+      "count": 8
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1969,
+      "retirementYear": null,
+      "capacityMw": 93.5,
+      "count": 2
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1992,
+      "retirementYear": 2030,
+      "capacityMw": 93.1,
+      "count": 4
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1954,
+      "retirementYear": null,
+      "capacityMw": 93,
+      "count": 4
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1980,
+      "retirementYear": null,
+      "capacityMw": 93,
+      "count": 2
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1987,
+      "retirementYear": null,
+      "capacityMw": 92.9,
+      "count": 6
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2015,
+      "retirementYear": null,
+      "capacityMw": 92.7,
+      "count": 10
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1971,
+      "retirementYear": null,
+      "capacityMw": 90,
+      "count": 2
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1966,
+      "retirementYear": 2025,
+      "capacityMw": 90,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1966,
+      "retirementYear": 2031,
+      "capacityMw": 90,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1979,
+      "retirementYear": null,
+      "capacityMw": 90,
+      "count": 2
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1989,
+      "retirementYear": null,
+      "capacityMw": 88.5,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1998,
+      "retirementYear": null,
+      "capacityMw": 88,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2010,
+      "retirementYear": null,
+      "capacityMw": 87.8,
+      "count": 3
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1956,
+      "retirementYear": null,
+      "capacityMw": 86,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2016,
+      "retirementYear": null,
+      "capacityMw": 85.8,
+      "count": 34
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1971,
+      "retirementYear": null,
+      "capacityMw": 85.7,
+      "count": 2
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1992,
+      "retirementYear": 2032,
+      "capacityMw": 85.5,
+      "count": 4
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1960,
+      "retirementYear": null,
+      "capacityMw": 85.3,
+      "count": 3
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1950,
+      "retirementYear": null,
+      "capacityMw": 85,
+      "count": 2
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2003,
+      "retirementYear": null,
+      "capacityMw": 85,
+      "count": 1
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1990,
+      "retirementYear": null,
+      "capacityMw": 82.5,
+      "count": 2
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1958,
+      "retirementYear": null,
+      "capacityMw": 82.2,
+      "count": 4
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1981,
+      "retirementYear": 2035,
+      "capacityMw": 82,
+      "count": 1
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2023,
+      "retirementYear": null,
+      "capacityMw": 81,
+      "count": 5
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2011,
+      "retirementYear": null,
+      "capacityMw": 80.2,
+      "count": 5
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1972,
+      "retirementYear": null,
+      "capacityMw": 80,
+      "count": 2
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2001,
+      "retirementYear": 2027,
+      "capacityMw": 80,
+      "count": 1
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2018,
+      "retirementYear": 2043,
+      "capacityMw": 79.9,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2008,
+      "retirementYear": null,
+      "capacityMw": 79.3,
+      "count": 25
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1992,
+      "retirementYear": null,
+      "capacityMw": 77,
+      "count": 2
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1994,
+      "retirementYear": null,
+      "capacityMw": 76.6,
+      "count": 4
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1998,
+      "retirementYear": null,
+      "capacityMw": 76.4,
+      "count": 23
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1967,
+      "retirementYear": null,
+      "capacityMw": 75.7,
+      "count": 4
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1982,
+      "retirementYear": null,
+      "capacityMw": 75.3,
+      "count": 4
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1997,
+      "retirementYear": null,
+      "capacityMw": 75,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1979,
+      "retirementYear": null,
+      "capacityMw": 74.9,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2008,
+      "retirementYear": null,
+      "capacityMw": 73.3,
+      "count": 31
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1960,
+      "retirementYear": 2027,
+      "capacityMw": 73,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1963,
+      "retirementYear": 2027,
+      "capacityMw": 73,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2004,
+      "retirementYear": null,
+      "capacityMw": 72.7,
+      "count": 16
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2000,
+      "retirementYear": 2030,
+      "capacityMw": 72.5,
+      "count": 1
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2013,
+      "retirementYear": null,
+      "capacityMw": 70.6,
+      "count": 10
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1982,
+      "retirementYear": null,
+      "capacityMw": 70,
+      "count": 2
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1973,
+      "retirementYear": 2026,
+      "capacityMw": 70,
+      "count": 3
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1952,
+      "retirementYear": 2032,
+      "capacityMw": 69,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1961,
+      "retirementYear": null,
+      "capacityMw": 68.3,
+      "count": 8
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1975,
+      "retirementYear": null,
+      "capacityMw": 68,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1997,
+      "retirementYear": null,
+      "capacityMw": 67.1,
+      "count": 18
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2035,
+      "retirementYear": null,
+      "capacityMw": 66.7,
+      "count": 14
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1966,
+      "retirementYear": null,
+      "capacityMw": 66,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2022,
+      "retirementYear": 1957,
+      "capacityMw": 65.8,
+      "count": 3
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1993,
+      "retirementYear": null,
+      "capacityMw": 65,
+      "count": 20
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1953,
+      "retirementYear": null,
+      "capacityMw": 64,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1951,
+      "retirementYear": 2032,
+      "capacityMw": 64,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2005,
+      "retirementYear": null,
+      "capacityMw": 63.1,
+      "count": 18
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1980,
+      "retirementYear": 2030,
+      "capacityMw": 63,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2020,
+      "retirementYear": null,
+      "capacityMw": 63,
+      "count": 31
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1954,
+      "retirementYear": 2026,
+      "capacityMw": 63,
+      "count": 1
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2007,
+      "retirementYear": 2028,
+      "capacityMw": 63,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1955,
+      "retirementYear": null,
+      "capacityMw": 62,
+      "count": 6
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1970,
+      "retirementYear": null,
+      "capacityMw": 62,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1997,
+      "retirementYear": null,
+      "capacityMw": 61.8,
+      "count": 6
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1976,
+      "retirementYear": 2026,
+      "capacityMw": 61,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1957,
+      "retirementYear": null,
+      "capacityMw": 60.7,
+      "count": 9
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2012,
+      "retirementYear": null,
+      "capacityMw": 60.5,
+      "count": 5
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2043,
+      "retirementYear": null,
+      "capacityMw": 60,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2009,
+      "retirementYear": null,
+      "capacityMw": 59.3,
+      "count": 23
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1996,
+      "retirementYear": 2025,
+      "capacityMw": 59,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1956,
+      "retirementYear": null,
+      "capacityMw": 59,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1958,
+      "retirementYear": null,
+      "capacityMw": 58.5,
+      "count": 9
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2020,
+      "retirementYear": null,
+      "capacityMw": 57.9,
+      "count": 11
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1954,
+      "retirementYear": null,
+      "capacityMw": 57.7,
+      "count": 6
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2013,
+      "retirementYear": null,
+      "capacityMw": 56.7,
+      "count": 11
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1959,
+      "retirementYear": null,
+      "capacityMw": 56.4,
+      "count": 5
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1985,
+      "retirementYear": null,
+      "capacityMw": 56,
+      "count": 2
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2000,
+      "retirementYear": null,
+      "capacityMw": 56,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1996,
+      "retirementYear": null,
+      "capacityMw": 55.9,
+      "count": 34
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1992,
+      "retirementYear": null,
+      "capacityMw": 55.5,
+      "count": 13
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1999,
+      "retirementYear": null,
+      "capacityMw": 55,
+      "count": 9
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1974,
+      "retirementYear": 2027,
+      "capacityMw": 54,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1980,
+      "retirementYear": null,
+      "capacityMw": 53.9,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2046,
+      "retirementYear": null,
+      "capacityMw": 53.7,
+      "count": 13
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1975,
+      "retirementYear": 2030,
+      "capacityMw": 53,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1976,
+      "retirementYear": 2030,
+      "capacityMw": 53,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1998,
+      "retirementYear": null,
+      "capacityMw": 52.8,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2023,
+      "retirementYear": null,
+      "capacityMw": 52,
+      "count": 25
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1979,
+      "retirementYear": 2033,
+      "capacityMw": 52,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1995,
+      "retirementYear": null,
+      "capacityMw": 51.8,
+      "count": 2
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1982,
+      "retirementYear": 2025,
+      "capacityMw": 51.4,
+      "count": 2
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1979,
+      "retirementYear": null,
+      "capacityMw": 51,
+      "count": 1
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1978,
+      "retirementYear": null,
+      "capacityMw": 51,
+      "count": 3
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1962,
+      "retirementYear": null,
+      "capacityMw": 50.6,
+      "count": 3
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1957,
+      "retirementYear": null,
+      "capacityMw": 50.6,
+      "count": 3
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2048,
+      "retirementYear": null,
+      "capacityMw": 49.8,
+      "count": 11
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1950,
+      "retirementYear": null,
+      "capacityMw": 49.1,
+      "count": 3
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2047,
+      "retirementYear": null,
+      "capacityMw": 49,
+      "count": 5
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2018,
+      "retirementYear": null,
+      "capacityMw": 48.7,
+      "count": 28
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2024,
+      "retirementYear": null,
+      "capacityMw": 47.9,
+      "count": 6
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2022,
+      "retirementYear": null,
+      "capacityMw": 47.7,
+      "count": 27
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1994,
+      "retirementYear": null,
+      "capacityMw": 46.9,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1958,
+      "retirementYear": null,
+      "capacityMw": 46.4,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2014,
+      "retirementYear": null,
+      "capacityMw": 46.1,
+      "count": 26
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1958,
+      "retirementYear": 2027,
+      "capacityMw": 46,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2019,
+      "retirementYear": null,
+      "capacityMw": 45.6,
+      "count": 23
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1999,
+      "retirementYear": null,
+      "capacityMw": 45.3,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2006,
+      "retirementYear": null,
+      "capacityMw": 45.2,
+      "count": 24
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1963,
+      "retirementYear": 2025,
+      "capacityMw": 45,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1965,
+      "retirementYear": 2025,
+      "capacityMw": 45,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2020,
+      "retirementYear": null,
+      "capacityMw": 44.8,
+      "count": 17
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1996,
+      "retirementYear": null,
+      "capacityMw": 44,
+      "count": 1
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1990,
+      "retirementYear": null,
+      "capacityMw": 42.9,
+      "count": 9
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2012,
+      "retirementYear": null,
+      "capacityMw": 42.1,
+      "count": 16
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2016,
+      "retirementYear": null,
+      "capacityMw": 41.6,
+      "count": 16
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1951,
+      "retirementYear": null,
+      "capacityMw": 41,
+      "count": 3
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2008,
+      "retirementYear": null,
+      "capacityMw": 40.9,
+      "count": 4
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1950,
+      "retirementYear": null,
+      "capacityMw": 40.3,
+      "count": 6
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1961,
+      "retirementYear": null,
+      "capacityMw": 40,
+      "count": 2
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1993,
+      "retirementYear": null,
+      "capacityMw": 40,
+      "count": 4
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1986,
+      "retirementYear": null,
+      "capacityMw": 40,
+      "count": 1
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2003,
+      "retirementYear": null,
+      "capacityMw": 40,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2016,
+      "retirementYear": null,
+      "capacityMw": 39.8,
+      "count": 21
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2017,
+      "retirementYear": null,
+      "capacityMw": 39.6,
+      "count": 23
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1991,
+      "retirementYear": null,
+      "capacityMw": 39.5,
+      "count": 2
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1983,
+      "retirementYear": null,
+      "capacityMw": 39,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1994,
+      "retirementYear": 2029,
+      "capacityMw": 39,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1986,
+      "retirementYear": null,
+      "capacityMw": 37.5,
+      "count": 3
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2015,
+      "retirementYear": null,
+      "capacityMw": 37.3,
+      "count": 3
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1985,
+      "retirementYear": null,
+      "capacityMw": 36.9,
+      "count": 16
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1987,
+      "retirementYear": null,
+      "capacityMw": 36.5,
+      "count": 15
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2034,
+      "retirementYear": null,
+      "capacityMw": 35.8,
+      "count": 3
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1955,
+      "retirementYear": null,
+      "capacityMw": 35.8,
+      "count": 3
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2017,
+      "retirementYear": null,
+      "capacityMw": 35.6,
+      "count": 27
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2033,
+      "retirementYear": null,
+      "capacityMw": 35,
+      "count": 4
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2018,
+      "retirementYear": null,
+      "capacityMw": 35,
+      "count": 20
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2048,
+      "retirementYear": null,
+      "capacityMw": 35,
+      "count": 5
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1952,
+      "retirementYear": null,
+      "capacityMw": 32.5,
+      "count": 1
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2006,
+      "retirementYear": null,
+      "capacityMw": 32.3,
+      "count": 4
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1994,
+      "retirementYear": null,
+      "capacityMw": 31.8,
+      "count": 17
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2020,
+      "retirementYear": null,
+      "capacityMw": 31.8,
+      "count": 3
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1986,
+      "retirementYear": null,
+      "capacityMw": 31.1,
+      "count": 2
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2007,
+      "retirementYear": null,
+      "capacityMw": 31,
+      "count": 4
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1983,
+      "retirementYear": null,
+      "capacityMw": 31,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2008,
+      "retirementYear": null,
+      "capacityMw": 30.7,
+      "count": 40
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1961,
+      "retirementYear": null,
+      "capacityMw": 30.6,
+      "count": 2
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1978,
+      "retirementYear": null,
+      "capacityMw": 30.5,
+      "count": 3
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2049,
+      "retirementYear": null,
+      "capacityMw": 30,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1950,
+      "retirementYear": null,
+      "capacityMw": 30,
+      "count": 1
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1956,
+      "retirementYear": null,
+      "capacityMw": 29.7,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2023,
+      "retirementYear": null,
+      "capacityMw": 29.6,
+      "count": 3
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2005,
+      "retirementYear": null,
+      "capacityMw": 28.3,
+      "count": 20
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2021,
+      "retirementYear": null,
+      "capacityMw": 28.1,
+      "count": 10
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1997,
+      "retirementYear": null,
+      "capacityMw": 27.6,
+      "count": 2
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 1987,
+      "retirementYear": null,
+      "capacityMw": 27.5,
+      "count": 1
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2028,
+      "retirementYear": null,
+      "capacityMw": 27.4,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1972,
+      "retirementYear": 2033,
+      "capacityMw": 27,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1962,
+      "retirementYear": 2033,
+      "capacityMw": 27,
+      "count": 2
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2014,
+      "retirementYear": null,
+      "capacityMw": 27,
+      "count": 4
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1969,
+      "retirementYear": 2025,
+      "capacityMw": 26,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1962,
+      "retirementYear": null,
+      "capacityMw": 25.8,
+      "count": 11
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2047,
+      "retirementYear": null,
+      "capacityMw": 25.3,
+      "count": 6
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1987,
+      "retirementYear": null,
+      "capacityMw": 25.3,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1964,
+      "retirementYear": null,
+      "capacityMw": 25,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2021,
+      "retirementYear": null,
+      "capacityMw": 24.8,
+      "count": 18
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2021,
+      "retirementYear": null,
+      "capacityMw": 24.8,
+      "count": 1
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2017,
+      "retirementYear": null,
+      "capacityMw": 24.4,
+      "count": 1
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2006,
+      "retirementYear": 2028,
+      "capacityMw": 24,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2015,
+      "retirementYear": null,
+      "capacityMw": 23.3,
+      "count": 15
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1971,
+      "retirementYear": null,
+      "capacityMw": 22,
+      "count": 1
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2008,
+      "retirementYear": null,
+      "capacityMw": 22,
+      "count": 2
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2014,
+      "retirementYear": null,
+      "capacityMw": 22,
+      "count": 3
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2024,
+      "retirementYear": null,
+      "capacityMw": 21.4,
+      "count": 15
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2015,
+      "retirementYear": null,
+      "capacityMw": 21.4,
+      "count": 6
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2000,
+      "retirementYear": null,
+      "capacityMw": 21.2,
+      "count": 8
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2000,
+      "retirementYear": null,
+      "capacityMw": 21.1,
+      "count": 16
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1950,
+      "retirementYear": null,
+      "capacityMw": 21,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2003,
+      "retirementYear": 2025,
+      "capacityMw": 20.8,
+      "count": 3
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2009,
+      "retirementYear": null,
+      "capacityMw": 20.3,
+      "count": 4
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1969,
+      "retirementYear": 2026,
+      "capacityMw": 20.2,
+      "count": 1
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2024,
+      "retirementYear": null,
+      "capacityMw": 20,
+      "count": 2
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1970,
+      "retirementYear": null,
+      "capacityMw": 20,
+      "count": 1
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2005,
+      "retirementYear": null,
+      "capacityMw": 20,
+      "count": 2
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2019,
+      "retirementYear": null,
+      "capacityMw": 20,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2021,
+      "retirementYear": 1956,
+      "capacityMw": 20,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1983,
+      "retirementYear": null,
+      "capacityMw": 19.5,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1976,
+      "retirementYear": 2033,
+      "capacityMw": 19,
+      "count": 1
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1997,
+      "retirementYear": null,
+      "capacityMw": 18.8,
+      "count": 2
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1981,
+      "retirementYear": null,
+      "capacityMw": 18.8,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1952,
+      "retirementYear": null,
+      "capacityMw": 18.7,
+      "count": 3
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1960,
+      "retirementYear": null,
+      "capacityMw": 18.1,
+      "count": 13
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1951,
+      "retirementYear": null,
+      "capacityMw": 18,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2049,
+      "retirementYear": 2027,
+      "capacityMw": 18,
+      "count": 2
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1952,
+      "retirementYear": null,
+      "capacityMw": 18,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1959,
+      "retirementYear": null,
+      "capacityMw": 17.7,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2002,
+      "retirementYear": null,
+      "capacityMw": 17.5,
+      "count": 5
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1981,
+      "retirementYear": null,
+      "capacityMw": 17.3,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2020,
+      "retirementYear": null,
+      "capacityMw": 17,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2013,
+      "retirementYear": 2034,
+      "capacityMw": 17,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2019,
+      "retirementYear": 2049,
+      "capacityMw": 16.9,
+      "count": 10
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2011,
+      "retirementYear": null,
+      "capacityMw": 16.8,
+      "count": 2
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1985,
+      "retirementYear": null,
+      "capacityMw": 16.3,
+      "count": 3
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1967,
+      "retirementYear": 2026,
+      "capacityMw": 16.1,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1984,
+      "retirementYear": null,
+      "capacityMw": 16,
+      "count": 11
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1971,
+      "retirementYear": 2026,
+      "capacityMw": 16,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1973,
+      "retirementYear": 2033,
+      "capacityMw": 16,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1974,
+      "retirementYear": 2033,
+      "capacityMw": 16,
+      "count": 1
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2003,
+      "retirementYear": null,
+      "capacityMw": 16,
+      "count": 2
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2007,
+      "retirementYear": 1972,
+      "capacityMw": 16,
+      "count": 1
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2010,
+      "retirementYear": null,
+      "capacityMw": 15.6,
+      "count": 2
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1957,
+      "retirementYear": null,
+      "capacityMw": 15.5,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1957,
+      "retirementYear": null,
+      "capacityMw": 15.5,
+      "count": 2
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1989,
+      "retirementYear": null,
+      "capacityMw": 15,
+      "count": 1
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1968,
+      "retirementYear": null,
+      "capacityMw": 14.7,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1977,
+      "retirementYear": 2026,
+      "capacityMw": 14,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2024,
+      "retirementYear": null,
+      "capacityMw": 14,
+      "count": 5
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2014,
+      "retirementYear": null,
+      "capacityMw": 13.3,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1996,
+      "retirementYear": 2030,
+      "capacityMw": 13.2,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1988,
+      "retirementYear": 2026,
+      "capacityMw": 13,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1967,
+      "retirementYear": 2025,
+      "capacityMw": 12.9,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1974,
+      "retirementYear": null,
+      "capacityMw": 12.5,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1963,
+      "retirementYear": null,
+      "capacityMw": 12.3,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1994,
+      "retirementYear": 2030,
+      "capacityMw": 12,
+      "count": 2
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1998,
+      "retirementYear": 2025,
+      "capacityMw": 12,
+      "count": 3
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2042,
+      "retirementYear": null,
+      "capacityMw": 12,
+      "count": 2
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2048,
+      "retirementYear": null,
+      "capacityMw": 12,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1966,
+      "retirementYear": 2028,
+      "capacityMw": 11.9,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2049,
+      "retirementYear": null,
+      "capacityMw": 11.8,
+      "count": 11
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1986,
+      "retirementYear": null,
+      "capacityMw": 11.6,
+      "count": 8
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2049,
+      "retirementYear": null,
+      "capacityMw": 11.4,
+      "count": 5
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1967,
+      "retirementYear": null,
+      "capacityMw": 11.2,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1954,
+      "retirementYear": 2028,
+      "capacityMw": 11,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1968,
+      "retirementYear": null,
+      "capacityMw": 11,
+      "count": 1
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2021,
+      "retirementYear": 2041,
+      "capacityMw": 11,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2022,
+      "retirementYear": 1952,
+      "capacityMw": 11,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1991,
+      "retirementYear": 2025,
+      "capacityMw": 10.8,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1983,
+      "retirementYear": null,
+      "capacityMw": 10.5,
+      "count": 6
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1951,
+      "retirementYear": null,
+      "capacityMw": 10.5,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1963,
+      "retirementYear": 2026,
+      "capacityMw": 10,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1962,
+      "retirementYear": null,
+      "capacityMw": 10,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2042,
+      "retirementYear": null,
+      "capacityMw": 10,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2006,
+      "retirementYear": 1950,
+      "capacityMw": 10,
+      "count": 5
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2047,
+      "retirementYear": null,
+      "capacityMw": 10,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2022,
+      "retirementYear": 1961,
+      "capacityMw": 10,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1954,
+      "retirementYear": null,
+      "capacityMw": 9.9,
+      "count": 8
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2021,
+      "retirementYear": 2032,
+      "capacityMw": 9.9,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1995,
+      "retirementYear": 2030,
+      "capacityMw": 9.7,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2021,
+      "retirementYear": null,
+      "capacityMw": 9.7,
+      "count": 5
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2048,
+      "retirementYear": null,
+      "capacityMw": 9.6,
+      "count": 9
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1952,
+      "retirementYear": null,
+      "capacityMw": 9,
+      "count": 9
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2048,
+      "retirementYear": 2027,
+      "capacityMw": 9,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1951,
+      "retirementYear": 2027,
+      "capacityMw": 9,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2040,
+      "retirementYear": 2030,
+      "capacityMw": 9,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1998,
+      "retirementYear": null,
+      "capacityMw": 8.9,
+      "count": 8
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1951,
+      "retirementYear": null,
+      "capacityMw": 8.8,
+      "count": 9
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2004,
+      "retirementYear": null,
+      "capacityMw": 8.8,
+      "count": 2
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 1954,
+      "retirementYear": null,
+      "capacityMw": 8.5,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1962,
+      "retirementYear": 2025,
+      "capacityMw": 8.4,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1962,
+      "retirementYear": null,
+      "capacityMw": 8.4,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1965,
+      "retirementYear": null,
+      "capacityMw": 8,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2014,
+      "retirementYear": 2026,
+      "capacityMw": 8,
+      "count": 2
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1958,
+      "retirementYear": null,
+      "capacityMw": 7.8,
+      "count": 2
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1952,
+      "retirementYear": null,
+      "capacityMw": 7.5,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2043,
+      "retirementYear": null,
+      "capacityMw": 7.5,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2017,
+      "retirementYear": 2027,
+      "capacityMw": 7.4,
+      "count": 4
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2022,
+      "retirementYear": null,
+      "capacityMw": 7.4,
+      "count": 5
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2002,
+      "retirementYear": null,
+      "capacityMw": 7.2,
+      "count": 8
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2048,
+      "retirementYear": 2030,
+      "capacityMw": 7,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1955,
+      "retirementYear": null,
+      "capacityMw": 6.9,
+      "count": 9
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2044,
+      "retirementYear": null,
+      "capacityMw": 6.6,
+      "count": 2
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1992,
+      "retirementYear": null,
+      "capacityMw": 6.5,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2000,
+      "retirementYear": null,
+      "capacityMw": 6.5,
+      "count": 6
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1980,
+      "retirementYear": 2045,
+      "capacityMw": 6.4,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1953,
+      "retirementYear": null,
+      "capacityMw": 6.2,
+      "count": 8
+    },
+    {
+      "tech": "gas_cc",
+      "engineSlug": "gas",
+      "commissionYear": 1988,
+      "retirementYear": 2027,
+      "capacityMw": 6.2,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1974,
+      "retirementYear": 2045,
+      "capacityMw": 6,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2046,
+      "retirementYear": null,
+      "capacityMw": 6,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2049,
+      "retirementYear": null,
+      "capacityMw": 6,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2036,
+      "retirementYear": null,
+      "capacityMw": 6,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2039,
+      "retirementYear": null,
+      "capacityMw": 6,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2041,
+      "retirementYear": null,
+      "capacityMw": 6,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2040,
+      "retirementYear": null,
+      "capacityMw": 6,
+      "count": 2
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2016,
+      "retirementYear": 2025,
+      "capacityMw": 6,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2008,
+      "retirementYear": 2025,
+      "capacityMw": 5.7,
+      "count": 4
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2046,
+      "retirementYear": null,
+      "capacityMw": 5.6,
+      "count": 5
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1984,
+      "retirementYear": 2030,
+      "capacityMw": 5.6,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1998,
+      "retirementYear": 2026,
+      "capacityMw": 5.6,
+      "count": 7
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1977,
+      "retirementYear": null,
+      "capacityMw": 5.5,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2017,
+      "retirementYear": 2047,
+      "capacityMw": 5.4,
+      "count": 2
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2023,
+      "retirementYear": null,
+      "capacityMw": 5.1,
+      "count": 3
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1971,
+      "retirementYear": 2045,
+      "capacityMw": 5,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2015,
+      "retirementYear": 2035,
+      "capacityMw": 5,
+      "count": 2
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2016,
+      "retirementYear": 2026,
+      "capacityMw": 5,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2024,
+      "retirementYear": 1954,
+      "capacityMw": 5,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2024,
+      "retirementYear": 1959,
+      "capacityMw": 5,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2024,
+      "retirementYear": 2045,
+      "capacityMw": 5,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 1956,
+      "retirementYear": null,
+      "capacityMw": 4.9,
+      "count": 4
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2013,
+      "retirementYear": 2028,
+      "capacityMw": 4.9,
+      "count": 6
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2049,
+      "retirementYear": 2028,
+      "capacityMw": 4.8,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2048,
+      "retirementYear": 2028,
+      "capacityMw": 4.7,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2016,
+      "retirementYear": 2036,
+      "capacityMw": 4.7,
+      "count": 2
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1995,
+      "retirementYear": 2027,
+      "capacityMw": 4.5,
+      "count": 1
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2013,
+      "retirementYear": null,
+      "capacityMw": 4.5,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2018,
+      "retirementYear": 2048,
+      "capacityMw": 4.5,
+      "count": 1
+    },
+    {
+      "tech": "geothermal",
+      "engineSlug": null,
+      "commissionYear": 2002,
+      "retirementYear": null,
+      "capacityMw": 4.3,
+      "count": 1
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1993,
+      "retirementYear": null,
+      "capacityMw": 4.2,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1964,
+      "retirementYear": null,
+      "capacityMw": 4,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2001,
+      "retirementYear": null,
+      "capacityMw": 3.9,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2010,
+      "retirementYear": 2027,
+      "capacityMw": 3.9,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2023,
+      "retirementYear": 2027,
+      "capacityMw": 3.9,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1963,
+      "retirementYear": 2030,
+      "capacityMw": 3.8,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1962,
+      "retirementYear": 2030,
+      "capacityMw": 3.8,
+      "count": 2
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1997,
+      "retirementYear": 2025,
+      "capacityMw": 3.6,
+      "count": 1
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1982,
+      "retirementYear": null,
+      "capacityMw": 3.5,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1976,
+      "retirementYear": null,
+      "capacityMw": 3.5,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1954,
+      "retirementYear": null,
+      "capacityMw": 3.5,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2009,
+      "retirementYear": 2039,
+      "capacityMw": 3.5,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 1999,
+      "retirementYear": null,
+      "capacityMw": 3.2,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2002,
+      "retirementYear": 2025,
+      "capacityMw": 3.1,
+      "count": 4
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2010,
+      "retirementYear": 2035,
+      "capacityMw": 3.1,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2038,
+      "retirementYear": null,
+      "capacityMw": 3,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1995,
+      "retirementYear": 2025,
+      "capacityMw": 3,
+      "count": 1
+    },
+    {
+      "tech": "coal",
+      "engineSlug": "coal",
+      "commissionYear": 2048,
+      "retirementYear": null,
+      "capacityMw": 3,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2002,
+      "retirementYear": null,
+      "capacityMw": 3,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2007,
+      "retirementYear": 2026,
+      "capacityMw": 3,
+      "count": 2
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2014,
+      "retirementYear": 2028,
+      "capacityMw": 3,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2011,
+      "retirementYear": 2028,
+      "capacityMw": 2.8,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2011,
+      "retirementYear": 2027,
+      "capacityMw": 2.7,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1982,
+      "retirementYear": 2025,
+      "capacityMw": 2.6,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2021,
+      "retirementYear": 2045,
+      "capacityMw": 2.6,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2006,
+      "retirementYear": 2025,
+      "capacityMw": 2.4,
+      "count": 3
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1950,
+      "retirementYear": 2025,
+      "capacityMw": 2.2,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2013,
+      "retirementYear": 2033,
+      "capacityMw": 2.2,
+      "count": 2
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2016,
+      "retirementYear": 2036,
+      "capacityMw": 2.2,
+      "count": 1
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2029,
+      "retirementYear": null,
+      "capacityMw": 2,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1957,
+      "retirementYear": 2032,
+      "capacityMw": 2,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2011,
+      "retirementYear": 2025,
+      "capacityMw": 2,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2021,
+      "retirementYear": 2033,
+      "capacityMw": 2,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2038,
+      "retirementYear": null,
+      "capacityMw": 1.9,
+      "count": 3
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2002,
+      "retirementYear": null,
+      "capacityMw": 1.9,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2046,
+      "retirementYear": null,
+      "capacityMw": 1.8,
+      "count": 2
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2005,
+      "retirementYear": null,
+      "capacityMw": 1.8,
+      "count": 3
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2006,
+      "retirementYear": null,
+      "capacityMw": 1.8,
+      "count": 4
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2045,
+      "retirementYear": null,
+      "capacityMw": 1.7,
+      "count": 4
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1990,
+      "retirementYear": null,
+      "capacityMw": 1.7,
+      "count": 1
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2010,
+      "retirementYear": 2035,
+      "capacityMw": 1.7,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1963,
+      "retirementYear": 2032,
+      "capacityMw": 1.6,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1992,
+      "retirementYear": 2027,
+      "capacityMw": 1.6,
+      "count": 2
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1993,
+      "retirementYear": 2027,
+      "capacityMw": 1.6,
+      "count": 2
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1997,
+      "retirementYear": 2026,
+      "capacityMw": 1.6,
+      "count": 2
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2010,
+      "retirementYear": 2025,
+      "capacityMw": 1.6,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1966,
+      "retirementYear": 2040,
+      "capacityMw": 1.5,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2036,
+      "retirementYear": null,
+      "capacityMw": 1.5,
+      "count": 3
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1987,
+      "retirementYear": 2026,
+      "capacityMw": 1.5,
+      "count": 3
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2002,
+      "retirementYear": 2027,
+      "capacityMw": 1.5,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2041,
+      "retirementYear": null,
+      "capacityMw": 1.4,
+      "count": 5
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2039,
+      "retirementYear": null,
+      "capacityMw": 1.4,
+      "count": 4
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2001,
+      "retirementYear": 2044,
+      "capacityMw": 1.4,
+      "count": 3
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2014,
+      "retirementYear": 2029,
+      "capacityMw": 1.4,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2015,
+      "retirementYear": 2035,
+      "capacityMw": 1.4,
+      "count": 1
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 2005,
+      "retirementYear": 2025,
+      "capacityMw": 1.3,
+      "count": 2
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1967,
+      "retirementYear": 2040,
+      "capacityMw": 1.2,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2036,
+      "retirementYear": null,
+      "capacityMw": 1.2,
+      "count": 3
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2010,
+      "retirementYear": 2031,
+      "capacityMw": 1.1,
+      "count": 11
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2012,
+      "retirementYear": 2027,
+      "capacityMw": 1.1,
+      "count": 3
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2013,
+      "retirementYear": 1964,
+      "capacityMw": 1,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2017,
+      "retirementYear": 1964,
+      "capacityMw": 1,
+      "count": 2
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2008,
+      "retirementYear": 2025,
+      "capacityMw": 1,
+      "count": 2
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2010,
+      "retirementYear": 2030,
+      "capacityMw": 1,
+      "count": 2
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2023,
+      "retirementYear": 1963,
+      "capacityMw": 1,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2030,
+      "retirementYear": null,
+      "capacityMw": 0.9,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2037,
+      "retirementYear": null,
+      "capacityMw": 0.9,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 1993,
+      "retirementYear": null,
+      "capacityMw": 0.9,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2040,
+      "retirementYear": null,
+      "capacityMw": 0.8,
+      "count": 2
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2021,
+      "retirementYear": 2031,
+      "capacityMw": 0.8,
+      "count": 2
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2034,
+      "retirementYear": null,
+      "capacityMw": 0.8,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2020,
+      "retirementYear": 2040,
+      "capacityMw": 0.8,
+      "count": 8
+    },
+    {
+      "tech": "biomass",
+      "engineSlug": "biomass",
+      "commissionYear": 1996,
+      "retirementYear": 2026,
+      "capacityMw": 0.8,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 1997,
+      "retirementYear": 2028,
+      "capacityMw": 0.8,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2011,
+      "retirementYear": 2026,
+      "capacityMw": 0.8,
+      "count": 2
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2015,
+      "retirementYear": 2025,
+      "capacityMw": 0.8,
+      "count": 1
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2005,
+      "retirementYear": null,
+      "capacityMw": 0.8,
+      "count": 1
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1999,
+      "retirementYear": 2026,
+      "capacityMw": 0.7,
+      "count": 2
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2011,
+      "retirementYear": 2031,
+      "capacityMw": 0.7,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2008,
+      "retirementYear": 2027,
+      "capacityMw": 0.6,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2013,
+      "retirementYear": 2031,
+      "capacityMw": 0.6,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2031,
+      "retirementYear": null,
+      "capacityMw": 0.6,
+      "count": 1
+    },
+    {
+      "tech": "gas_peaker",
+      "engineSlug": "gas",
+      "commissionYear": 2039,
+      "retirementYear": null,
+      "capacityMw": 0.6,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2012,
+      "retirementYear": 2026,
+      "capacityMw": 0.5,
+      "count": 1
+    },
+    {
+      "tech": "battery",
+      "engineSlug": null,
+      "commissionYear": 2020,
+      "retirementYear": 2035,
+      "capacityMw": 0.5,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 1994,
+      "retirementYear": 2027,
+      "capacityMw": 0.5,
+      "count": 1
+    },
+    {
+      "tech": "hydro",
+      "engineSlug": "hydro",
+      "commissionYear": 2023,
+      "retirementYear": 2033,
+      "capacityMw": 0.4,
+      "count": 4
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2032,
+      "retirementYear": null,
+      "capacityMw": 0.4,
+      "count": 1
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2006,
+      "retirementYear": 2026,
+      "capacityMw": 0.4,
+      "count": 4
+    },
+    {
+      "tech": "other",
+      "engineSlug": null,
+      "commissionYear": 2025,
+      "retirementYear": null,
+      "capacityMw": 0.4,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2016,
+      "retirementYear": 2026,
+      "capacityMw": 0.3,
+      "count": 1
+    },
+    {
+      "tech": "oil",
+      "engineSlug": "oil",
+      "commissionYear": 2035,
+      "retirementYear": null,
+      "capacityMw": 0.2,
+      "count": 1
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 1997,
+      "retirementYear": 2026,
+      "capacityMw": 0.2,
+      "count": 1
+    },
+    {
+      "tech": "solar",
+      "engineSlug": "solar",
+      "commissionYear": 2003,
+      "retirementYear": null,
+      "capacityMw": 0.2,
+      "count": 2
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2005,
+      "retirementYear": 2026,
+      "capacityMw": 0.1,
+      "count": 1
+    },
+    {
+      "tech": "wind",
+      "engineSlug": "wind",
+      "commissionYear": 2002,
+      "retirementYear": 2026,
+      "capacityMw": 0.1,
+      "count": 1
+    }
+  ]
+}

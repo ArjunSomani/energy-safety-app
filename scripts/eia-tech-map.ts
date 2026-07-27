@@ -22,6 +22,9 @@ export type ModelTech =
 // EIA-860 "technology" string → model technology.
 export function techFromEia(technology: string): ModelTech {
   const t = technology.toLowerCase();
+  // Pumped storage reports as "Hydroelectric Pumped Storage" — it is storage,
+  // not a generator, so it must be caught before the generic 'hydro' rule.
+  if (t.includes('pumped storage')) return 'battery';
   if (t.includes('coal') || t.includes('petroleum coke')) return 'coal';
   if (t.includes('combined cycle')) return 'gas_cc';
   if (t.includes('combustion turbine') || t.includes('internal combustion') || t.includes('gas fired steam') || t.includes('natural gas steam'))
