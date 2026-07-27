@@ -8,7 +8,16 @@ export default function Page() {
       <p>Lazard 2026 is the only cost methodology used. Oil, hydro, and biomass therefore show no comparable data instead of patched values from another source.</p>
       <p>The builder cost panel can include Lazard's illustrative firming-cost adder for wind and solar. The toggle uses grid-operator ELCC and Net CONE frameworks and does not claim to be a full reliability model.</p>
       <h2>Land</h2>
-      <p>m²/MWh/yr and km²/TWh/yr are numerically identical, so one stored coefficient serves source tables and builder totals. Wind is shown as a dual figure because total wind-farm area includes turbine spacing, while direct land occupation is much smaller.</p>
+      <p>m²/MWh/yr and km²/TWh/yr are numerically identical, so one stored coefficient serves the source tables, the builder, and the model. Wind is shown as a dual figure because total wind-farm area includes turbine spacing, while direct land occupation is much smaller.</p>
+      <p>
+        Land figures currently come from <b>two</b> sources: coal, oil, gas, biomass, hydro and solar use UNECE 2021;
+        nuclear and wind use van Zalk &amp; Behrens 2018. The two methodologies measure land differently and can disagree
+        by an order of magnitude — UNECE&apos;s coal figure (~9 km²/TWh/yr, counting the mining footprint) is roughly ten
+        times van Zalk &amp; Behrens&apos; (~0.85, direct transformation). Every page reads the same stored coefficient,
+        so the site is internally consistent, but cross-source land comparisons carry this extra methodological
+        uncertainty on top of the stated band. Reconciling all eight sources onto a single land methodology is a known
+        open item.
+      </p>
       <h2>Uncertainty</h2>
       <p>Low values sum with low values, and high values sum with high values. This treats uncertainties as perfectly correlated and widens the band.</p>
       <h2>Known limitations</h2>

@@ -1,3 +1,5 @@
+import CountedVsModeled from '@/components/CountedVsModeled';
+import DivisionGraphic from '@/components/DivisionGraphic';
 import type { ReactNode } from 'react';
 
 export const metadata = {
@@ -157,6 +159,9 @@ export default function Page() {
             Solar: a few dozen deaths ÷ its far smaller output ≈ <span className="mono">0.02 deaths/TWh</span>
           </li>
         </ul>
+        <div className="my-4">
+          <DivisionGraphic />
+        </div>
         <p>
           Now the comparison is fair: coal is on the order of a thousand times more deadly per unit, and that no longer
           depends on how much of each we build. Comparing raw totals would have flattered solar for a reason that has
@@ -188,18 +193,11 @@ export default function Page() {
       </Section>
 
       <Section title="Counted vs modeled — the key distinction">
-        <div className="panel p-4">
-          <p style={{ marginTop: 0 }}>
-            <span className="swatch" style={{ background: '#1f52ad' }} /> <b>Counted</b> deaths are recorded events — a
-            fall, a mine collapse, a dam failure.
-          </p>
-          <p style={{ margin: 0 }}>
-            <span className="swatch" style={{ background: 'var(--hatch)' }} /> <b>Modeled</b> deaths are statistical
-            estimates — people downwind of pollution, or projected cancers. For coal and gas, almost the whole bar is
-            modeled; for nuclear, the number is mostly modeled cancer projections rather than the counted casualties of
-            Chernobyl and Fukushima.
-          </p>
-        </div>
+        <p>
+          This is the hardest idea on the site, so here it is as a picture. On the left, deaths you could list by name.
+          On the right, the same total spread thinly across a whole population.
+        </p>
+        <CountedVsModeled />
       </Section>
 
       <Section title="Where these numbers are weakest">

@@ -76,6 +76,13 @@ export type MetricBands = {
   costUsdBn: Band; // billion USD / yr
 };
 
+export type CumulativeBands = {
+  deaths: Band;
+  co2Mt: Band;
+  costUsdBn: Band;
+  landKm2Years: Band;
+};
+
 export type YearImpact = {
   year: number;
   horizonWideningFactor: number;
@@ -84,15 +91,16 @@ export type YearImpact = {
   unmodeledByTech: Partial<Record<ModelTech, number>>;
   generationBySlug: Partial<Record<SourceSlug, number>>;
   annual: MetricBands;
+  // Coefficient-only bands: the same numbers before horizon widening. These are
+  // what a paired A-vs-B comparison must difference, because the coefficient draw
+  // is SHARED between two scenarios and largely cancels — whereas the horizon
+  // term in `annual` is scenario-specific and does not. See pairedDelta().
+  annualCoef: MetricBands;
   // Path-dependent integrals up to and including this year. Deaths, CO₂ and cost
   // are flows, so these are genuine cumulative totals; land is a stock, so its
   // integral is an area·years exposure, labelled as such in the UI.
-  cumulative: {
-    deaths: Band;
-    co2Mt: Band;
-    costUsdBn: Band;
-    landKm2Years: Band;
-  };
+  cumulative: CumulativeBands;
+  cumulativeCoef: CumulativeBands; // coefficient-only running sum, for paired deltas
   warnings: Warning[];
 };
 
@@ -119,7 +127,8 @@ function impactsForYear(
   state: YearState,
   startYear: number,
   options: ImpactOptions,
-  running: { deaths: Band; co2Mt: Band; costUsdBn: Band; landKm2Years: Band },
+  running: CumulativeBands,
+  runningCoef: CumulativeBands,
 ): YearImpact {
   const generationBySlug = Object.fromEntries(slugs.map((s) => [s, 0])) as Record<SourceSlug, number>;
   const unmodeledByTech: Partial<Record<ModelTech, number>> = {};
@@ -150,19 +159,32 @@ function impactsForYear(
   const wideningPerYear = options.horizonWideningPerYear ?? DEFAULT_HORIZON_WIDENING_PER_YEAR;
   const w = 1 + Math.max(0, wideningPerYear) * Math.max(0, state.year - startYear);
 
-  const annual: MetricBands = modeledTwh > 0
+  // Coefficient-only bands (no horizon widening).
+  const annualCoef: MetricBands = modeledTwh > 0
     ? {
-        deaths: widen(computed.deaths.total, w),
-        co2Mt: widen(computed.co2.totalMt, w),
-        landKm2: widen(computed.land.km2, w),
-        costUsdBn: widen(computed.cost.annualUsdBn, w),
+        deaths: computed.deaths.total,
+        co2Mt: computed.co2.totalMt,
+        landKm2: computed.land.km2,
+        costUsdBn: computed.cost.annualUsdBn,
       }
     : { deaths: zero(), co2Mt: zero(), landKm2: zero(), costUsdBn: zero() };
+
+  const annual: MetricBands = {
+    deaths: widen(annualCoef.deaths, w),
+    co2Mt: widen(annualCoef.co2Mt, w),
+    landKm2: widen(annualCoef.landKm2, w),
+    costUsdBn: widen(annualCoef.costUsdBn, w),
+  };
 
   running.deaths = addBand(running.deaths, annual.deaths);
   running.co2Mt = addBand(running.co2Mt, annual.co2Mt);
   running.costUsdBn = addBand(running.costUsdBn, annual.costUsdBn);
   running.landKm2Years = addBand(running.landKm2Years, annual.landKm2);
+
+  runningCoef.deaths = addBand(runningCoef.deaths, annualCoef.deaths);
+  runningCoef.co2Mt = addBand(runningCoef.co2Mt, annualCoef.co2Mt);
+  runningCoef.costUsdBn = addBand(runningCoef.costUsdBn, annualCoef.costUsdBn);
+  runningCoef.landKm2Years = addBand(runningCoef.landKm2Years, annualCoef.landKm2);
 
   return {
     year: state.year,
@@ -172,19 +194,39 @@ function impactsForYear(
     unmodeledByTech,
     generationBySlug,
     annual,
+    annualCoef,
     cumulative: {
       deaths: { ...running.deaths },
       co2Mt: { ...running.co2Mt },
       costUsdBn: { ...running.costUsdBn },
       landKm2Years: { ...running.landKm2Years },
     },
+    cumulativeCoef: {
+      deaths: { ...runningCoef.deaths },
+      co2Mt: { ...runningCoef.co2Mt },
+      costUsdBn: { ...runningCoef.costUsdBn },
+      landKm2Years: { ...runningCoef.landKm2Years },
+    },
     warnings: modeledTwh > 0 ? computed.warnings : [],
   };
 }
 
+// Paired difference of two coefficient-only bands: because the coefficient draw
+// is shared, low pairs with low and high with high, so the shared uncertainty
+// cancels and only the (stable-signed) generation difference remains. Contrast
+// with an unpaired a.low − b.high, which wrongly treats the draws as independent
+// and produces a band far wider than either quantity.
+export function pairedDelta(a: Band, b: Band): Band {
+  const dLow = a.low - b.low;
+  const dCentral = a.central - b.central;
+  const dHigh = a.high - b.high;
+  return { low: Math.min(dLow, dCentral, dHigh), central: dCentral, high: Math.max(dLow, dCentral, dHigh) };
+}
+
 export function computeModelImpacts(result: ModelResult, options: ImpactOptions = {}): ModelImpacts {
-  const running = { deaths: zero(), co2Mt: zero(), costUsdBn: zero(), landKm2Years: zero() };
-  const years = result.years.map((state) => impactsForYear(state, result.scenario.startYear, options, running));
+  const running: CumulativeBands = { deaths: zero(), co2Mt: zero(), costUsdBn: zero(), landKm2Years: zero() };
+  const runningCoef: CumulativeBands = { deaths: zero(), co2Mt: zero(), costUsdBn: zero(), landKm2Years: zero() };
+  const years = result.years.map((state) => impactsForYear(state, result.scenario.startYear, options, running, runningCoef));
 
   const unmodeled = new Set<ModelTech>();
   for (const y of years) for (const tech of Object.keys(y.unmodeledByTech) as ModelTech[]) unmodeled.add(tech);

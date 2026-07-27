@@ -281,11 +281,18 @@ function computeCapacityFactors(
 
 type HourlyRow = { period: string; value?: string | number };
 
+// A canonical (non-leap) year: DJF 90 + MAM 92 + JJA 92 + SON 91 = 365 days →
+// 8,760 hours. The model projects future years, so it uses this standard year
+// rather than the sampled year's leap status; it keeps every "hours in the year"
+// figure at the value a reader expects.
+const CANONICAL_SEASON_DAYS: Record<string, number> = { winter: 90, spring: 92, summer: 92, autumn: 91 };
+
 // ---- 6. Hourly demand → representative seasonal-diurnal profiles ----
 // Compress a full year of US48 hourly demand into 4 seasons × 24 hours of shape,
-// normalized so the mean over ALL 8,760 hours is 1.0. Seasonal magnitude is thus
-// preserved (summer hours sit above 1.0, spring below), which the dispatch step
-// needs. The client never sees the raw 8,760-point series.
+// normalized (day-weighted, against the canonical year) so the mean over all
+// 8,760 hours is exactly 1.0. Seasonal magnitude is preserved (summer hours sit
+// above 1.0, spring below), which the dispatch step needs, and Σ shape·days is
+// exactly 8,760 so annual energy reconstructs cleanly.
 async function fetchLoadProfiles(year: number): Promise<{
   year: number;
   region: string;
@@ -307,10 +314,8 @@ async function fetchLoadProfiles(year: number): Promise<{
   const counts: Record<string, number[]> = Object.fromEntries(seasons.map((s) => [s, new Array(24).fill(0)]));
   // month is 0-indexed: Dec/Jan/Feb winter, Mar–May spring, Jun–Aug summer, Sep–Nov autumn.
   const seasonOf = (m: number) => (m === 11 || m <= 1 ? 'winter' : m <= 4 ? 'spring' : m <= 7 ? 'summer' : 'autumn');
-  const daysSeen: Record<string, Set<string>> = Object.fromEntries(seasons.map((s) => [s, new Set<string>()]));
 
-  let grandSum = 0;
-  let grandCount = 0;
+  let anyData = false;
   for (const r of rows) {
     const value = Number(r.value);
     if (!Number.isFinite(value) || value <= 0) continue;
@@ -318,22 +323,24 @@ async function fetchLoadProfiles(year: number): Promise<{
     const month = Number(p.slice(5, 7)) - 1;
     const hour = Number(p.slice(11, 13));
     if (!Number.isFinite(month) || !Number.isFinite(hour)) continue;
-    const s = seasonOf(month);
-    sums[s][hour] += value;
-    counts[s][hour] += 1;
-    daysSeen[s].add(p.slice(0, 10));
-    grandSum += value;
-    grandCount += 1;
+    sums[seasonOf(month)][hour] += value;
+    counts[seasonOf(month)][hour] += 1;
+    anyData = true;
   }
-  if (grandCount === 0) throw new Error(`No hourly demand returned for ${year}.`);
-  const annualMeanMw = grandSum / grandCount;
+  if (!anyData) throw new Error(`No hourly demand returned for ${year}.`);
+
+  // Hour-of-day averages within each season (robust to gaps), then normalize by
+  // the day-weighted mean against the canonical year.
+  const avg: Record<string, number[]> = Object.fromEntries(
+    seasons.map((s) => [s, sums[s].map((sum, h) => (counts[s][h] ? sum / counts[s][h] : 0))]),
+  );
+  const totalHours = seasons.reduce((a, s) => a + CANONICAL_SEASON_DAYS[s] * 24, 0); // 8760
+  const weightedMean = seasons.reduce((acc, s) => acc + avg[s].reduce((a, b) => a + b, 0) * CANONICAL_SEASON_DAYS[s], 0) / totalHours;
 
   const profiles: Record<string, number[]> = {};
-  for (const s of seasons) {
-    profiles[s] = sums[s].map((sum, h) => +(counts[s][h] ? sum / counts[s][h] / annualMeanMw : 0).toFixed(4));
-  }
-  const seasonDays = Object.fromEntries(seasons.map((s) => [s, daysSeen[s].size]));
-  return { year, region: 'US48', annualMeanMw: +annualMeanMw.toFixed(0), seasonDays, profiles };
+  for (const s of seasons) profiles[s] = avg[s].map((v) => +(weightedMean ? v / weightedMean : 0).toFixed(4));
+
+  return { year, region: 'US48', annualMeanMw: +weightedMean.toFixed(0), seasonDays: { ...CANONICAL_SEASON_DAYS }, profiles };
 }
 
 // ---- 7. Hourly wind & solar shape (EIA-930 generation by fuel) ----
