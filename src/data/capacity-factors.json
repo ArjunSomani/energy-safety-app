@@ -1,0 +1,12 @@
+{
+  "coal": 0.4275,
+  "nuclear": 0.9219,
+  "wind": 0.34,
+  "solar": 0.2033,
+  "hydro": 0.3695,
+  "oil": 0.0545,
+  "biomass": 0.4952,
+  "geothermal": 0.6812,
+  "gas_peaker": 0.12,
+  "gas_cc": 0.6491
+}

@@ -7,6 +7,7 @@ const links = [
   ['How we count', '/how-we-count'],
   ['Sources', '/sources'],
   ['Build', '/build'],
+  ['Model', '/model'],
   ['Countries', '/countries'],
   ['Data', '/data'],
   ['Methodology', '/methodology'],
