@@ -1,6 +1,8 @@
 'use client';
 
 import type { DispatchResult, SeasonKey } from '@/lib/model-dispatch';
+import Term from './Term';
+import type { ReactNode } from 'react';
 
 // The dispatch/reliability read for a single year. Unserved energy is the
 // model's most important output and is shown as a neutral reported quantity —
@@ -29,13 +31,13 @@ export default function ReliabilityPanel({ d, accent = 'var(--ink)' }: { d: Disp
       </div>
 
       <div className="stat-grid" style={{ marginTop: '0.9rem', gridTemplateColumns: 'repeat(2, minmax(0,1fr))', gap: '0.9rem', textAlign: 'left' }}>
-        <Metric label="Unserved energy" value={`${fmt(d.unservedTwh)} TWh`} sub={`${unservedPct.toFixed(1)}% of demand`} accent={accent} />
-        <Metric label="Hours of shortfall" value={`${fmt(d.shortfallHours)} h`} sub={`of ${fmt(d.totalHours)} h/yr`} />
-        <Metric label="Curtailed surplus" value={`${fmt(d.curtailedTwh)} TWh`} sub="renewable energy with nowhere to go" />
+        <Metric label={<Term k="unserved energy">Unserved energy</Term>} value={`${fmt(d.unservedTwh)} TWh`} sub={`${unservedPct.toFixed(1)}% of demand went unmet`} accent={accent} />
+        <Metric label="Hours short" value={`${fmt(d.shortfallHours)} h`} sub={`of ${fmt(d.totalHours)} h in the year`} />
+        <Metric label={<Term k="curtailment">Clean energy wasted</Term>} value={`${fmt(d.curtailedTwh)} TWh`} sub="available but nowhere to put it" />
         <Metric
-          label="Firm capacity vs peak"
+          label={<Term k="reserve margin">Cushion at peak</Term>}
           value={d.reserveMarginPct == null ? '—' : `${d.reserveMarginPct > 0 ? '+' : ''}${d.reserveMarginPct.toFixed(0)}%`}
-          sub={`${fmt(d.firmCapacityMw / 1000, 3)} GW firm · ${fmt(d.peakDemandMw / 1000, 3)} GW peak`}
+          sub={`${fmt(d.firmCapacityMw / 1000, 3)} GW dependable · ${fmt(d.peakDemandMw / 1000, 3)} GW peak`}
         />
       </div>
 
@@ -86,7 +88,7 @@ export default function ReliabilityPanel({ d, accent = 'var(--ink)' }: { d: Disp
   );
 }
 
-function Metric({ label, value, sub, accent }: { label: string; value: string; sub: string; accent?: string }) {
+function Metric({ label, value, sub, accent }: { label: ReactNode; value: string; sub: string; accent?: string }) {
   return (
     <div>
       <p className="label" style={{ margin: 0 }}>

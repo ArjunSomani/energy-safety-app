@@ -106,6 +106,13 @@ export type DispatchResult = {
   peakDemandMw: number;
   firmCapacityMw: number;
   reserveMarginPct: number | null;
+  // A single representative day (default the peak season) broken down hour by
+  // hour, for the supply-vs-demand chart. Supply stacks: solar, wind, baseload,
+  // flexible thermal, storage; anything left is unserved.
+  focusDay: {
+    season: SeasonKey;
+    hours: { hour: number; demandMw: number; solarMw: number; windMw: number; baseloadMw: number; thermalMw: number; storageMw: number; unservedMw: number }[];
+  };
 };
 
 const STEADY_STATE_PASSES = 3; // iterate each representative day to converge storage
@@ -122,6 +129,7 @@ export function dispatchYear(
   load: LoadProfiles,
   vre: VreProfiles,
   assumptions: DispatchAssumptions,
+  focusSeason: SeasonKey = 'summer',
 ): DispatchResult {
   const cap = (t: ModelTech) => capacityMwByTech[t] ?? 0;
   const cf = (t: ModelTech) => assumptions.capacityFactors[t] ?? 0;
@@ -157,6 +165,7 @@ export function dispatchYear(
   let shortfallHours = 0;
   let chargeMwh = 0;
   let peakDemandMw = 0;
+  const focusHours: DispatchResult['focusDay']['hours'] = [];
 
   for (const season of SEASONS) {
     const days = load.seasonDays[season];
@@ -183,6 +192,7 @@ export function dispatchYear(
         const { demandMw, windMw, solarMw, vreMw } = hours[h];
         let netLoad = demandMw - vreMw - baseloadMw; // MW for one hour ⇒ MWh
         const flexUsed: Partial<Record<ModelTech, number>> = {};
+        let dischargeMwHour = 0;
 
         if (netLoad > 0) {
           // Flexible thermal, cheapest first.
@@ -201,6 +211,7 @@ export function dispatchYear(
           if (discharge > 0) {
             stateMwh -= discharge / legEff;
             netLoad -= discharge;
+            dischargeMwHour = discharge;
             if (record) addDispatch('battery', discharge);
           }
         }
@@ -213,6 +224,20 @@ export function dispatchYear(
           addDispatch('solar', solarMw * days);
           for (const t of BASELOAD_TECHS) addDispatch(t, cap(t) * cf(t) * days);
           for (const [t, mw] of Object.entries(flexUsed) as [ModelTech, number][]) addDispatch(t, mw * days);
+
+          if (season === focusSeason) {
+            const thermalMw = Object.values(flexUsed).reduce((s, v) => s + (v ?? 0), 0);
+            focusHours.push({
+              hour: h,
+              demandMw: Math.round(demandMw),
+              solarMw: Math.round(solarMw),
+              windMw: Math.round(windMw),
+              baseloadMw: Math.round(baseloadMw),
+              thermalMw: Math.round(thermalMw),
+              storageMw: Math.round(dischargeMwHour),
+              unservedMw: Math.round(Math.max(0, netLoad)),
+            });
+          }
         }
 
         if (netLoad > 0) {
@@ -272,5 +297,6 @@ export function dispatchYear(
     peakDemandMw: +peakDemandMw.toFixed(1),
     firmCapacityMw: +firmCapacityMw.toFixed(1),
     reserveMarginPct: peakDemandMw > 0 ? +(((firmCapacityMw - peakDemandMw) / peakDemandMw) * 100).toFixed(1) : null,
+    focusDay: { season: focusSeason, hours: focusHours },
   };
 }
