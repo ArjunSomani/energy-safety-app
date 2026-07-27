@@ -116,7 +116,17 @@ export type Scenario = {
   techLife?: TechMap<number>;
   leadTime?: TechMap<number>;
   capacityFactors?: TechMap<number>;
+  // Plants already past their nominal service life at startYear are demonstrably
+  // still operating (they are in the base fleet), so they are retired on a ramp
+  // over this many years — oldest first — rather than all in year one. Only
+  // affects age-based retirement; announced retirements always fire on schedule.
+  retirementRampYears?: number;
 };
+
+// Default ramp for grandfathering plants already past nominal life at the start,
+// and the window over which their staggered retirement is spread (oldest first).
+export const DEFAULT_RETIREMENT_RAMP = 8;
+const RETIREMENT_SPREAD_WINDOW = 40;
 
 const emptyByTech = (): Record<ModelTech, number> =>
   Object.fromEntries(MODEL_TECHS.map((t) => [t, 0])) as Record<ModelTech, number>;
@@ -154,6 +164,19 @@ export function runModel(initialFleet: Cohort[], scenario: Scenario): ModelResul
   const techLife = (t: ModelTech) => resolve(DEFAULT_TECH_LIFE, scenario.techLife, t);
   const leadTime = (t: ModelTech) => resolve(DEFAULT_LEAD_TIME, scenario.leadTime, t);
   const capacityFactor = (t: ModelTech) => resolve(DEFAULT_CAPACITY_FACTORS, scenario.capacityFactors, t);
+  const ramp = Math.max(1, scenario.retirementRampYears ?? DEFAULT_RETIREMENT_RAMP);
+
+  // The year a cohort retires from age. Normally commissionYear + life. But a
+  // cohort already past its life at startYear is still running in the base fleet,
+  // so instead of retiring it instantly it is spread across the first `ramp`
+  // years, oldest first — avoiding an artificial year-one retirement cliff.
+  const ageRetireYear = (c: Cohort): number | null => {
+    if (c.commissionYear == null) return null;
+    const nominal = c.commissionYear + techLife(c.tech);
+    if (nominal >= scenario.startYear) return nominal;
+    const frac = Math.max(0, Math.min(1, (nominal - (scenario.startYear - RETIREMENT_SPREAD_WINDOW)) / RETIREMENT_SPREAD_WINDOW));
+    return scenario.startYear + Math.round(frac * (ramp - 1));
+  };
 
   for (let year = scenario.startYear; year <= scenario.endYear; year += 1) {
     let addedMw = 0;
@@ -164,7 +187,8 @@ export function runModel(initialFleet: Cohort[], scenario: Scenario): ModelResul
     const survivors: Cohort[] = [];
     for (const c of fleet) {
       const announced = c.retirementYear != null && c.retirementYear <= year;
-      const aged = c.commissionYear != null && year - c.commissionYear >= techLife(c.tech);
+      const ageYear = ageRetireYear(c);
+      const aged = ageYear != null && ageYear <= year;
       if (announced || aged) retiredMw += c.capacityMw;
       else survivors.push(c);
     }
