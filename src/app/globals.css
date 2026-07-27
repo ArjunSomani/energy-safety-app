@@ -47,6 +47,15 @@
   --hatch: repeating-linear-gradient(45deg, color-mix(in srgb, var(--ink) 26%, transparent) 0 1px, transparent 1px 6px);
   --bar-border: color-mix(in srgb, var(--ink) 55%, transparent);
 
+  /* Generation-mix categorical palette (light). Validated colorblind-safe in the
+     stack order used by the chart; see src/lib/model-viz.ts. */
+  --mix-solar: #eda100;
+  --mix-wind: #1baf7a;
+  --mix-hydro: #2a78d6;
+  --mix-nuclear: #4a3aa7;
+  --mix-fossil: #eb6834;
+  --mix-other: #e87ba4;
+
   --radius: 0.625rem;
   --radius-sm: 0.4rem;
   --radius-pill: 9999px;
@@ -80,6 +89,12 @@
   --chart-gridline: #2c2c2a;
   --chart-baseline: #3a3a37;
   --bar-border: color-mix(in srgb, var(--ink) 55%, transparent);
+  --mix-solar: #c98500;
+  --mix-wind: #199e70;
+  --mix-hydro: #3987e5;
+  --mix-nuclear: #9085e9;
+  --mix-fossil: #d95926;
+  --mix-other: #d55181;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
   --shadow-md: 0 10px 34px rgba(0, 0, 0, 0.55);
 }
@@ -109,6 +124,12 @@
     --chart-gridline: #2c2c2a;
     --chart-baseline: #3a3a37;
     --bar-border: color-mix(in srgb, var(--ink) 55%, transparent);
+    --mix-solar: #c98500;
+    --mix-wind: #199e70;
+    --mix-hydro: #3987e5;
+    --mix-nuclear: #9085e9;
+    --mix-fossil: #d95926;
+    --mix-other: #d55181;
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
     --shadow-md: 0 10px 34px rgba(0, 0, 0, 0.55);
   }

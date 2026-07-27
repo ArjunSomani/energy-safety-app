@@ -2,9 +2,13 @@
 
 import RiskRule from '@/components/RiskRule';
 import BandTimeline, { type BandPoint } from '@/components/model/BandTimeline';
+import DayProfileChart from '@/components/model/DayProfileChart';
+import HeadlineSummary from '@/components/model/HeadlineSummary';
+import HowItWorks from '@/components/model/HowItWorks';
 import ReliabilityPanel from '@/components/model/ReliabilityPanel';
 import ScenarioControls from '@/components/model/ScenarioControls';
 import StackedAreaMix from '@/components/model/StackedAreaMix';
+import Term, { GLOSSARY } from '@/components/model/Term';
 import {
   BASE_YEAR,
   DEFAULT_UI_SCENARIO,
@@ -84,6 +88,8 @@ export default function ModelPage() {
         </p>
       </div>
 
+      <HowItWorks />
+
       {/* Controls: A vs B */}
       <div className="grid gap-6 md:grid-cols-2">
         <section className="panel p-4">
@@ -104,13 +110,20 @@ export default function ModelPage() {
         </section>
       </div>
 
+      {/* Plain-language headline for Scenario A */}
+      <h2>In plain terms — Scenario A</h2>
+      <p className="text-sm text-[var(--ink-soft)]" style={{ maxWidth: '48rem', marginTop: '-0.2rem' }}>
+        The short version of what the settings above produce. Dotted words have plain definitions — hover or tap them.
+      </p>
+      <HeadlineSummary run={runA} endYear={END_YEAR} />
+
       {/* Generation mix */}
-      <h2>Generation mix over time</h2>
+      <h2>What the grid is made of, over time</h2>
       <p className="text-sm text-[var(--ink-soft)]" style={{ maxWidth: '48rem' }}>
-        Annual generation by technology, {years[0]}–{years[years.length - 1]}. The dashed line is demand; where the stack
-        falls below it, the fleet cannot meet demand on energy alone (the reliability panel below dispatches it hour by
-        hour). Storage and geothermal carry no descriptive impact coefficient and are shown but excluded from the impact
-        figures.
+        Each coloured band is how much electricity a group of sources makes each year, stacked up. The dashed line is
+        total demand. <b>Where the colours stop below the dashed line, there isn’t enough</b> — the fleet can’t meet
+        demand. Hover any year to read the numbers. (“Fossil fuels” combines coal, gas and oil; per-source detail is in
+        the harm figures below.)
       </p>
       <div className="grid gap-6 md:grid-cols-2">
         <div className="panel p-4">
@@ -123,20 +136,21 @@ export default function ModelPage() {
 
       {/* Impacts */}
       <div className="flex items-end justify-between" style={{ marginTop: '1.8rem', gap: '0.5rem', flexWrap: 'wrap' }}>
-        <h2 style={{ margin: 0 }}>Impacts, as uncertainty bands</h2>
-        <div className="scale-toggle" role="group" aria-label="Annual or cumulative">
+        <h2 style={{ margin: 0 }}>The harms and the cost</h2>
+        <div className="scale-toggle" role="group" aria-label="Per year or added up">
           <button type="button" aria-pressed={mode === 'annual'} onClick={() => setMode('annual')}>
-            Annual
+            Per year
           </button>
           <button type="button" aria-pressed={mode === 'cumulative'} onClick={() => setMode('cumulative')}>
-            Cumulative
+            Added up
           </button>
         </div>
       </div>
       <p className="text-sm text-[var(--ink-soft)]" style={{ maxWidth: '48rem' }}>
-        Same per-TWh coefficients and low–high bands as the rest of the site, applied to the modeled generation. Bands
-        <b> widen with the horizon</b>: a 2050 figure is deliberately less precise than a near-term one. The solid band is
-        Scenario A; the dashed line is Scenario B’s central estimate.
+        The model applies the same per-source figures as the rest of the site to the electricity above. Each result is a
+        shaded <Term k="uncertainty band">range, not one number</Term>, and the range <b>widens further into the future</b>,
+        where less is knowable. The solid band is Scenario A; the dashed line is Scenario B. Switch to “Added up” to see
+        the <Term k="cumulative">cumulative</Term> total over all years.
       </p>
       <div className="grid gap-6 md:grid-cols-2" style={{ marginTop: '0.5rem' }}>
         <div className="panel p-4">
@@ -177,7 +191,7 @@ export default function ModelPage() {
 
       {/* Reliability */}
       <div className="flex items-end justify-between" style={{ marginTop: '1.8rem', gap: '0.5rem', flexWrap: 'wrap' }}>
-        <h2 style={{ margin: 0 }}>Reliability — the centerpiece</h2>
+        <h2 style={{ margin: 0 }}>Can it keep the lights on?</h2>
         <label className="text-sm" style={{ color: 'var(--ink-soft)' }}>
           Year{' '}
           <select
@@ -194,18 +208,43 @@ export default function ModelPage() {
           </select>
         </label>
       </div>
+      <p className="text-sm text-[var(--ink-soft)]" style={{ maxWidth: '48rem' }}>
+        The real test isn’t the yearly total — it’s every hour. Below is one <b>typical summer day</b> in {relYear}.
+        Supply stacks up from the bottom; the dashed line is demand. <b>Where the colours can’t reach the line, that
+        hatched gap is </b>
+        <Term k="unserved energy">unserved energy</Term> — the lights flicker. Notice how solar vanishes through the evening
+        and overnight just as demand stays high.
+      </p>
       <div className="grid gap-6 md:grid-cols-2" style={{ marginTop: '0.5rem' }}>
+        <div className="panel p-4">
+          <p className="label" style={{ marginTop: 0, display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+            <span style={{ width: 10, height: 10, borderRadius: 3, background: COLOR_A, display: 'inline-block' }} /> Scenario A · a day in {relYear}
+          </p>
+          <DayProfileChart d={dispatchFor(runA, relYear)} accent={COLOR_A} />
+        </div>
+        <div className="panel p-4">
+          <p className="label" style={{ marginTop: 0, display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
+            <span style={{ width: 10, height: 10, borderRadius: 3, background: COLOR_B, display: 'inline-block' }} /> Scenario B · a day in {relYear}
+          </p>
+          <DayProfileChart d={dispatchFor(runB, relYear)} accent={COLOR_B} />
+        </div>
+      </div>
+      <div className="grid gap-6 md:grid-cols-2" style={{ marginTop: '1rem' }}>
         <ReliabilityPanel d={dispatchFor(runA, relYear)} accent={COLOR_A} />
         <ReliabilityPanel d={dispatchFor(runB, relYear)} accent={COLOR_B} />
       </div>
 
       {/* Deltas */}
-      <h2 style={{ marginTop: '1.8rem' }}>A − B in {END_YEAR}</h2>
-      <p className="text-sm text-[var(--ink-soft)]" style={{ maxWidth: '48rem' }}>
-        Differences render as signed ranges. When the two scenarios’ uncertainty bands overlap, the honest reading is that
-        the difference is <b>smaller than the uncertainty</b> in either estimate — flagged below.
-      </p>
-      <DeltaTable runA={runA} runB={runB} />
+      <h2 style={{ marginTop: '1.8rem' }}>A vs B — the trade-off</h2>
+      <PlainCompare runA={runA} runB={runB} />
+      <details style={{ marginTop: '0.8rem' }}>
+        <summary style={{ cursor: 'pointer', fontSize: '0.85rem', color: 'var(--accent)' }}>Show the exact numbers (A − B in {END_YEAR})</summary>
+        <p className="text-sm text-[var(--ink-soft)]" style={{ maxWidth: '48rem', marginTop: '0.6rem' }}>
+          Differences render as signed ranges. When the two scenarios’ ranges overlap, the honest reading is that the
+          difference is <b>smaller than the uncertainty</b> — flagged in the last column.
+        </p>
+        <DeltaTable runA={runA} runB={runB} />
+      </details>
 
       {/* Context: the risk rule */}
       <h2 style={{ marginTop: '2rem' }}>The coefficients behind the death figures</h2>
@@ -215,12 +254,83 @@ export default function ModelPage() {
       </p>
       <RiskRule />
 
+      {/* Glossary */}
+      <h2 style={{ marginTop: '2rem' }}>Plain-language glossary</h2>
+      <div className="grid gap-3 md:grid-cols-2">
+        {Object.entries(GLOSSARY).map(([k, { term, plain }]) => (
+          <div key={k} className="panel p-3">
+            <p className="mono" style={{ margin: 0, fontWeight: 600, fontSize: '0.82rem' }}>
+              {term}
+            </p>
+            <p className="text-sm" style={{ margin: '0.2rem 0 0', color: 'var(--ink-soft)' }}>
+              {plain}
+            </p>
+          </div>
+        ))}
+      </div>
+
       <p className="text-sm text-[var(--ink-soft)]" style={{ marginTop: '1.5rem' }}>
         Every number here is reproducible from the committed EIA {BASE_YEAR} snapshot and the pure model engines. Nothing
-        is fetched at runtime. <a href="/model/assumptions">Assumptions →</a>
+        is fetched at runtime. <a href="/model/assumptions">See every assumption →</a>
       </p>
     </main>
   );
+}
+
+// Plain-language A/B comparison: which scenario comes out lower on each measure,
+// and by how much — with "about the same" when the ranges overlap. Neutral: it
+// reports which is lower, never which is better.
+function PlainCompare({ runA, runB }: { runA: ScenarioRun; runB: ScenarioRun }) {
+  const ia = last(runA.impacts.years);
+  const ib = last(runB.impacts.years);
+  const da = dispatchFor(runA, END_YEAR);
+  const db = dispatchFor(runB, END_YEAR);
+
+  const rows: { label: string; aVal: number; bVal: number; overlap: boolean }[] = [
+    { label: 'Deaths per year', aVal: ia.annual.deaths.central, bVal: ib.annual.deaths.central, overlap: bandsOverlap(ia.annual.deaths, ib.annual.deaths) },
+    { label: 'Climate pollution (CO₂/yr)', aVal: ia.annual.co2Mt.central, bVal: ib.annual.co2Mt.central, overlap: bandsOverlap(ia.annual.co2Mt, ib.annual.co2Mt) },
+    { label: 'Unmet demand', aVal: da.unservedTwh, bVal: db.unservedTwh, overlap: false },
+    { label: 'Cost to run per year', aVal: ia.annual.costUsdBn.central, bVal: ib.annual.costUsdBn.central, overlap: bandsOverlap(ia.annual.costUsdBn, ib.annual.costUsdBn) },
+  ];
+
+  return (
+    <div className="panel p-4" style={{ maxWidth: '48rem' }}>
+      <p className="text-sm" style={{ marginTop: 0 }}>
+        In <b>{END_YEAR}</b>, neither scenario wins on everything — each is lower on some measures and higher on others.
+        That trade-off is the whole point of the model.
+      </p>
+      <div className="grid" style={{ gap: '0.4rem' }}>
+        {rows.map((r) => {
+          const lowerIsA = r.aVal < r.bVal;
+          const hi = Math.max(r.aVal, r.bVal);
+          const lo = Math.min(r.aVal, r.bVal);
+          const pct = hi > 0 ? Math.round(((hi - lo) / hi) * 100) : 0;
+          return (
+            <div key={r.label} style={{ display: 'grid', gridTemplateColumns: '11rem 1fr', alignItems: 'center', gap: '0.6rem', fontSize: '0.82rem' }}>
+              <span style={{ color: 'var(--ink-soft)' }}>{r.label}</span>
+              <span>
+                {r.overlap || pct < 3 ? (
+                  <span style={{ color: 'var(--ink-muted)' }}>about the same in both{r.overlap ? ' (within the range)' : ''}</span>
+                ) : (
+                  <>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}>
+                      <span style={{ width: 10, height: 10, borderRadius: 3, background: lowerIsA ? COLOR_A : COLOR_B, display: 'inline-block' }} />
+                      <b>Scenario {lowerIsA ? 'A' : 'B'}</b> is lower
+                    </span>
+                    <span style={{ color: 'var(--ink-muted)' }}> — by about {pct}%</span>
+                  </>
+                )}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function bandsOverlap(a: Band, b: Band): boolean {
+  return a.low <= b.high && b.low <= a.high;
 }
 
 // --- series extractors ---
