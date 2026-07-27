@@ -31,6 +31,11 @@ export default function HeadlineSummary({ run, endYear }: { run: ScenarioRun; en
   const reliabilityValue = unservedPct < 0.3 ? 'meets ~all demand' : `${unservedPct.toFixed(0)}% unmet`;
   const reliabilitySub =
     unservedPct < 0.3 ? 'the fleet keeps up in almost every hour' : `short in ~${shortHoursPct.toFixed(0)}% of hours, mostly evenings`;
+  // Hours and energy are different quantities: "of the time" means hours.
+  const reliabilityClause =
+    unservedPct < 0.3
+      ? 'keeps up with demand in almost every hour'
+      : `can’t meet demand in about ${shortHoursPct.toFixed(0)}% of hours (roughly ${unservedPct.toFixed(0)}% of the electricity called for)`;
 
   const deaths = changeText(lastI.annual.deaths.central, first.annual.deaths.central);
   const co2 = changeText(lastI.annual.co2Mt.central, first.annual.co2Mt.central);
@@ -70,8 +75,7 @@ export default function HeadlineSummary({ run, endYear }: { run: ScenarioRun; en
   return (
     <section className="panel p-4" aria-label="Plain-language summary of the current scenario">
       <p style={{ margin: '0 0 0.9rem', maxWidth: '52rem' }}>
-        In <b>{endYear}</b>, this scenario {unservedPct < 0.3 ? 'keeps up with' : 'falls short of'} demand
-        {unservedPct < 0.3 ? '' : ` about ${unservedPct.toFixed(0)}% of the time`}, with air-pollution and accident deaths{' '}
+        In <b>{endYear}</b>, this scenario {reliabilityClause}, with air-pollution and accident deaths{' '}
         <b>{deaths.text}</b> and climate pollution <b>{co2.text}</b>. Every figure is a central estimate inside a range —
         the charts below show the full <Term k="uncertainty band">uncertainty</Term>.
       </p>

@@ -9,6 +9,7 @@ import ReliabilityPanel from '@/components/model/ReliabilityPanel';
 import ScenarioControls from '@/components/model/ScenarioControls';
 import StackedAreaMix from '@/components/model/StackedAreaMix';
 import Term, { GLOSSARY } from '@/components/model/Term';
+import { pairedDelta } from '@/lib/model-impacts';
 import {
   BASE_YEAR,
   DEFAULT_UI_SCENARIO,
@@ -240,8 +241,12 @@ export default function ModelPage() {
       <details style={{ marginTop: '0.8rem' }}>
         <summary style={{ cursor: 'pointer', fontSize: '0.85rem', color: 'var(--accent)' }}>Show the exact numbers (A − B in {END_YEAR})</summary>
         <p className="text-sm text-[var(--ink-soft)]" style={{ maxWidth: '48rem', marginTop: '0.6rem' }}>
-          Differences render as signed ranges. When the two scenarios’ ranges overlap, the honest reading is that the
-          difference is <b>smaller than the uncertainty</b> — flagged in the last column.
+          The two scenarios share the <b>same</b> per-source coefficients — coal’s death rate is one number applied to two
+          different amounts of coal — so this is a <b>paired</b> comparison: the coefficient uncertainty largely cancels,
+          and the difference is far more certain than either scenario’s own range. Where the paired range still crosses
+          zero, the difference is genuinely <b>smaller than the uncertainty</b> — flagged in the last column. (Horizon
+          uncertainty, which widens toward 2050, is scenario-specific and is shown on the charts above, not differenced
+          here.)
         </p>
         <DeltaTable runA={runA} runB={runB} />
       </details>
@@ -286,11 +291,17 @@ function PlainCompare({ runA, runB }: { runA: ScenarioRun; runB: ScenarioRun }) 
   const da = dispatchFor(runA, END_YEAR);
   const db = dispatchFor(runB, END_YEAR);
 
+  // Paired: "about the same" only when the shared-coefficient difference can't
+  // even resolve the sign (its range crosses zero).
+  const crossesZero = (a: Band, b: Band) => {
+    const d = pairedDelta(a, b);
+    return d.low <= 0 && d.high >= 0;
+  };
   const rows: { label: string; aVal: number; bVal: number; overlap: boolean }[] = [
-    { label: 'Deaths per year', aVal: ia.annual.deaths.central, bVal: ib.annual.deaths.central, overlap: bandsOverlap(ia.annual.deaths, ib.annual.deaths) },
-    { label: 'Climate pollution (CO₂/yr)', aVal: ia.annual.co2Mt.central, bVal: ib.annual.co2Mt.central, overlap: bandsOverlap(ia.annual.co2Mt, ib.annual.co2Mt) },
+    { label: 'Deaths per year', aVal: ia.annualCoef.deaths.central, bVal: ib.annualCoef.deaths.central, overlap: crossesZero(ia.annualCoef.deaths, ib.annualCoef.deaths) },
+    { label: 'Climate pollution (CO₂/yr)', aVal: ia.annualCoef.co2Mt.central, bVal: ib.annualCoef.co2Mt.central, overlap: crossesZero(ia.annualCoef.co2Mt, ib.annualCoef.co2Mt) },
     { label: 'Unmet demand', aVal: da.unservedTwh, bVal: db.unservedTwh, overlap: false },
-    { label: 'Cost to run per year', aVal: ia.annual.costUsdBn.central, bVal: ib.annual.costUsdBn.central, overlap: bandsOverlap(ia.annual.costUsdBn, ib.annual.costUsdBn) },
+    { label: 'Cost to run per year', aVal: ia.annualCoef.costUsdBn.central, bVal: ib.annualCoef.costUsdBn.central, overlap: crossesZero(ia.annualCoef.costUsdBn, ib.annualCoef.costUsdBn) },
   ];
 
   return (
@@ -329,9 +340,6 @@ function PlainCompare({ runA, runB }: { runA: ScenarioRun; runB: ScenarioRun }) 
   );
 }
 
-function bandsOverlap(a: Band, b: Band): boolean {
-  return a.low <= b.high && b.low <= a.high;
-}
 
 // --- series extractors ---
 
@@ -369,12 +377,14 @@ function DeltaTable({ runA, runB }: { runA: ScenarioRun; runB: ScenarioRun }) {
   const fa = last(runA.feedbacks.years);
   const fb = last(runB.feedbacks.years);
 
+  // Difference the coefficient-only bands with a PAIRED draw (pairedDelta) — the
+  // shared coefficient cancels, so the delta is far tighter and keeps its sign.
   const rows = [
-    { label: `Deaths/yr (${END_YEAR})`, a: ia.annual.deaths, b: ib.annual.deaths, unit: '', digits: 3 },
-    { label: `CO₂ Mt/yr (${END_YEAR})`, a: ia.annual.co2Mt, b: ib.annual.co2Mt, unit: ' Mt', digits: 3 },
-    { label: `Land km² (${END_YEAR})`, a: ia.annual.landKm2, b: ib.annual.landKm2, unit: ' km²', digits: 3 },
-    { label: `Cost USD bn/yr (${END_YEAR})`, a: ia.annual.costUsdBn, b: ib.annual.costUsdBn, unit: ' bn', digits: 3 },
-    { label: `Cumulative CO₂ (Gt, ${runA.model.years[0].year}–${END_YEAR})`, a: scaleBand(ia.cumulative.co2Mt, 0.001), b: scaleBand(ib.cumulative.co2Mt, 0.001), unit: ' Gt', digits: 3 },
+    { label: `Deaths/yr (${END_YEAR})`, a: ia.annualCoef.deaths, b: ib.annualCoef.deaths, unit: '', digits: 3 },
+    { label: `CO₂ Mt/yr (${END_YEAR})`, a: ia.annualCoef.co2Mt, b: ib.annualCoef.co2Mt, unit: ' Mt', digits: 3 },
+    { label: `Land km² (${END_YEAR})`, a: ia.annualCoef.landKm2, b: ib.annualCoef.landKm2, unit: ' km²', digits: 3 },
+    { label: `Cost USD bn/yr (${END_YEAR})`, a: ia.annualCoef.costUsdBn, b: ib.annualCoef.costUsdBn, unit: ' bn', digits: 3 },
+    { label: `Cumulative CO₂ (Gt, ${runA.model.years[0].year}–${END_YEAR})`, a: scaleBand(ia.cumulativeCoef.co2Mt, 0.001), b: scaleBand(ib.cumulativeCoef.co2Mt, 0.001), unit: ' Gt', digits: 3 },
   ];
 
   return (
@@ -385,15 +395,13 @@ function DeltaTable({ runA, runB }: { runA: ScenarioRun; runB: ScenarioRun }) {
             <th>Metric</th>
             <th>Scenario A</th>
             <th>Scenario B</th>
-            <th>A − B</th>
+            <th>A − B (paired)</th>
           </tr>
         </thead>
         <tbody>
           {rows.map((r) => {
-            const overlap = r.a.low <= r.b.high && r.b.low <= r.a.high;
-            const dCentral = r.a.central - r.b.central;
-            const dLow = r.a.low - r.b.high;
-            const dHigh = r.a.high - r.b.low;
+            const delta = pairedDelta(r.a, r.b);
+            const includesZero = delta.low <= 0 && delta.high >= 0;
             const sign = (n: number) => `${n > 0 ? '+' : ''}${fmt(n, r.digits)}`;
             return (
               <tr key={r.label}>
@@ -401,10 +409,10 @@ function DeltaTable({ runA, runB }: { runA: ScenarioRun; runB: ScenarioRun }) {
                 <td className="mono">{fmt(r.a.central, r.digits)}{r.unit}</td>
                 <td className="mono">{fmt(r.b.central, r.digits)}{r.unit}</td>
                 <td className="mono">
-                  {sign(dCentral)}
+                  {sign(delta.central)}
                   {r.unit}
-                  <span style={{ color: 'var(--ink-muted)' }}> ({sign(dLow)} to {sign(dHigh)})</span>
-                  {overlap ? <div style={{ color: 'var(--ink-muted)', fontSize: '0.72rem' }}>smaller than the uncertainty band</div> : null}
+                  <span style={{ color: 'var(--ink-muted)' }}> ({sign(delta.low)} to {sign(delta.high)})</span>
+                  {includesZero ? <div style={{ color: 'var(--ink-muted)', fontSize: '0.72rem' }}>smaller than the uncertainty band</div> : null}
                 </td>
               </tr>
             );

@@ -19,6 +19,8 @@ export default function ReliabilityPanel({ d, accent = 'var(--ink)' }: { d: Disp
   const seasons: SeasonKey[] = ['winter', 'spring', 'summer', 'autumn'];
   const maxSeason = Math.max(...seasons.map((s) => d.unservedBySeason[s]), 1);
   const maxHour = Math.max(...d.unservedByHourOfDay, 1);
+  // Shift UTC → US Central (~UTC−6) so the axis reads in local time.
+  const hourLocal = Array.from({ length: 24 }, (_, i) => d.unservedByHourOfDay[(i + 6) % 24]);
   const unservedPct = d.demandTwh > 0 ? (d.unservedTwh / d.demandTwh) * 100 : 0;
 
   return (
@@ -60,21 +62,20 @@ export default function ReliabilityPanel({ d, accent = 'var(--ink)' }: { d: Disp
         </div>
         <div>
           <p className="label" style={{ marginBottom: '0.5rem' }}>
-            When shortfalls fall — by hour (UTC)
+            When shortfalls fall — by time of day
           </p>
-          <svg viewBox="0 0 240 90" width="100%" style={{ height: 'auto', display: 'block' }} role="img" aria-label="Unserved energy by hour of day">
-            {d.unservedByHourOfDay.map((v, h) => {
+          <svg viewBox="0 0 240 92" width="100%" style={{ height: 'auto', display: 'block' }} role="img" aria-label="Unserved energy by time of day, US local">
+            {hourLocal.map((v, i) => {
               const bw = 240 / 24;
-              const bh = (v / maxHour) * 74;
-              return <rect key={h} x={h * bw + 1} y={80 - bh} width={bw - 1.5} height={Math.max(0, bh)} fill={accent} opacity={0.7} />;
+              const bh = (v / maxHour) * 72;
+              return <rect key={i} x={i * bw + 1} y={78 - bh} width={bw - 1.5} height={Math.max(0, bh)} fill={accent} opacity={0.7} />;
             })}
-            <line x1={0} x2={240} y1={80} y2={80} stroke="var(--chart-baseline)" strokeWidth={1} />
-            <text x={0} y={90} fontSize={8} fill="var(--ink-soft)" fontFamily="var(--font-mono)">
-              0h
-            </text>
-            <text x={240} y={90} textAnchor="end" fontSize={8} fill="var(--ink-soft)" fontFamily="var(--font-mono)">
-              23h
-            </text>
+            <line x1={0} x2={240} y1={78} y2={78} stroke="var(--chart-baseline)" strokeWidth={1} />
+            {[[0, '12am'], [120, 'noon'], [240, '12am']].map(([x, lbl]) => (
+              <text key={lbl as string} x={x as number} y={90} textAnchor={x === 0 ? 'start' : x === 240 ? 'end' : 'middle'} fontSize={8} fill="var(--ink-soft)" fontFamily="var(--font-mono)">
+                {lbl}
+              </text>
+            ))}
           </svg>
         </div>
       </div>
