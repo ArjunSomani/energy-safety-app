@@ -129,6 +129,17 @@ export default function MetricLadder() {
   const ticks = scale === 'log' ? metric.logTicks : metric.linTicks;
   const hasBars = rows.some((r) => r.band);
 
+  // Nuclear, wind and solar sit within each other's uncertainty on the two
+  // death-based measures — the engine already refuses to rank them apart, so
+  // mark that zone rather than implying an order. Only shown where it's true.
+  const OVERLAP = new Set(['nuclear', 'wind', 'solar']);
+  const overlapMetric = metric.key === 'deaths' || metric.key === 'mortality';
+  const overlapIdx = overlapMetric ? rows.map((r, i) => (OVERLAP.has(r.slug) ? i : -1)).filter((i) => i >= 0) : [];
+  const overlapBand =
+    overlapIdx.length >= 2
+      ? { top: 20 + Math.min(...overlapIdx) * 44 - 10, height: (Math.max(...overlapIdx) - Math.min(...overlapIdx)) * 44 + 34 }
+      : null;
+
   return (
     <section className="panel p-4 md:p-8" aria-labelledby="metric-ladder-title">
       <div className="mb-4 flex flex-wrap items-end justify-between gap-4">
@@ -162,6 +173,14 @@ export default function MetricLadder() {
         className="relative h-[430px] py-8"
         style={{ borderTop: '1px solid var(--chart-gridline)', borderBottom: '1px solid var(--chart-gridline)' }}
       >
+        {overlapBand ? (
+          <div
+            className="absolute left-0 right-0 rounded-sm"
+            aria-hidden="true"
+            style={{ top: overlapBand.top, height: overlapBand.height, background: 'var(--accent-soft)', opacity: 0.6, pointerEvents: 'none' }}
+          />
+        ) : null}
+
         <div className="absolute left-0 right-0 top-1/2 h-px" style={{ background: 'var(--chart-baseline)' }} />
 
         {ticks.map((t) => (
@@ -214,6 +233,15 @@ export default function MetricLadder() {
       </div>
 
       <p className="mt-3 text-sm text-[var(--ink-soft)]">{metric.caption}</p>
+      {overlapBand ? (
+        <p className="mt-3 text-sm text-[var(--ink-soft)]">
+          <span
+            style={{ display: 'inline-block', width: '0.85rem', height: '0.85rem', borderRadius: 3, background: 'var(--accent-soft)', border: '1px solid var(--rule-strong)', verticalAlign: 'middle', marginRight: '0.4rem' }}
+          />
+          The three lowest — nuclear, wind and solar — sit within each other&apos;s uncertainty. This site doesn&apos;t rank
+          them apart.
+        </p>
+      ) : null}
       {metric.modeled ? (
         <p className="mt-3 text-sm text-[var(--ink-soft)]">
           <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: '#1f52ad' }} /> counted ·{' '}

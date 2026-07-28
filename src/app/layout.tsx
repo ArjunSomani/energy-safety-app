@@ -18,8 +18,22 @@ const display = Fraunces({
 });
 
 export const metadata = {
+  metadataBase: new URL('https://levelmodel.vercel.app'),
   title: 'Level',
   description: 'A neutral reference for comparing electricity-source safety on a shared scale.',
+  openGraph: {
+    title: 'Level — the safety of electricity, on one scale',
+    description:
+      'Compare electricity sources by deaths per terawatt-hour — counted vs modeled, uncertainty shown, and priced against carbon and cost.',
+    siteName: 'Level',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Level — the safety of electricity, on one scale',
+    description:
+      'Compare electricity sources by deaths per terawatt-hour, with the uncertainty shown and priced against carbon and cost.',
+  },
 };
 
 // Set the theme before first paint to avoid a flash of the wrong palette.

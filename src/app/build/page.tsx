@@ -1,5 +1,6 @@
 'use client';
 
+import CopyLinkButton from '@/components/CopyLinkButton';
 import DeathsSplitBar from '@/components/DeathsSplitBar';
 import PriceControl from '@/components/PriceControl';
 import WarningStrip from '@/components/WarningStrip';
@@ -111,7 +112,10 @@ export default function Page() {
 
   return (
     <main className="mx-auto max-w-6xl p-6">
-      <h1 className="text-4xl">Build a grid</h1>
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <h1 className="text-4xl" style={{ marginBottom: 0 }}>Build a grid</h1>
+        <CopyLinkButton label="Copy this grid" />
+      </div>
       <div className="my-4 flex flex-wrap gap-3">
         <label>
           Annual demand (TWh)

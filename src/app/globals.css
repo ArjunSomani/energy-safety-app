@@ -983,3 +983,90 @@ pre {
     animation-duration: 0.01ms !important;
   }
 }
+
+/* ---- Responsive tables: reflow wide data tables to stacked cards on phones,
+   using each cell's data-label so no header context is lost ---- */
+@media (max-width: 640px) {
+  table.table-responsive thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  table.table-responsive,
+  table.table-responsive tbody,
+  table.table-responsive tr,
+  table.table-responsive td {
+    display: block;
+    width: 100%;
+  }
+  table.table-responsive tr {
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-sm);
+    padding: 0.4rem 0.7rem;
+    margin-bottom: 0.6rem;
+  }
+  table.table-responsive tbody tr:hover {
+    background: transparent;
+  }
+  table.table-responsive td {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    border: none;
+    padding: 0.25rem 0;
+    text-align: right;
+  }
+  table.table-responsive td::before {
+    content: attr(data-label);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    text-align: left;
+    font-weight: 500;
+  }
+  table.table-responsive td:first-child {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.4rem;
+    margin-bottom: 0.25rem;
+    font-size: 1.05rem;
+  }
+  table.table-responsive td:first-child::before {
+    content: '';
+  }
+}
+
+/* ---- Print: a clean, chrome-free layout for citing a page on paper ---- */
+@media print {
+  .site-header,
+  .site-footer,
+  .theme-toggle,
+  .nav-toggle,
+  .scale-toggle,
+  .skip-link,
+  .hero-glow,
+  .btn {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .panel {
+    border: 1px solid #ccc;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+}

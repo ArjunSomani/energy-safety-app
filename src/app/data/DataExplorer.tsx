@@ -188,7 +188,7 @@ export default function DataExplorer() {
         </button>
       </div>
       <div className="overflow-auto panel">
-        <table className="w-full border-collapse">
+        <table className="w-full border-collapse table-responsive">
           <thead>
             <tr>
               {cols.map((c) => (
@@ -209,7 +209,7 @@ export default function DataExplorer() {
             {rows.map((s) => (
               <tr key={s.slug}>
                 {cols.map((c) => (
-                  <td key={c.key} className={c.numeric ? 'mono' : undefined} style={{ whiteSpace: 'nowrap' }}>
+                  <td key={c.key} data-label={c.label} className={c.numeric ? 'mono' : undefined} style={{ whiteSpace: 'nowrap' }}>
                     {c.render(s)}
                   </td>
                 ))}

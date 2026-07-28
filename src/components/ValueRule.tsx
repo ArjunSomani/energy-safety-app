@@ -158,7 +158,7 @@ export default function ValueRule() {
         than the bill.
       </p>
       <div className="overflow-auto">
-        <table className="w-full border-collapse" style={{ marginTop: '0.5rem' }}>
+        <table className="w-full border-collapse table-responsive" style={{ marginTop: '0.5rem' }}>
           <thead>
             <tr>
               <th>Source</th>
@@ -171,11 +171,11 @@ export default function ValueRule() {
           <tbody>
             {rows.map((s) => (
               <tr key={s.slug}>
-                <td>{s.label}</td>
-                <td className="mono">{fmt(s.deathCentral)}</td>
-                <td className="mono">{formatUsdPerMwh(s.costCentral)}</td>
-                <td className="mono">{s.lcoe == null ? '—' : formatUsdPerMwh(s.lcoe)}</td>
-                <td className="mono">{ratioText(s.costCentral, s.lcoe)}</td>
+                <td data-label="Source">{s.label}</td>
+                <td data-label="Deaths / TWh" className="mono">{fmt(s.deathCentral)}</td>
+                <td data-label="Mortality cost / MWh" className="mono">{formatUsdPerMwh(s.costCentral)}</td>
+                <td data-label="Market price / MWh" className="mono">{s.lcoe == null ? '—' : formatUsdPerMwh(s.lcoe)}</td>
+                <td data-label="Uncounted vs bill" className="mono">{ratioText(s.costCentral, s.lcoe)}</td>
               </tr>
             ))}
           </tbody>
