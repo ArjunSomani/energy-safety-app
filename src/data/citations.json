@@ -28,5 +28,10 @@
     "label": "US HHS ASPE, Standard Values for Regulatory Analysis, 2026 (value of a statistical life)",
     "url": "https://aspe.hhs.gov/topics/policy-regulation/regulatory-analysis",
     "year": 2026
+  },
+  "epa-scc-2023": {
+    "label": "US EPA, Report on the Social Cost of Greenhouse Gases (2023)",
+    "url": "https://www.epa.gov/environmental-economics/scghg",
+    "year": 2023
   }
 }

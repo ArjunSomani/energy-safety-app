@@ -1,0 +1,13 @@
+{
+  "unit": "USD per metric ton CO₂, 2020 dollars",
+  "source": "epa-scc-2023",
+  "presets": [
+    { "key": "low", "label": "Low · 2.5%", "value": 120 },
+    { "key": "central", "label": "Central · 2.0%", "value": 190 },
+    { "key": "high", "label": "High · 1.5%", "value": 340 }
+  ],
+  "min": 0,
+  "max": 400,
+  "step": 5,
+  "note": "The social cost of carbon is the dollar damage one extra tonne of CO₂ does, worldwide, over its lifetime in the atmosphere. The EPA's 2023 report publishes three figures — the choice among them is mostly a discount rate, i.e. how much a future harm is worth today. Shown as published values, not as an endorsement of any one rate."
+}

@@ -1,13 +1,24 @@
 'use client';
 
 import DeathsSplitBar from '@/components/DeathsSplitBar';
-import VslControl from '@/components/VslControl';
+import PriceControl from '@/components/PriceControl';
 import WarningStrip from '@/components/WarningStrip';
 import countries from '@/data/countries.json';
+import { SCC_CENTRAL, SCC_MAX, SCC_MIN, SCC_PRESETS, SCC_STEP, carbonCostPerMwh, formatScc } from '@/lib/carbon';
 import { computeMix, normalizeMix, slugs } from '@/lib/engine';
 import { bandText, fmt, landAnchor, peoplePerDeathForMix } from '@/lib/format';
 import type { SourceSlug } from '@/lib/types';
-import { VSL_CENTRAL, bigBandText, costOfDeathsBand, perMwhBandText } from '@/lib/value';
+import {
+  VSL_CENTRAL,
+  VSL_MAX,
+  VSL_MIN,
+  VSL_PRESETS,
+  VSL_STEP,
+  costOfDeathsBand,
+  formatUsdBig,
+  formatUsdPerMwh,
+  formatVsl,
+} from '@/lib/value';
 import { useEffect, useMemo, useState } from 'react';
 
 const world = countries.find((country) => country.iso === 'WLD')!;
@@ -31,21 +42,26 @@ export default function Page() {
   const [percentMix, setPercentMix] = useState<Record<SourceSlug, number>>(world.mix as Record<SourceSlug, number>);
   const [includeFirming, setIncludeFirming] = useState(false);
   const [vsl, setVsl] = useState(VSL_CENTRAL);
+  const [scc, setScc] = useState(SCC_CENTRAL);
   const mix = useMemo(() => normalizeMix(percentMix), [percentMix]);
   const result = computeMix(mix, demand, { includeFirmingCost: includeFirming });
   const peoplePerDeath = peoplePerDeathForMix(result.deaths.total, demand);
 
   // Blended death rate of the whole mix, directly comparable to the risk rule.
   const intensity = demand > 0 ? result.deaths.total.central / demand : 0;
-  // The death toll priced at the chosen value of a statistical life — the cost
-  // the electricity bill never includes.
-  const mortalityCostAnnual = costOfDeathsBand(result.deaths.total, vsl);
   const totalMwh = demand * 1_000_000;
-  const mortalityCostPerMwh = {
-    low: totalMwh > 0 ? mortalityCostAnnual.low / totalMwh : 0,
-    central: totalMwh > 0 ? mortalityCostAnnual.central / totalMwh : 0,
-    high: totalMwh > 0 ? mortalityCostAnnual.high / totalMwh : 0,
-  };
+
+  // --- The true cost: what the grid costs to run (the bill), plus the two harms
+  // the market never charges for, each priced at a value the reader chooses.
+  const marketPerMwh = result.cost.usdPerMwh.central; // LCOE, the bill
+  const carbonPerMwh = carbonCostPerMwh(result.co2.gPerKwh.central, scc);
+  const mortalityCostAnnual = costOfDeathsBand(result.deaths.total, vsl);
+  const mortalityPerMwh = totalMwh > 0 ? mortalityCostAnnual.central / totalMwh : 0;
+  const truePerMwh = marketPerMwh + carbonPerMwh + mortalityPerMwh;
+  const marketAnnual = result.cost.annualUsdBn.central * 1e9;
+  const carbonAnnual = carbonPerMwh * totalMwh;
+  const trueAnnual = marketAnnual + carbonAnnual + mortalityCostAnnual.central;
+  const pctOf = (v: number) => (truePerMwh > 0 ? (v / truePerMwh) * 100 : 0);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -67,6 +83,11 @@ export default function Page() {
       const parsedVsl = Number(vslParam);
       if (Number.isFinite(parsedVsl) && parsedVsl >= 0) setVsl(parsedVsl);
     }
+    const sccParam = params.get('scc');
+    if (sccParam !== null && sccParam !== '') {
+      const parsedScc = Number(sccParam);
+      if (Number.isFinite(parsedScc) && parsedScc >= 0) setScc(parsedScc);
+    }
   }, []);
 
   useEffect(() => {
@@ -75,8 +96,9 @@ export default function Page() {
     params.set('demand', String(Math.round(demand)));
     if (includeFirming) params.set('firming', '1');
     if (vsl !== VSL_CENTRAL) params.set('vsl', String(Math.round(vsl)));
+    if (scc !== SCC_CENTRAL) params.set('scc', String(Math.round(scc)));
     window.history.replaceState(null, '', `/build?${params.toString()}`);
-  }, [demand, includeFirming, percentMix, vsl]);
+  }, [demand, includeFirming, percentMix, vsl, scc]);
 
   function setOne(slug: SourceSlug, value: number) {
     const next = { ...percentMix, [slug]: value };
@@ -136,19 +158,57 @@ export default function Page() {
             <p className="text-sm">Oil, hydro, and biomass render as no comparable cost data and are omitted rather than mixed with another methodology.</p>
           </div>
           <div className="panel p-4">
-            <h2>Mortality cost</h2>
+            <h2>The true cost</h2>
             <p className="text-sm text-[var(--ink-soft)]" style={{ marginTop: 0 }}>
-              This grid&apos;s death toll, priced at the value of a statistical life — a cost the bill above never
-              includes. <a href="/value">What is this?</a>
+              The bill above, plus the two harms the market never charges for — carbon and mortality — each priced at a
+              value you choose. <a href="/value">Mortality</a> and <a href="/methodology">carbon</a>.
             </p>
-            <div className="my-3">
-              <VslControl vsl={vsl} onChange={setVsl} compact />
+            <div className="my-3 grid gap-4">
+              <PriceControl
+                label="Value of a statistical life"
+                value={vsl}
+                onChange={setVsl}
+                presets={VSL_PRESETS}
+                min={VSL_MIN}
+                max={VSL_MAX}
+                step={VSL_STEP}
+                format={formatVsl}
+                ariaLabel="Value of a statistical life, US dollars"
+              />
+              <PriceControl
+                label="Social cost of carbon"
+                value={scc}
+                onChange={setScc}
+                presets={SCC_PRESETS}
+                min={SCC_MIN}
+                max={SCC_MAX}
+                step={SCC_STEP}
+                format={formatScc}
+                ariaLabel="Social cost of carbon, US dollars per tonne"
+              />
             </div>
-            <p className="mono">{perMwhBandText(mortalityCostPerMwh)}</p>
-            <p className="mono">{bigBandText(mortalityCostAnnual, 'per year')}</p>
+            <div
+              className="flex h-5 rounded-sm border"
+              role="img"
+              aria-label={`True cost per MWh: market ${formatUsdPerMwh(marketPerMwh)}, carbon ${formatUsdPerMwh(carbonPerMwh)}, mortality ${formatUsdPerMwh(mortalityPerMwh)}`}
+              style={{ borderColor: 'var(--bar-border)', overflow: 'hidden' }}
+            >
+              <div style={{ width: `${pctOf(marketPerMwh)}%`, background: 'var(--accent)' }} title={`Market price ${formatUsdPerMwh(marketPerMwh)}/MWh`} />
+              <div style={{ width: `${pctOf(carbonPerMwh)}%`, background: '#c2762f' }} title={`Carbon ${formatUsdPerMwh(carbonPerMwh)}/MWh`} />
+              <div style={{ width: `${pctOf(mortalityPerMwh)}%`, background: '#b0503f' }} title={`Mortality ${formatUsdPerMwh(mortalityPerMwh)}/MWh`} />
+            </div>
+            <p className="mt-3 text-sm text-[var(--ink-soft)]">
+              <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: 'var(--accent)' }} /> bill {formatUsdPerMwh(marketPerMwh)} ·{' '}
+              <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: '#c2762f' }} /> carbon {formatUsdPerMwh(carbonPerMwh)} ·{' '}
+              <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: '#b0503f' }} /> mortality {formatUsdPerMwh(mortalityPerMwh)} /MWh
+            </p>
+            <p className="mono" style={{ marginBottom: '0.2rem' }}>
+              True cost ≈ {formatUsdPerMwh(truePerMwh)}/MWh{marketPerMwh > 0 ? ` (${(truePerMwh / marketPerMwh).toFixed(1)}× the bill)` : ''}
+            </p>
+            <p className="mono">{formatUsdBig(trueAnnual)} per year, all-in</p>
             <p className="text-sm">
-              Set against the market price above: for a coal-heavy mix the uncounted mortality cost can exceed the bill;
-              for wind, solar, and nuclear it is a rounding error next to it.
+              The bill covers only sources with a Lazard cost figure; carbon and mortality are counted for the whole mix.
+              A coal-heavy grid&apos;s true cost runs well above its bill; a clean grid&apos;s barely moves.
             </p>
           </div>
         </section>
