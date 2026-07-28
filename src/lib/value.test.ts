@@ -38,7 +38,8 @@ describe('value of a statistical life', () => {
     expect(formatVsl(14_100_000)).toBe('$14.1M');
     expect(formatVsl(0)).toBe('$0');
     expect(formatUsdPerMwh(346.86)).toBe('$347');
-    expect(formatUsdPerMwh(39.48)).toBe('$39.48');
+    expect(formatUsdPerMwh(39.48)).toBe('$39');
+    expect(formatUsdPerMwh(2235)).toBe('$2,235');
     expect(formatUsdPerMwh(0.282)).toBe('$0.28');
     expect(formatUsdPerMwh(0.004)).toBe('<$0.01');
     expect(formatUsdBig(14_100_000_000)).toBe('$14.1B');
