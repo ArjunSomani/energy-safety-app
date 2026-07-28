@@ -64,11 +64,14 @@ export const formatUsdBig = (value: number) => {
   return `$${Math.round(value)}`;
 };
 
-// Per-MWh dollar costs, adaptive precision: $347, $39.48, $0.28, <$0.01.
+// Per-MWh dollar costs. Whole dollars at or above $1 (with thousands
+// separators), cents below — one consistent style so a column of them reads
+// cleanly: $347, $39, $2,235, $0.28, <$0.01. Rounding to the dollar is honest
+// here: the death-rate band spans an order of magnitude, so trailing cents
+// imply a precision the underlying figure does not have.
 export const formatUsdPerMwh = (value: number) => {
   if (!(value > 0)) return '$0';
-  if (value >= 100) return `$${Math.round(value)}`;
-  if (value >= 1) return `$${value.toFixed(2)}`;
+  if (value >= 1) return `$${Math.round(value).toLocaleString('en-US')}`;
   if (value >= 0.01) return `$${value.toFixed(2)}`;
   return '<$0.01';
 };

@@ -29,12 +29,16 @@ type Src = (typeof sourcesData)[number];
 // scalar), so the order matches the risk rule exactly.
 const ordered = [...sourcesData].sort((a, b) => b.deathRate.central - a.deathRate.central);
 
+// The uncounted cost as a clean multiple of the market price. One consistent
+// unit (×) across the column, paired with the caption "above one = larger than
+// the bill." 2.9×, 0.5×, 0.01×, <0.01×, — (no market price).
 function ratioText(cost: number, lcoe: number | null): string {
   if (lcoe == null || !(lcoe > 0)) return '—';
   const r = cost / lcoe;
-  if (r >= 1) return `${r.toFixed(1)}× the price`;
-  if (r >= 0.01) return `${Math.round(r * 100)}% of the price`;
-  return '<1% of the price';
+  if (r >= 10) return `${Math.round(r)}×`;
+  if (r >= 0.1) return `${r.toFixed(1)}×`;
+  if (r >= 0.01) return `${r.toFixed(2)}×`;
+  return '<0.01×';
 }
 
 export default function ValueRule() {
