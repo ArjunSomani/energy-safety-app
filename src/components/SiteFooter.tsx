@@ -1,6 +1,7 @@
 const footerLinks = [
   ['How we count', '/how-we-count'],
   ['Sources', '/sources'],
+  ['Value of a life', '/value'],
   ['Methodology', '/methodology'],
   ['Data', '/data'],
   ['About', '/about'],
