@@ -1,7 +1,8 @@
 'use client';
 
+import CopyLinkButton from '@/components/CopyLinkButton';
 import sourcesData from '@/data/sources.json';
-import { SCC_CENTRAL, carbonCostPerMwh, carbonCostPerMwhBand, formatScc } from '@/lib/carbon';
+import { SCC_CENTRAL, carbonCostPerMwhBand, formatScc } from '@/lib/carbon';
 import { fmt } from '@/lib/format';
 import type { Band } from '@/lib/types';
 import { VSL_CENTRAL, formatUsdPerMwh, formatVsl, mortalityCostPerMwh, mortalityCostPerMwhBand } from '@/lib/value';
@@ -80,7 +81,10 @@ export default function Page() {
 
   return (
     <main className="mx-auto max-w-6xl p-6">
-      <h1 className="text-4xl">Compare</h1>
+      <div className="flex flex-wrap items-end justify-between gap-3">
+        <h1 className="text-4xl" style={{ marginBottom: 0 }}>Compare</h1>
+        <CopyLinkButton label="Copy this comparison" />
+      </div>
       <p className="my-4" style={{ maxWidth: '42rem' }}>
         Put two to four sources head to head across every measure at once. Each measure has its own scale — you can&apos;t
         weigh deaths and dollars on one axis — and each source keeps one colour throughout. The winner changes with the
