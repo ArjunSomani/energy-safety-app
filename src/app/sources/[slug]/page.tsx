@@ -2,6 +2,7 @@ import RiskRule from '@/components/RiskRule';
 import citations from '@/data/citations.json';
 import sources from '@/data/sources.json';
 import { nullableBandText, peoplePerDeathText } from '@/lib/format';
+import { VSL_CENTRAL, formatUsdPerMwh, formatVsl, mortalityCostPerMwh } from '@/lib/value';
 
 export function generateStaticParams() {
   return sources.map((source) => ({ slug: source.slug }));
@@ -28,6 +29,8 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
   };
   const perDeath = peoplePerDeathText(source.deathRate);
   const highDerived = Boolean(deathRate.highBoundDerived);
+  const mortalityCost = mortalityCostPerMwh(source.deathRate.central, VSL_CENTRAL);
+  const lcoeCentral = source.lcoe.central as number | null;
 
   return (
     <main className="mx-auto max-w-4xl p-6">
@@ -55,6 +58,19 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
           <b style={{ color: 'var(--warn)' }}>On the upper bound</b> — {deathRate.highBoundNote}
         </p>
       ) : null}
+
+      <p className="panel p-3 text-sm" style={{ borderLeft: '3px solid var(--accent)' }}>
+        <b>The uncounted cost</b> — priced at the central value of a statistical life ({formatVsl(VSL_CENTRAL)}),{' '}
+        {source.label}&apos;s death toll is worth about <span className="mono">{formatUsdPerMwh(mortalityCost)}</span> per
+        MWh generated
+        {lcoeCentral != null ? (
+          <>
+            {' '}
+            — against a market price of <span className="mono">{formatUsdPerMwh(lcoeCentral)}</span>/MWh
+          </>
+        ) : null}
+        . That cost is on no electricity bill. <a href="/value">Value of a life →</a>
+      </p>
 
       <h2>How it kills</h2>
       <p>

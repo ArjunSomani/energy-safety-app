@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 const links = [
   ['How we count', '/how-we-count'],
   ['Sources', '/sources'],
+  ['Value', '/value'],
   ['Build', '/build'],
   ['Model', '/model'],
   ['Countries', '/countries'],

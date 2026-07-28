@@ -23,5 +23,10 @@
     "label": "Van Zalk & Behrens 2018, spatial extent of energy generation",
     "url": "https://doi.org/10.1016/j.energy.2018.08.056",
     "year": 2018
+  },
+  "hhs-vsl-2026": {
+    "label": "US HHS ASPE, Standard Values for Regulatory Analysis, 2026 (value of a statistical life)",
+    "url": "https://aspe.hhs.gov/topics/policy-regulation/regulatory-analysis",
+    "year": 2026
   }
 }

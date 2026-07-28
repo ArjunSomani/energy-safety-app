@@ -47,6 +47,20 @@ export default function Home() {
             </div>
           ))}
         </div>
+
+        <a className="panel p-6 mt-4" href="/value" style={{ display: 'block' }}>
+          <span className="kicker" style={{ margin: 0 }}>
+            The uncounted cost
+          </span>
+          <h3 style={{ marginTop: '0.35rem', marginBottom: 0 }}>
+            What is that death toll worth?
+          </h3>
+          <p className="mt-3 text-sm text-[var(--ink-soft)]" style={{ margin: '0.5rem 0 0' }}>
+            Price each source&apos;s deaths at the value society already places on a statistical life, and see the cost
+            the electricity bill leaves out — for coal, often larger than the bill itself.{' '}
+            <span className="card-arrow" />
+          </p>
+        </a>
       </div>
     </div>
   );

@@ -1,0 +1,14 @@
+{
+  "unit": "USD, constant 2025 dollars",
+  "source": "hhs-vsl-2026",
+  "presets": [
+    { "key": "low", "label": "Low", "value": 6600000 },
+    { "key": "central", "label": "Central", "value": 14100000 },
+    { "key": "high", "label": "High", "value": 21500000 }
+  ],
+  "min": 0,
+  "max": 25000000,
+  "step": 100000,
+  "escalationYearly": 1.011,
+  "note": "US regulators already attach a dollar figure to a statistical death. HHS's 2026 guidance publishes a range — low, central, and high — not a single number. These are shown as published values, never as an endorsement of any one of them. The choice among them is a moral and political one this site does not make for you."
+}

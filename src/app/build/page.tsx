@@ -1,10 +1,13 @@
 'use client';
 
+import DeathsSplitBar from '@/components/DeathsSplitBar';
+import VslControl from '@/components/VslControl';
 import WarningStrip from '@/components/WarningStrip';
 import countries from '@/data/countries.json';
 import { computeMix, normalizeMix, slugs } from '@/lib/engine';
-import { bandText, landAnchor, peoplePerDeathForMix } from '@/lib/format';
+import { bandText, fmt, landAnchor, peoplePerDeathForMix } from '@/lib/format';
 import type { SourceSlug } from '@/lib/types';
+import { VSL_CENTRAL, bigBandText, costOfDeathsBand, perMwhBandText } from '@/lib/value';
 import { useEffect, useMemo, useState } from 'react';
 
 const world = countries.find((country) => country.iso === 'WLD')!;
@@ -27,9 +30,22 @@ export default function Page() {
   const [demand, setDemand] = useState(world.demandTwh);
   const [percentMix, setPercentMix] = useState<Record<SourceSlug, number>>(world.mix as Record<SourceSlug, number>);
   const [includeFirming, setIncludeFirming] = useState(false);
+  const [vsl, setVsl] = useState(VSL_CENTRAL);
   const mix = useMemo(() => normalizeMix(percentMix), [percentMix]);
   const result = computeMix(mix, demand, { includeFirmingCost: includeFirming });
   const peoplePerDeath = peoplePerDeathForMix(result.deaths.total, demand);
+
+  // Blended death rate of the whole mix, directly comparable to the risk rule.
+  const intensity = demand > 0 ? result.deaths.total.central / demand : 0;
+  // The death toll priced at the chosen value of a statistical life — the cost
+  // the electricity bill never includes.
+  const mortalityCostAnnual = costOfDeathsBand(result.deaths.total, vsl);
+  const totalMwh = demand * 1_000_000;
+  const mortalityCostPerMwh = {
+    low: totalMwh > 0 ? mortalityCostAnnual.low / totalMwh : 0,
+    central: totalMwh > 0 ? mortalityCostAnnual.central / totalMwh : 0,
+    high: totalMwh > 0 ? mortalityCostAnnual.high / totalMwh : 0,
+  };
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -44,6 +60,13 @@ export default function Page() {
     const parsedDemand = Number(params.get('demand'));
     if (Number.isFinite(parsedDemand) && parsedDemand > 0) setDemand(parsedDemand);
     setIncludeFirming(params.get('firming') === '1');
+    // Only override the default when the param is actually present — an absent
+    // param is Number(null) === 0, which would otherwise zero out the VSL.
+    const vslParam = params.get('vsl');
+    if (vslParam !== null && vslParam !== '') {
+      const parsedVsl = Number(vslParam);
+      if (Number.isFinite(parsedVsl) && parsedVsl >= 0) setVsl(parsedVsl);
+    }
   }, []);
 
   useEffect(() => {
@@ -51,8 +74,9 @@ export default function Page() {
     params.set('mix', serializeMix(percentMix));
     params.set('demand', String(Math.round(demand)));
     if (includeFirming) params.set('firming', '1');
+    if (vsl !== VSL_CENTRAL) params.set('vsl', String(Math.round(vsl)));
     window.history.replaceState(null, '', `/build?${params.toString()}`);
-  }, [demand, includeFirming, percentMix]);
+  }, [demand, includeFirming, percentMix, vsl]);
 
   function setOne(slug: SourceSlug, value: number) {
     const next = { ...percentMix, [slug]: value };
@@ -95,7 +119,13 @@ export default function Page() {
           ))}
         </section>
         <section className="grid gap-3">
-          <div className="panel p-4"><h2>Deaths</h2><p className="mono">{bandText(result.deaths.total, 'per year')}</p>{peoplePerDeath ? <p className="text-sm">≈ one death for every <span className="mono">{peoplePerDeath}</span>&apos;s annual electricity, at this mix.</p> : null}</div>
+          <div className="panel p-4">
+            <h2>Deaths</h2>
+            <p className="mono">{bandText(result.deaths.total, 'per year')}</p>
+            {peoplePerDeath ? <p className="text-sm">≈ one death for every <span className="mono">{peoplePerDeath}</span>&apos;s annual electricity, at this mix.</p> : null}
+            {intensity > 0 ? <p className="text-sm" style={{ marginBottom: '0.6rem' }}>This mix blends to about <span className="mono">{fmt(intensity)}</span> deaths/TWh. For scale, an all-coal grid is ~24.6, all-gas ~2.8, all-wind ~0.02.</p> : null}
+            <DeathsSplitBar counted={result.deaths.counted} modeled={result.deaths.modeled} />
+          </div>
           <div className="panel p-4"><h2>CO₂</h2><p className="mono">{bandText(result.co2.totalMt, 'Mt/yr')}</p><p className="mono">{bandText(result.co2.gPerKwh, 'gCO₂eq/kWh')}</p></div>
           <div className="panel p-4"><h2>Land</h2><p className="mono">{bandText(result.land.km2, 'km²')}</p><p className="text-sm">{landAnchor(result.land.km2.high)}</p><p className="text-sm">Wind uses a dual land figure: direct occupation to total wind-farm area.</p></div>
           <div className="panel p-4">
@@ -104,6 +134,22 @@ export default function Page() {
             <p className="mono">{bandText(result.cost.usdPerMwh, 'USD/MWh')}</p>
             <p className="mono">{bandText(result.cost.annualUsdBn, 'USD bn/yr')}</p>
             <p className="text-sm">Oil, hydro, and biomass render as no comparable cost data and are omitted rather than mixed with another methodology.</p>
+          </div>
+          <div className="panel p-4">
+            <h2>Mortality cost</h2>
+            <p className="text-sm text-[var(--ink-soft)]" style={{ marginTop: 0 }}>
+              This grid&apos;s death toll, priced at the value of a statistical life — a cost the bill above never
+              includes. <a href="/value">What is this?</a>
+            </p>
+            <div className="my-3">
+              <VslControl vsl={vsl} onChange={setVsl} compact />
+            </div>
+            <p className="mono">{perMwhBandText(mortalityCostPerMwh)}</p>
+            <p className="mono">{bigBandText(mortalityCostAnnual, 'per year')}</p>
+            <p className="text-sm">
+              Set against the market price above: for a coal-heavy mix the uncounted mortality cost can exceed the bill;
+              for wind, solar, and nuclear it is a rounding error next to it.
+            </p>
           </div>
         </section>
       </div>
