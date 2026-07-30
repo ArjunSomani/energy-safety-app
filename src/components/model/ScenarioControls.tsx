@@ -38,7 +38,7 @@ export default function ScenarioControls({
         <span className="label">Start from a preset</span>
         <select
           className="mono"
-          style={{ width: '100%', padding: '0.4rem', background: 'var(--surface)', border: '1px solid var(--rule)', borderRadius: 'var(--radius-sm)', marginTop: '0.25rem' }}
+          style={{ width: '100%', marginTop: '0.25rem' }}
           value={PRESETS.some((p) => p.label === scenario.label) ? scenario.label : 'Custom'}
           onChange={(e) => {
             const p = PRESETS.find((x) => x.label === e.target.value);
@@ -79,6 +79,7 @@ export default function ScenarioControls({
                     onChange={(e) => setBuild(t, Number(e.target.value))}
                     style={{ accentColor: accent }}
                     aria-label={`${TECH_META[t].label} build rate, gigawatts per year`}
+                    aria-valuetext={`${v} gigawatts per year`}
                   />
                   <span className="mono" style={{ fontSize: '0.78rem', textAlign: 'right' }}>{v}</span>
                 </label>
@@ -89,10 +90,15 @@ export default function ScenarioControls({
         </div>
       </div>
 
-      <label style={{ display: 'grid', gridTemplateColumns: '1fr 3.4rem', alignItems: 'center', gap: '0.5rem' }}>
-        <span className="label">How fast demand grows (%/yr)</span>
+      {/* A <label> may only contain phrasing content, so the explanatory note is
+          a sibling <div> rather than a <p> nested inside the label. */}
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 3.4rem', alignItems: 'center', gap: '0.5rem' }}>
+        <label className="label" htmlFor="demand-growth">
+          How fast demand grows (%/yr)
+        </label>
         <span className="mono" style={{ textAlign: 'right', fontSize: '0.82rem' }}>{(scenario.demandGrowth * 100).toFixed(1)}%</span>
         <input
+          id="demand-growth"
           type="range"
           min={-1}
           max={4}
@@ -101,11 +107,12 @@ export default function ScenarioControls({
           onChange={(e) => onChange({ ...scenario, label: 'Custom', demandGrowth: Number(e.target.value) / 100 })}
           style={{ gridColumn: '1 / -1', accentColor: accent }}
           aria-label="Demand growth percent per year"
+          aria-valuetext={`${(scenario.demandGrowth * 100).toFixed(1)} percent per year`}
         />
-        <p style={{ gridColumn: '1 / -1', margin: 0, fontSize: '0.72rem', color: 'var(--ink-muted)' }}>
+        <div style={{ gridColumn: '1 / -1', fontSize: '0.72rem', color: 'var(--ink-muted)' }}>
           US demand has grown ~1%/yr; data centres and electric cars could push it higher.
-        </p>
-      </label>
+        </div>
+      </div>
 
       <div>
         <span className="label">When to retire old plants</span>
@@ -134,13 +141,14 @@ export default function ScenarioControls({
         className="btn btn-ghost"
         style={{ justifySelf: 'start', padding: '0.35rem 0.8rem', fontSize: '0.78rem' }}
         aria-expanded={advanced}
+        aria-controls="advanced-assumptions"
         onClick={() => setAdvanced((v) => !v)}
       >
         {advanced ? '− Hide advanced assumptions' : '+ Show advanced assumptions'}
       </button>
 
       {advanced ? (
-        <div className="grid" style={{ gap: '0.9rem', borderLeft: '2px solid var(--rule)', paddingLeft: '0.8rem' }}>
+        <div id="advanced-assumptions" className="grid" style={{ gap: '0.9rem', paddingLeft: '0.8rem' }}>
           <div className="grid" style={{ gridTemplateColumns: '1fr 1fr', gap: '0.7rem' }}>
             <label style={{ display: 'block' }}>
               <span className="label">Solar cost fall</span>
@@ -154,6 +162,7 @@ export default function ScenarioControls({
                   onChange={(e) => onChange({ ...scenario, label: 'Custom', solarLearningRate: Number(e.target.value) / 100 })}
                   style={{ accentColor: accent }}
                   aria-label="Solar learning rate percent per doubling"
+                  aria-valuetext={`${Math.round(scenario.solarLearningRate * 100)} percent per doubling`}
                 />
                 <span className="mono" style={{ fontSize: '0.76rem', width: '2.6rem', textAlign: 'right' }}>{Math.round(scenario.solarLearningRate * 100)}%</span>
               </div>
@@ -170,6 +179,7 @@ export default function ScenarioControls({
                   onChange={(e) => onChange({ ...scenario, label: 'Custom', batteryLearningRate: Number(e.target.value) / 100 })}
                   style={{ accentColor: accent }}
                   aria-label="Battery learning rate percent per doubling"
+                  aria-valuetext={`${Math.round(scenario.batteryLearningRate * 100)} percent per doubling`}
                 />
                 <span className="mono" style={{ fontSize: '0.76rem', width: '2.6rem', textAlign: 'right' }}>{Math.round(scenario.batteryLearningRate * 100)}%</span>
               </div>
@@ -182,7 +192,7 @@ export default function ScenarioControls({
             <span className="label">Fossil pollution controls (death-rate anchor)</span>
             <select
               className="mono"
-              style={{ width: '100%', padding: '0.4rem', background: 'var(--surface)', border: '1px solid var(--rule)', borderRadius: 'var(--radius-sm)', marginTop: '0.25rem' }}
+              style={{ width: '100%', marginTop: '0.25rem' }}
               value={scenario.fossilControls ?? 'global'}
               onChange={(e) => {
                 const val = e.target.value;

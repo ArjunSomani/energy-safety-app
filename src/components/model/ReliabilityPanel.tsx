@@ -3,6 +3,7 @@
 import type { DispatchResult, SeasonKey } from '@/lib/model-dispatch';
 import Term from './Term';
 import type { ReactNode } from 'react';
+import { CHART_TYPE, useChartWidth } from './useChartWidth';
 
 // The dispatch/reliability read for a single year. Unserved energy is the
 // model's most important output and is shown as a neutral reported quantity —
@@ -16,6 +17,7 @@ function fmt(n: number, digits = 3) {
 }
 
 export default function ReliabilityPanel({ d, accent = 'var(--ink)' }: { d: DispatchResult; accent?: string }) {
+  const { ref: chartRef, width: chartW } = useChartWidth(240);
   const seasons: SeasonKey[] = ['winter', 'spring', 'summer', 'autumn'];
   const maxSeason = Math.max(...seasons.map((s) => d.unservedBySeason[s]), 1);
   const maxHour = Math.max(...d.unservedByHourOfDay, 1);
@@ -43,7 +45,13 @@ export default function ReliabilityPanel({ d, accent = 'var(--ink)' }: { d: Disp
         />
       </div>
 
-      <div className="grid" style={{ gridTemplateColumns: '1fr 1fr', gap: '1.2rem', marginTop: '1.2rem' }}>
+      {/* auto-fit rather than a hard 1fr 1fr: at 375px the two columns forced the
+          time-of-day chart into 131px, which scaled its 8px labels down to
+          4.4px. Below ~15rem of available width the columns now stack. */}
+      <div
+        className="grid"
+        style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(min(15rem, 100%), 1fr))', gap: '1.2rem', marginTop: '1.2rem' }}
+      >
         <div>
           <p className="label" style={{ marginBottom: '0.5rem' }}>
             When shortfalls fall — by season
@@ -64,19 +72,38 @@ export default function ReliabilityPanel({ d, accent = 'var(--ink)' }: { d: Disp
           <p className="label" style={{ marginBottom: '0.5rem' }}>
             When shortfalls fall — by time of day
           </p>
-          <svg viewBox="0 0 240 92" width="100%" style={{ height: 'auto', display: 'block' }} role="img" aria-label="Unserved energy by time of day, US local">
-            {hourLocal.map((v, i) => {
-              const bw = 240 / 24;
-              const bh = (v / maxHour) * 72;
-              return <rect key={i} x={i * bw + 1} y={78 - bh} width={bw - 1.5} height={Math.max(0, bh)} fill={accent} opacity={0.7} />;
-            })}
-            <line x1={0} x2={240} y1={78} y2={78} stroke="var(--chart-baseline)" strokeWidth={1} />
-            {[[0, '12am'], [120, 'noon'], [240, '12am']].map(([x, lbl]) => (
-              <text key={lbl as string} x={x as number} y={90} textAnchor={x === 0 ? 'start' : x === 240 ? 'end' : 'middle'} fontSize={8} fill="var(--ink-soft)" fontFamily="var(--font-mono)">
-                {lbl}
-              </text>
-            ))}
-          </svg>
+          {/* Same px-unit viewBox contract as the other charts (see
+              useChartWidth): a fixed 240-unit box rendered into this column at
+              131px, so its labels came out at 4.4px. */}
+          <div ref={chartRef}>
+            <svg
+              viewBox={`0 0 ${chartW} 92`}
+              width="100%"
+              style={{ height: 'auto', display: 'block' }}
+              role="img"
+              aria-label="Unserved energy by time of day, US local"
+            >
+              {hourLocal.map((v, i) => {
+                const bw = chartW / 24;
+                const bh = (v / maxHour) * 72;
+                return <rect key={i} x={i * bw + 1} y={78 - bh} width={Math.max(0.5, bw - 1.5)} height={Math.max(0, bh)} fill={accent} opacity={0.7} />;
+              })}
+              <line x1={0} x2={chartW} y1={78} y2={78} stroke="var(--chart-baseline)" strokeWidth={1} />
+              {([[0, '12am'], [chartW / 2, 'noon'], [chartW, '12am']] as [number, string][]).map(([x, lbl], i) => (
+                <text
+                  key={`${lbl}-${i}`}
+                  x={x}
+                  y={90}
+                  textAnchor={i === 0 ? 'start' : i === 2 ? 'end' : 'middle'}
+                  fontSize={CHART_TYPE.axisSmall}
+                  fill="var(--ink-soft)"
+                  fontFamily="var(--font-mono)"
+                >
+                  {lbl}
+                </text>
+              ))}
+            </svg>
+          </div>
         </div>
       </div>
 

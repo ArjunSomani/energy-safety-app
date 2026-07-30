@@ -66,6 +66,7 @@ export default function Term({ k, children }: { k: keyof typeof GLOSSARY | strin
     <span style={{ position: 'relative', display: 'inline-block' }}>
       <button
         type="button"
+        className="term-btn"
         aria-describedby={open ? id : undefined}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}

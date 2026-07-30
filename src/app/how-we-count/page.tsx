@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import CountedVsModeled from '@/components/CountedVsModeled';
 import DivisionGraphic from '@/components/DivisionGraphic';
 import type { ReactNode } from 'react';
@@ -223,7 +224,7 @@ export default function Page() {
           ))}
         </div>
         <p className="mt-6">
-          Ready to look? <a href="/sources">Compare the eight sources →</a>
+          Ready to look? <Link href="/sources">Compare the eight sources →</Link>
         </p>
       </Section>
     </main>

@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import RiskRule from '@/components/RiskRule';
 import BandTimeline, { type BandPoint } from '@/components/model/BandTimeline';
 import DayProfileChart from '@/components/model/DayProfileChart';
@@ -24,7 +25,7 @@ import type { Band } from '@/lib/types';
 import { useEffect, useMemo, useState } from 'react';
 
 const COLOR_A = 'var(--ink)';
-const COLOR_B = '#c2762f';
+const COLOR_B = 'var(--series-2)';
 
 const B_DEFAULT: UiScenario = {
   label: 'Announced retirements only, no new build',
@@ -76,7 +77,7 @@ export default function ModelPage() {
       <p className="kicker">The model · US · to 2050</p>
       <h1 className="text-4xl">A US electricity transition model</h1>
 
-      <div className="panel p-4" style={{ borderLeft: '3px solid var(--accent)', background: 'var(--accent-soft)', marginBottom: '1.25rem', maxWidth: '48rem' }}>
+      <div className="panel p-4" style={{ background: 'var(--accent-soft)', marginBottom: '1.25rem', maxWidth: '48rem' }}>
         <p style={{ margin: 0 }}>
           <b>This is a model.</b> Unlike the rest of this site, its outputs depend on assumptions about the future that no
           citation can settle. Every assumption below is adjustable and disclosed. It takes <em>decisions</em> — build
@@ -85,8 +86,8 @@ export default function ModelPage() {
         <p className="text-sm" style={{ margin: '0.6rem 0 0', color: 'var(--ink-soft)' }}>
           It starts from the real US power fleet (EIA {BASE_YEAR}) and answers “what would this fleet produce and cost,”
           not “could this happen” — transmission, markets, permitting and supply chains are out of scope. The base data
-          is checked against EIA’s national totals; see <a href="/model/assumptions">every assumption, its source, and
-          how the fleet reconciles</a>.
+          is checked against EIA’s national totals; see <Link href="/model/assumptions">every assumption, its source, and
+          how the fleet reconciles</Link>.
         </p>
       </div>
 
@@ -135,7 +136,7 @@ export default function ModelPage() {
       <p className="text-sm text-[var(--ink-soft)]" style={{ maxWidth: '48rem' }}>
         Each coloured band is how much electricity a group of sources makes each year, stacked up. The dashed line is
         total demand. <b>Where the colours stop below the dashed line, there isn’t enough</b> — the fleet can’t meet
-        demand. Hover any year to read the numbers. (“Fossil fuels” combines coal, gas and oil; per-source detail is in
+        demand. Select any year — pointer, tap or arrow keys — to read the numbers. (“Fossil fuels” combines coal, gas and oil; per-source detail is in
         the harm figures below.)
       </p>
       <div className={`grid gap-6 ${showB ? 'md:grid-cols-2' : ''}`}>
@@ -213,7 +214,7 @@ export default function ModelPage() {
             className="mono"
             value={relYear}
             onChange={(e) => setRelYear(Number(e.target.value))}
-            style={{ background: 'var(--surface)', border: '1px solid var(--rule)', borderRadius: 'var(--radius-sm)', padding: '0.2rem 0.4rem' }}
+            style={{ padding: '0.2rem 0.4rem' }}
           >
             {years.filter((y) => y % 5 === 0 || y === END_YEAR).map((y) => (
               <option key={y} value={y}>
@@ -298,7 +299,7 @@ export default function ModelPage() {
 
       <p className="text-sm text-[var(--ink-soft)]" style={{ marginTop: '1.5rem' }}>
         Every number here is reproducible from the committed EIA {BASE_YEAR} snapshot and the pure model engines. Nothing
-        is fetched at runtime. <a href="/model/assumptions">See every assumption →</a>
+        is fetched at runtime. <Link href="/model/assumptions">See every assumption →</Link>
       </p>
     </main>
   );
@@ -412,12 +413,13 @@ function DeltaTable({ runA, runB }: { runA: ScenarioRun; runB: ScenarioRun }) {
   return (
     <div className="overflow-auto">
       <table className="w-full border-collapse text-sm">
+        <caption className="sr-only">Scenario A minus Scenario B in the final year, by impact.</caption>
         <thead>
           <tr>
-            <th>Metric</th>
-            <th>Scenario A</th>
-            <th>Scenario B</th>
-            <th>A − B (paired)</th>
+            <th scope="col">Metric</th>
+            <th scope="col">Scenario A</th>
+            <th scope="col">Scenario B</th>
+            <th scope="col">A − B (paired)</th>
           </tr>
         </thead>
         <tbody>

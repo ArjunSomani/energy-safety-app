@@ -12,7 +12,7 @@ import { useMemo, useState } from 'react';
 
 // Same blue "risk ramp" the death-rate risk rule uses, so a source keeps its
 // identity between the two charts — this is the same ranking, priced.
-const colors = ['#0f2f6b', '#17408c', '#1f52ad', '#3568bd', '#5a83c9', '#85a3d6', '#b0c4e4', '#d7e2f2'];
+const colors = Array.from({ length: 8 }, (_, i) => `var(--risk-${i + 1})`);
 
 // Axis runs to $10,000/MWh so that even coal's high band — its deaths/TWh high
 // bound valued at the top of the VSL range — stays on the chart.
@@ -74,9 +74,6 @@ export default function ValueRule() {
     <section className="panel p-4 md:p-8" aria-labelledby="value-rule-title">
       <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="kicker" style={{ marginBottom: '0.35rem' }}>
-            The uncounted cost
-          </p>
           <h2 id="value-rule-title" className="text-xl" style={{ margin: 0 }}>
             Mortality cost per megawatt-hour
           </h2>
@@ -95,29 +92,40 @@ export default function ValueRule() {
         <VslControl vsl={vsl} onChange={setVsl} />
       </div>
 
-      <div
-        className="relative h-[430px] py-8"
-        style={{ borderTop: '1px solid var(--chart-gridline)', borderBottom: '1px solid var(--chart-gridline)' }}
-      >
-        <div className="absolute left-0 right-0 top-1/2 h-px" style={{ background: 'var(--chart-baseline)' }} />
+      <div className="ladder-wrap">
+        <div
+          className="ladder py-8"
+          style={{
+            // Height follows the row count. This was a fixed 430px, which left
+            // ~390px of dead space wherever a single row is rendered.
+            height: rows.length * 44 + 40,
+            borderTop: '1px solid var(--chart-gridline)',
+            borderBottom: '1px solid var(--chart-gridline)',
+          }}
+        >
+        <div className="ladder-track top-1/2 h-px" style={{ background: 'var(--chart-baseline)' }} />
 
-        {ticks.map((t) => (
-          <div key={t} className="absolute top-0 h-full" style={{ left: x(t), borderLeft: '1px solid var(--chart-gridline)' }}>
-            <span className="mono absolute -top-6 -translate-x-1/2 text-xs text-[var(--ink-soft)]">
-              ${t.toLocaleString()}
-            </span>
-          </div>
-        ))}
+        {/* Gridlines share the .ladder-track box with the bars, so a value's
+            line and its bar resolve to the same pixel. */}
+        <div className="ladder-track top-0 h-full" aria-hidden="true">
+          {ticks.map((t) => (
+            <div key={t} className="absolute top-0 h-full" style={{ left: x(t), borderLeft: '1px solid var(--chart-gridline)' }}>
+              <span className="mono absolute -top-6 -translate-x-1/2 text-xs text-[var(--ink-soft)]">
+                ${t.toLocaleString()}
+              </span>
+            </div>
+          ))}
+        </div>
 
         {rows.map((s, i) => {
           const y = 20 + i * 44;
           const countedPct = (1 - s.modeledShare) * 100;
           return (
             <div key={s.slug} className="absolute left-0 right-0" style={{ top: y }}>
-              <span className="absolute w-24 text-sm" style={{ fontWeight: 500, lineHeight: 1.1 }}>
+              <span className="absolute ladder-gutter text-sm" style={{ fontWeight: 500, lineHeight: 1.1 }}>
                 {s.label}
               </span>
-              <div className="absolute left-28 right-0 top-2 h-5">
+              <div className="ladder-track top-2 h-5">
                 <div
                   className="h-4 rounded-sm border"
                   title={`${s.label}: ${formatUsdPerMwh(s.costCentral)}/MWh (band ${formatUsdPerMwh(s.costLow)}–${formatUsdPerMwh(s.costHigh)}). ${Math.round(countedPct)}% counted, ${Math.round(s.modeledShare * 100)}% modeled.`}
@@ -129,13 +137,14 @@ export default function ValueRule() {
                     background: `linear-gradient(90deg, ${colors[i % colors.length]} 0 ${countedPct}%, transparent ${countedPct}%), var(--hatch)`,
                   }}
                 />
-                <span className="mono ml-2 text-xs text-[var(--ink-soft)]" style={{ position: 'absolute', left: x(s.costHigh), top: -1 }}>
+                <span className="mono ml-2 text-xs text-[var(--ink-soft)] ladder-range" style={{ position: 'absolute', left: x(s.costHigh), top: -1 }}>
                   {formatUsdPerMwh(s.costCentral)}
                 </span>
               </div>
             </div>
           );
         })}
+        </div>
       </div>
 
       <p className="mt-3 text-sm text-[var(--ink-soft)]">
@@ -144,7 +153,7 @@ export default function ValueRule() {
         uncertainty; choosing a different life-value is a second range on top.
       </p>
       <p className="mt-3 text-sm text-[var(--ink-soft)]">
-        <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: '#1f52ad' }} /> counted
+        <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: 'var(--risk-3)' }} /> counted
         (accident) cost ·{' '}
         <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: 'var(--hatch)' }} /> modeled
         (pollution / radiation) cost
@@ -159,13 +168,14 @@ export default function ValueRule() {
       </p>
       <div className="overflow-auto">
         <table className="w-full border-collapse table-responsive" style={{ marginTop: '0.5rem' }}>
+          <caption className="sr-only">Market price against uncounted mortality cost per megawatt-hour, by source.</caption>
           <thead>
             <tr>
-              <th>Source</th>
-              <th>Deaths / TWh</th>
-              <th>Mortality cost / MWh</th>
-              <th>Market price / MWh</th>
-              <th>Uncounted vs bill</th>
+              <th scope="col">Source</th>
+              <th scope="col">Deaths / TWh</th>
+              <th scope="col">Mortality cost / MWh</th>
+              <th scope="col">Market price / MWh</th>
+              <th scope="col">Uncounted vs bill</th>
             </tr>
           </thead>
           <tbody>

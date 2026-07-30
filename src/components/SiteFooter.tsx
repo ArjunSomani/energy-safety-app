@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const footerLinks = [
   ['How we count', '/how-we-count'],
   ['Sources', '/sources'],
@@ -14,9 +16,9 @@ export default function SiteFooter() {
       <div className="site-footer-inner">
         <nav className="footer-nav" aria-label="Footer">
           {footerLinks.map(([label, href]) => (
-            <a key={href} href={href}>
+            <Link key={href} href={href}>
               {label}
-            </a>
+            </Link>
           ))}
         </nav>
         <div>One measured scale for electricity-source safety — estimates with explicit uncertainty, not verdicts.</div>

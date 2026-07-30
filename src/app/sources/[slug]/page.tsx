@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import RiskRule from '@/components/RiskRule';
 import citations from '@/data/citations.json';
 import sources from '@/data/sources.json';
@@ -54,12 +55,12 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
       </section>
 
       {highDerived ? (
-        <p className="panel p-3 text-sm" style={{ borderLeft: '3px solid var(--warn)', background: 'var(--warn-soft)' }}>
+        <p className="panel p-3 text-sm" style={{ background: 'var(--warn-soft)' }}>
           <b style={{ color: 'var(--warn)' }}>On the upper bound</b> — {deathRate.highBoundNote}
         </p>
       ) : null}
 
-      <p className="panel p-3 text-sm" style={{ borderLeft: '3px solid var(--accent)' }}>
+      <p className="panel p-3 text-sm" style={{ background: 'var(--accent-soft)' }}>
         <b>The uncounted cost</b> — priced at the central value of a statistical life ({formatVsl(VSL_CENTRAL)}),{' '}
         {source.label}&apos;s death toll is worth about <span className="mono">{formatUsdPerMwh(mortalityCost)}</span> per
         MWh generated
@@ -69,7 +70,7 @@ export default async function Page({ params }: { params: Promise<{ slug: string 
             — against a market price of <span className="mono">{formatUsdPerMwh(lcoeCentral)}</span>/MWh
           </>
         ) : null}
-        . That cost is on no electricity bill. <a href="/value">Value of a life →</a>
+        . That cost is on no electricity bill. <Link href="/value">Value of a life →</Link>
       </p>
 
       <h2>How it kills</h2>

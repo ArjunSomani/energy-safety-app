@@ -1,14 +1,9 @@
+import Link from 'next/link';
 import RiskRule from '@/components/RiskRule';
-
-const cards = [
-  ['01', 'One measured scale', 'Eight electricity sources placed on a single deaths-per-terawatt-hour scale, with the uncertainty shown.'],
-  ['02', 'Counted vs modeled', 'Accident deaths are counted events; air-pollution and radiation deaths are modeled attributions. The two are drawn differently.'],
-  ['03', 'Build and compare', 'Mix sources into a grid, or apply the rates to a real national electricity mix, and watch the bands move.'],
-] as const;
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <section className="hero">
         <div className="hero-glow" aria-hidden="true" />
         <div className="mx-auto max-w-4xl p-6" style={{ paddingTop: '5rem', paddingBottom: '1rem', textAlign: 'center' }}>
@@ -19,16 +14,15 @@ export default function Home() {
             per unit of electricity generated — with the uncertainty shown, not hidden.
           </p>
           <div className="mt-6 flex gap-3" style={{ justifyContent: 'center' }}>
-            <a className="btn btn-primary" href="/sources">
+            <Link className="btn btn-primary" href="/sources">
               Compare the sources →
-            </a>
-            <a className="btn btn-ghost" href="/how-we-count">
+            </Link>
+            <Link className="btn btn-ghost" href="/how-we-count">
               How we count
-            </a>
+            </Link>
           </div>
           <p className="mt-4 text-sm text-[var(--ink-soft)]">
-            Or{' '}
-            <a href="/build">build your own grid</a> and see the deaths, CO₂, land, and cost bands.
+            Or <Link href="/build">build your own grid</Link> and see the deaths, CO₂, land, and cost bands.
           </p>
         </div>
       </section>
@@ -36,32 +30,40 @@ export default function Home() {
       <div className="mx-auto max-w-4xl p-6">
         <RiskRule />
 
-        <div className="mt-6 grid gap-4 md:grid-cols-3">
-          {cards.map(([n, title, body]) => (
-            <div className="panel p-6" key={n}>
-              <span className="card-num">{n}</span>
-              <h3 style={{ marginTop: '0.25rem' }}>{title}</h3>
-              <p className="mt-3 text-sm text-[var(--ink-soft)]" style={{ margin: 0 }}>
-                {body}
-              </p>
-            </div>
-          ))}
-        </div>
+        {/* Prose with real hierarchy rather than three identically-sized cards
+            numbered 01/02/03. The three points are not a sequence, so numbering
+            them was scaffolding; and the one that actually matters — that counted
+            and modeled deaths are different kinds of claim — deserves more weight
+            than the other two, which a uniform grid cannot give it. */}
+        <section className="mt-6 read-more">
+          <h2>How to read this</h2>
+          <p>
+            Eight electricity sources sit on one deaths-per-terawatt-hour scale, each drawn as the band its evidence
+            supports rather than a single confident number. Where a band is wide, the underlying literature disagrees,
+            and the chart says so.
+          </p>
+          <p>
+            The distinction that matters most is <b>what kind of death is being counted</b>. A dam failure or a roof fall
+            is a counted event with a date and a body count. Air-pollution and radiation deaths are modeled
+            attributions — a statistical excess spread across a population, never traceable to one person. Both belong on
+            the same scale, but they are not the same kind of claim, so the bars draw them differently: solid for counted,
+            hatched for modeled.
+          </p>
+          <p className="text-sm text-[var(--ink-soft)]">
+            From there you can <Link href="/build">mix sources into a grid</Link>,{' '}
+            <Link href="/countries">apply the rates to a real national mix</Link>, or read{' '}
+            <Link href="/how-we-count">how each number was assembled</Link>.
+          </p>
+        </section>
 
-        <a className="panel p-6 mt-4" href="/value" style={{ display: 'block' }}>
-          <span className="kicker" style={{ margin: 0 }}>
-            The uncounted cost
-          </span>
-          <h3 style={{ marginTop: '0.35rem', marginBottom: 0 }}>
-            What is that death toll worth?
-          </h3>
+        <Link className="panel p-6 mt-6" href="/value">
+          <h3 style={{ marginTop: 0, marginBottom: 0 }}>What is that death toll worth?</h3>
           <p className="mt-3 text-sm text-[var(--ink-soft)]" style={{ margin: '0.5rem 0 0' }}>
             Price each source&apos;s deaths at the value society already places on a statistical life, and see the cost
-            the electricity bill leaves out — for coal, often larger than the bill itself.{' '}
-            <span className="card-arrow" />
+            the electricity bill leaves out — for coal, often larger than the bill itself. <span className="card-arrow" />
           </p>
-        </a>
+        </Link>
       </div>
-    </div>
+    </main>
   );
 }

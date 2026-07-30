@@ -1,5 +1,6 @@
 import './globals.css';
 import { Fraunces, Geist, Geist_Mono } from 'next/font/google';
+import ChartPrintPatterns from '@/components/ChartPrintPatterns';
 import SiteHeader from '@/components/SiteHeader';
 import SiteFooter from '@/components/SiteFooter';
 
@@ -10,10 +11,13 @@ const sans = Geist({ subsets: ['latin'], variable: '--font-geist-sans', display:
 const mono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono', display: 'swap' });
 
 // Display serif for headings only — editorial, energy/climate-storytelling feel.
+// Only the opsz axis is requested: `font-optical-sizing: auto` on h1-h3 uses it.
+// SOFT and WONK used to be pulled in too, but nothing sets
+// font-variation-settings anywhere, so they were downloaded and never varied.
 const display = Fraunces({
   subsets: ['latin'],
   variable: '--font-fraunces',
-  axes: ['opsz', 'SOFT', 'WONK'],
+  axes: ['opsz'],
   display: 'swap',
 });
 
@@ -49,6 +53,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a className="skip-link" href="#content">
           Skip to content
         </a>
+        <ChartPrintPatterns />
         <SiteHeader />
         <div className="site-main" id="content" tabIndex={-1}>
           {children}
