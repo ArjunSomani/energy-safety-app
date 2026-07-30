@@ -2,20 +2,20 @@
 
 import type { Band } from '@/lib/types';
 import { useState } from 'react';
+import { CHART_TYPE, chartDensity, useChartWidth } from './useChartWidth';
 
 // A metric's low/central/high over the horizon, drawn as a shaded uncertainty
 // band with a central line. The band widens with the horizon (see model-impacts),
 // so a 2050 estimate visibly carries more uncertainty than the near term. An
 // optional second scenario is overlaid as a comparison central line + faint band.
 // Reuses the site's log/linear scale toggle idiom.
+//
+// The viewBox is sized in CSS pixels from the measured container width so axis
+// type stays legible at every viewport (see useChartWidth).
 
 export type BandPoint = { year: number; band: Band };
 
-const W = 640;
-const H = 240;
-const M = { top: 14, right: 16, bottom: 26, left: 56 };
-const iw = W - M.left - M.right;
-const ih = H - M.top - M.bottom;
+const M = { top: 14, right: 16, bottom: 30, left: 48 };
 
 export default function BandTimeline({
   a,
@@ -33,6 +33,13 @@ export default function BandTimeline({
   allowLog?: boolean;
 }) {
   const [scale, setScale] = useState<'linear' | 'log'>('linear');
+  const { ref, width: W } = useChartWidth();
+
+  const H = Math.round(Math.max(200, Math.min(280, W * 0.4)));
+  const iw = Math.max(1, W - M.left - M.right);
+  const ih = Math.max(1, H - M.top - M.bottom);
+  const density = chartDensity(W);
+
   if (!a.length) return null;
 
   const x0 = a[0].year;
@@ -67,8 +74,8 @@ export default function BandTimeline({
   const centralLine = (pts: BandPoint[]) =>
     pts.map((p, i) => `${i === 0 ? 'M' : 'L'}${px(p.year).toFixed(1)},${py(p.band.central).toFixed(1)}`).join(' ');
 
-  const yTicks = useLog ? logTicks(lo, hi) : linTicks(hi, 4);
-  const xTicks = [x0, Math.round((x0 + x1) / 2), x1];
+  const yTicks = useLog ? logTicks(lo, hi) : linTicks(hi, density.yTickCount);
+  const xTicks = density.showSecondaryLabels ? [x0, Math.round((x0 + x1) / 2), x1] : [x0, x1];
   const fmtY = (t: number) => (t >= 1000 ? `${(t / 1000).toFixed(t >= 10000 ? 0 : 1)}k` : t < 1 ? t.toPrecision(1) : `${Math.round(t)}`);
 
   return (
@@ -88,25 +95,48 @@ export default function BandTimeline({
           </div>
         ) : null}
       </div>
-      <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ height: 'auto', display: 'block' }} role="img" aria-label={`${title} over time, low to high band, in ${unit}`}>
-        {yTicks.map((t) => (
-          <g key={t}>
-            <line x1={M.left} x2={W - M.right} y1={py(t)} y2={py(t)} stroke="var(--chart-gridline)" strokeWidth={1} />
-            <text x={M.left - 6} y={py(t) + 3} textAnchor="end" fontSize={10} fill="var(--ink-soft)" fontFamily="var(--font-mono)">
-              {fmtY(t)}
+      <div ref={ref}>
+        <svg
+          viewBox={`0 0 ${W} ${H}`}
+          width="100%"
+          style={{ height: 'auto', display: 'block' }}
+          role="img"
+          aria-label={`${title} over time, low to high band, in ${unit}`}
+        >
+          {yTicks.map((t) => (
+            <g key={t}>
+              <line x1={M.left} x2={W - M.right} y1={py(t)} y2={py(t)} stroke="var(--chart-gridline)" strokeWidth={1} />
+              <text
+                x={M.left - 6}
+                y={py(t) + 3}
+                textAnchor="end"
+                fontSize={CHART_TYPE.axis}
+                fill="var(--ink-soft)"
+                fontFamily="var(--font-mono)"
+              >
+                {fmtY(t)}
+              </text>
+            </g>
+          ))}
+          {b ? <path d={bandArea(b)} fill="var(--ink-soft)" fillOpacity={0.1} /> : null}
+          <path d={bandArea(a)} fill={colorA} fillOpacity={0.16} />
+          {b ? <path d={centralLine(b)} fill="none" stroke="var(--ink-soft)" strokeWidth={1.4} strokeDasharray="4 3" /> : null}
+          <path d={centralLine(a)} fill="none" stroke={colorA} strokeWidth={1.8} />
+          {xTicks.map((t) => (
+            <text
+              key={t}
+              x={px(t)}
+              y={H - 9}
+              textAnchor="middle"
+              fontSize={CHART_TYPE.axis}
+              fill="var(--ink-soft)"
+              fontFamily="var(--font-mono)"
+            >
+              {t}
             </text>
-          </g>
-        ))}
-        {b ? <path d={bandArea(b)} fill="var(--ink-soft)" fillOpacity={0.1} /> : null}
-        <path d={bandArea(a)} fill={colorA} fillOpacity={0.16} />
-        {b ? <path d={centralLine(b)} fill="none" stroke="var(--ink-soft)" strokeWidth={1.4} strokeDasharray="4 3" /> : null}
-        <path d={centralLine(a)} fill="none" stroke={colorA} strokeWidth={1.8} />
-        {xTicks.map((t) => (
-          <text key={t} x={px(t)} y={H - 8} textAnchor="middle" fontSize={10} fill="var(--ink-soft)" fontFamily="var(--font-mono)">
-            {t}
-          </text>
-        ))}
-      </svg>
+          ))}
+        </svg>
+      </div>
     </figure>
   );
 }

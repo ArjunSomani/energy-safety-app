@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 
@@ -52,11 +53,12 @@ export default function SiteHeader() {
   function toggleTheme() {
     const next = theme === 'dark' ? 'light' : 'dark';
     const root = document.documentElement;
-    // Enable the 2s cross-fade for the duration of the switch, then remove it
-    // so it never affects ordinary hover/interaction transitions.
+    // Enable the cross-fade for the duration of the switch, then remove it so it
+    // never affects ordinary hover/interaction transitions. Must stay in step
+    // with the 200ms duration in globals.css.
     root.classList.add('theme-transition');
     if (fadeTimer.current) clearTimeout(fadeTimer.current);
-    fadeTimer.current = setTimeout(() => root.classList.remove('theme-transition'), 2000);
+    fadeTimer.current = setTimeout(() => root.classList.remove('theme-transition'), 250);
     setTheme(next);
     root.dataset.theme = next;
     try {
@@ -69,19 +71,19 @@ export default function SiteHeader() {
   return (
     <header className="site-header">
       <div className="site-header-inner">
-        <a className="brand" href="/" onClick={() => setOpen(false)}>
+        <Link className="brand" href="/" onClick={() => setOpen(false)}>
           Level
-        </a>
+        </Link>
         <nav className="site-nav" aria-label="Primary">
           {links.map(([label, href]) => (
-            <a
+            <Link
               key={href}
               href={href}
               className="nav-link"
               aria-current={isActive(pathname, href) ? 'page' : undefined}
             >
               {label}
-            </a>
+            </Link>
           ))}
         </nav>
         <button
@@ -101,7 +103,7 @@ export default function SiteHeader() {
           aria-controls="mobile-nav"
           onClick={() => setOpen((v) => !v)}
         >
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
             {open ? (
               <path strokeLinecap="round" d="M4 4l12 12M16 4L4 16" />
             ) : (
@@ -113,7 +115,7 @@ export default function SiteHeader() {
       {open ? (
         <nav id="mobile-nav" className="mobile-nav" aria-label="Mobile">
           {links.map(([label, href]) => (
-            <a
+            <Link
               key={href}
               href={href}
               className="nav-link"
@@ -121,7 +123,7 @@ export default function SiteHeader() {
               onClick={() => setOpen(false)}
             >
               {label}
-            </a>
+            </Link>
           ))}
         </nav>
       ) : null}

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import ValueRule from '@/components/ValueRule';
 import citations from '@/data/citations.json';
 import { VSL_NOTE, VSL_PRESETS, VSL_SOURCE, formatVsl } from '@/lib/value';
@@ -74,7 +75,7 @@ export default function Page() {
 
       <ValueRule />
 
-      <section className="panel p-4 my-8" style={{ borderLeft: '3px solid var(--accent)' }}>
+      <section className="panel p-4 my-8" style={{ background: 'var(--accent-soft)' }}>
         <p className="label" style={{ marginBottom: '0.4rem' }}>
           A moral choice, not a technical one
         </p>
@@ -107,8 +108,8 @@ export default function Page() {
       </section>
 
       <p>
-        See it on a whole grid: <a href="/build">build a mix and read its mortality cost →</a> or compare the{' '}
-        <a href="/sources">eight sources</a>.
+        See it on a whole grid: <Link href="/build">build a mix and read its mortality cost →</Link> or compare the{' '}
+        <Link href="/sources">eight sources</Link>.
       </p>
     </main>
   );

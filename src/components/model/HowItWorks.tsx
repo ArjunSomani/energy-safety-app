@@ -44,30 +44,48 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section aria-label="How the model works" style={{ marginBottom: '1.5rem' }}>
-      <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(15rem, 1fr))', gap: '0.75rem' }}>
-        {steps.map((s) => (
-          <div key={s.n} className="panel p-4" style={{ position: 'relative' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', marginBottom: '0.5rem' }}>
-              <span
-                aria-hidden="true"
-                style={{ color: 'var(--accent)', display: 'inline-flex' }}
-              >
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    // A visible <h2> rather than an aria-label: these steps use <h3>, and with no
+    // h2 above them the /model page went straight from h1 to h3, which breaks
+    // heading navigation (WCAG 1.3.1).
+    //
+    // Rendered with the site's own .stepper idiom (the one /how-we-count uses)
+    // rather than three equally-weighted cards in a grid. These steps are an
+    // ordered sequence — you decide, the model runs, you read the result — and a
+    // connected rail says that; three side-by-side cards say the opposite, that
+    // the items are parallel and interchangeable.
+    <section style={{ marginBottom: '1.5rem' }}>
+      <h2 style={{ marginTop: '1.4rem' }}>How this model works</h2>
+      <ol className="stepper mt-3" style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+        {steps.map((s, i) => (
+          <li className="step" key={s.n}>
+            <div className="step-rail">
+              <div className="step-badge" aria-hidden="true">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
                   {s.icon}
                 </svg>
-              </span>
-              <span className="card-num" aria-hidden="true">
-                Step {s.n}
-              </span>
+              </div>
+              {i < steps.length - 1 ? <div className="step-line" /> : null}
             </div>
-            <h3 style={{ margin: '0 0 0.35rem', fontSize: '1.02rem' }}>{s.title}</h3>
-            <p className="text-sm" style={{ margin: 0, color: 'var(--ink-soft)' }}>
-              {s.body}
-            </p>
-          </div>
+            <div className="step-body">
+              <h3 className="step-title" style={{ margin: 0, fontSize: '1.02rem' }}>
+                {s.n}. {s.title}
+              </h3>
+              <p className="text-sm" style={{ margin: '0.35rem 0 0', color: 'var(--ink-soft)' }}>
+                {s.body}
+              </p>
+            </div>
+          </li>
         ))}
-      </div>
+      </ol>
     </section>
   );
 }

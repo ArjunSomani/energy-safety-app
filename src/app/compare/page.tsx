@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import CopyLinkButton from '@/components/CopyLinkButton';
 import sourcesData from '@/data/sources.json';
 import { SCC_CENTRAL, carbonCostPerMwhBand, formatScc } from '@/lib/carbon';
@@ -13,7 +14,8 @@ import { useEffect, useMemo, useState } from 'react';
 // identity colour across all the cards. Shareable via ?s=coal,nuclear.
 
 type Src = (typeof sourcesData)[number];
-const PALETTE = ['#1c3f8f', '#c2762f', '#2a8a6b', '#8a4a9a'];
+// Off-accent by design: charts never borrow the UI accent (see globals.css).
+const PALETTE = ['var(--series-1)', 'var(--series-2)', 'var(--series-3)', 'var(--series-4)'];
 const MAX = 4;
 const MIN = 2;
 
@@ -191,7 +193,7 @@ export default function Page() {
       <p className="mt-6 text-sm text-[var(--ink-soft)]">
         Bars are each measure&apos;s central estimate, scaled within that card; hover a value for its low–high band.
         Carbon and mortality costs value CO₂ and deaths at the central published figures — see{' '}
-        <a href="/value">Value of a life</a> and <a href="/methodology">Methodology</a>.
+        <Link href="/value">Value of a life</Link> and <Link href="/methodology">Methodology</Link>.
       </p>
     </main>
   );

@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import countries from '@/data/countries.json';
 import { computeMix, normalizeMix } from '@/lib/engine';
 import { fmt } from '@/lib/format';
@@ -14,15 +15,17 @@ export default function Page() {
         estimates use the hydro rate excluding Banqiao and anchor fossil rates to each country&apos;s pollution-controls
         tier, so they read differently from the global source table.
       </p>
-      <table className="mt-4 w-full border-collapse text-sm">
+      <div className="overflow-auto">
+        <table className="mt-4 w-full border-collapse text-sm table-responsive">
+        <caption className="sr-only">Electricity mix and modelled death rate for each country in the dataset.</caption>
         <thead>
           <tr>
-            <th>Country</th>
-            <th>Year</th>
-            <th>Generation</th>
-            <th>Controls</th>
-            <th>Estimated deaths</th>
-            <th>CO₂ intensity</th>
+            <th scope="col">Country</th>
+            <th scope="col">Year</th>
+            <th scope="col">Generation</th>
+            <th scope="col">Controls</th>
+            <th scope="col">Estimated deaths</th>
+            <th scope="col">CO₂ intensity</th>
           </tr>
         </thead>
         <tbody>
@@ -34,21 +37,22 @@ export default function Page() {
             });
             return (
               <tr className="border-t" key={country.iso}>
-                <td>
-                  <a href={`/countries/${country.iso}`}>{country.country}</a>
+                <td data-label="Country">
+                  <Link href={`/countries/${country.iso}`}>{country.country}</Link>
                 </td>
-                <td>{country.year}</td>
-                <td>{fmt(country.demandTwh)} TWh</td>
-                <td className="mono text-xs">{tier}</td>
-                <td>
+                <td data-label="Year">{country.year}</td>
+                <td data-label="Generation">{fmt(country.demandTwh)} TWh</td>
+                <td className="mono text-xs" data-label="Controls">{tier}</td>
+                <td data-label="Estimated deaths">
                   {fmt(result.deaths.total.low)}–{fmt(result.deaths.total.high)}
                 </td>
-                <td>{fmt(result.co2.gPerKwh.central)} g/kWh</td>
+                <td data-label="CO₂ intensity">{fmt(result.co2.gPerKwh.central)} g/kWh</td>
               </tr>
             );
           })}
         </tbody>
-      </table>
+        </table>
+      </div>
     </main>
   );
 }

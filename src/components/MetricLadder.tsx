@@ -108,7 +108,7 @@ const METRICS: Metric[] = [
   },
 ];
 
-const colors = ['#0f2f6b', '#17408c', '#1f52ad', '#3568bd', '#5a83c9', '#85a3d6', '#b0c4e4', '#d7e2f2'];
+const colors = Array.from({ length: 8 }, (_, i) => `var(--risk-${i + 1})`);
 const clamp01 = (f: number) => Math.min(1, Math.max(0, f));
 
 export default function MetricLadder() {
@@ -144,9 +144,6 @@ export default function MetricLadder() {
     <section className="panel p-4 md:p-8" aria-labelledby="metric-ladder-title">
       <div className="mb-4 flex flex-wrap items-end justify-between gap-4">
         <div>
-          <p className="kicker" style={{ marginBottom: '0.35rem' }}>
-            One ladder, every measure
-          </p>
           <h2 id="metric-ladder-title" className="text-xl" style={{ margin: 0 }} aria-live="polite">
             {metric.title}
           </h2>
@@ -169,38 +166,49 @@ export default function MetricLadder() {
         ))}
       </div>
 
-      <div
-        className="relative h-[430px] py-8"
-        style={{ borderTop: '1px solid var(--chart-gridline)', borderBottom: '1px solid var(--chart-gridline)' }}
-      >
+      <div className="ladder-wrap">
+        <div
+          className="ladder py-8"
+          style={{
+            // Height follows the row count. This was a fixed 430px, which left
+            // ~390px of dead space wherever a single row is rendered.
+            height: rows.length * 44 + 40,
+            borderTop: '1px solid var(--chart-gridline)',
+            borderBottom: '1px solid var(--chart-gridline)',
+          }}
+        >
         {overlapBand ? (
           <div
-            className="absolute left-0 right-0 rounded-sm"
+            className="ladder-track rounded-sm"
             aria-hidden="true"
             style={{ top: overlapBand.top, height: overlapBand.height, background: 'var(--accent-soft)', opacity: 0.6, pointerEvents: 'none' }}
           />
         ) : null}
 
-        <div className="absolute left-0 right-0 top-1/2 h-px" style={{ background: 'var(--chart-baseline)' }} />
+        <div className="ladder-track top-1/2 h-px" style={{ background: 'var(--chart-baseline)' }} />
 
-        {ticks.map((t) => (
-          <div key={t} className="absolute top-0 h-full" style={{ left: x(t), borderLeft: '1px solid var(--chart-gridline)' }}>
-            <span className="mono absolute -top-6 -translate-x-1/2 text-xs text-[var(--ink-soft)]">
-              {metric.dollar ? '$' : ''}
-              {t.toLocaleString()}
-            </span>
-          </div>
-        ))}
+        {/* Gridlines share the .ladder-track box with the bars, so a value's
+            line and its bar resolve to the same pixel. */}
+        <div className="ladder-track top-0 h-full" aria-hidden="true">
+          {ticks.map((t) => (
+            <div key={t} className="absolute top-0 h-full" style={{ left: x(t), borderLeft: '1px solid var(--chart-gridline)' }}>
+              <span className="mono absolute -top-6 -translate-x-1/2 text-xs text-[var(--ink-soft)]">
+                {metric.dollar ? '$' : ''}
+                {t.toLocaleString()}
+              </span>
+            </div>
+          ))}
+        </div>
 
         {rows.map((r, i) => {
           const y = 20 + i * 44;
           const countedPct = r.modeledShare == null ? 100 : (1 - r.modeledShare) * 100;
           return (
             <div key={r.slug} className="absolute left-0 right-0" style={{ top: y }}>
-              <span className="absolute w-24 text-sm" style={{ fontWeight: 500, lineHeight: 1.1 }}>
+              <span className="absolute ladder-gutter text-sm" style={{ fontWeight: 500, lineHeight: 1.1 }}>
                 {r.label}
               </span>
-              <div className="absolute left-28 right-0 top-2 h-5">
+              <div className="ladder-track top-2 h-5">
                 {r.band ? (
                   <>
                     <div
@@ -217,7 +225,7 @@ export default function MetricLadder() {
                             : `linear-gradient(90deg, ${colors[i % colors.length]} 0 ${countedPct}%, transparent ${countedPct}%), var(--hatch)`,
                       }}
                     />
-                    <span className="mono ml-2 text-xs text-[var(--ink-soft)]" style={{ position: 'absolute', left: x(r.band.high), top: -1 }}>
+                    <span className="mono ml-2 text-xs text-[var(--ink-soft)] ladder-range" style={{ position: 'absolute', left: x(r.band.high), top: -1 }}>
                       {metric.fmtVal(r.band.central)}
                     </span>
                   </>
@@ -230,6 +238,7 @@ export default function MetricLadder() {
             </div>
           );
         })}
+        </div>
       </div>
 
       <p className="mt-3 text-sm text-[var(--ink-soft)]">{metric.caption}</p>
@@ -244,7 +253,7 @@ export default function MetricLadder() {
       ) : null}
       {metric.modeled ? (
         <p className="mt-3 text-sm text-[var(--ink-soft)]">
-          <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: '#1f52ad' }} /> counted ·{' '}
+          <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: 'var(--risk-3)' }} /> counted ·{' '}
           <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: 'var(--hatch)' }} /> modeled
         </p>
       ) : null}
@@ -256,6 +265,51 @@ export default function MetricLadder() {
           : null}{' '}
         The ranking changes with the measure — the safest source is not the cheapest or the lowest-carbon.
       </p>
+
+      {/* The numbers as text. The bars are positioned divs with no accessible
+          value of their own, and the inline range label is dropped on narrow
+          tracks (see .ladder-range), so this is the only path to the figures
+          below ~768px and for assistive tech. */}
+      <details className="mt-3">
+        <summary style={{ cursor: 'pointer', fontSize: '0.85rem', color: 'var(--accent)' }}>The figures as a table</summary>
+        <div className="overflow-auto mt-3">
+          <table className="w-full border-collapse table-responsive" style={{ fontSize: '0.8rem' }}>
+            <caption className="sr-only">{metric.title}, low to high by source.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Source</th>
+                <th scope="col">Low</th>
+                <th scope="col">Central</th>
+                <th scope="col">High</th>
+                {metric.modeled ? <th scope="col">Modeled</th> : null}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((r) => (
+                <tr key={r.slug}>
+                  <th scope="row" data-label="Source" style={{ fontWeight: 500 }}>
+                    {r.label}
+                  </th>
+                  <td className="mono" data-label="Low">
+                    {r.band ? metric.fmtVal(r.band.low) : '—'}
+                  </td>
+                  <td className="mono" data-label="Central">
+                    {r.band ? metric.fmtVal(r.band.central) : '—'}
+                  </td>
+                  <td className="mono" data-label="High">
+                    {r.band ? metric.fmtVal(r.band.high) : '—'}
+                  </td>
+                  {metric.modeled ? (
+                    <td className="mono" data-label="Modeled">
+                      {r.modeledShare == null ? '—' : `${Math.round(r.modeledShare * 100)}%`}
+                    </td>
+                  ) : null}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </details>
     </section>
   );
 }

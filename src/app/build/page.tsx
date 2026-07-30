@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import CopyLinkButton from '@/components/CopyLinkButton';
 import DeathsSplitBar from '@/components/DeathsSplitBar';
 import PriceControl from '@/components/PriceControl';
@@ -165,7 +166,7 @@ export default function Page() {
             <h2>The true cost</h2>
             <p className="text-sm text-[var(--ink-soft)]" style={{ marginTop: 0 }}>
               The bill above, plus the two harms the market never charges for — carbon and mortality — each priced at a
-              value you choose. <a href="/value">Mortality</a> and <a href="/methodology">carbon</a>.
+              value you choose. <Link href="/value">Mortality</Link> and <Link href="/methodology">carbon</Link>.
             </p>
             <div className="my-3 grid gap-4">
               <PriceControl
@@ -198,13 +199,13 @@ export default function Page() {
               style={{ borderColor: 'var(--bar-border)', overflow: 'hidden' }}
             >
               <div style={{ width: `${pctOf(marketPerMwh)}%`, background: 'var(--accent)' }} title={`Market price ${formatUsdPerMwh(marketPerMwh)}/MWh`} />
-              <div style={{ width: `${pctOf(carbonPerMwh)}%`, background: '#c2762f' }} title={`Carbon ${formatUsdPerMwh(carbonPerMwh)}/MWh`} />
-              <div style={{ width: `${pctOf(mortalityPerMwh)}%`, background: '#b0503f' }} title={`Mortality ${formatUsdPerMwh(mortalityPerMwh)}/MWh`} />
+              <div style={{ width: `${pctOf(carbonPerMwh)}%`, background: 'var(--cost-carbon)' }} title={`Carbon ${formatUsdPerMwh(carbonPerMwh)}/MWh`} />
+              <div style={{ width: `${pctOf(mortalityPerMwh)}%`, background: 'var(--cost-mortality)' }} title={`Mortality ${formatUsdPerMwh(mortalityPerMwh)}/MWh`} />
             </div>
             <p className="mt-3 text-sm text-[var(--ink-soft)]">
               <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: 'var(--accent)' }} /> bill {formatUsdPerMwh(marketPerMwh)} ·{' '}
-              <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: '#c2762f' }} /> carbon {formatUsdPerMwh(carbonPerMwh)} ·{' '}
-              <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: '#b0503f' }} /> mortality {formatUsdPerMwh(mortalityPerMwh)} /MWh
+              <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: 'var(--cost-carbon)' }} /> carbon {formatUsdPerMwh(carbonPerMwh)} ·{' '}
+              <span className="inline-block h-3 w-6 rounded-sm border border-black align-middle" style={{ background: 'var(--cost-mortality)' }} /> mortality {formatUsdPerMwh(mortalityPerMwh)} /MWh
             </p>
             <p className="mono" style={{ marginBottom: '0.2rem' }}>
               True cost ≈ {formatUsdPerMwh(truePerMwh)}/MWh{marketPerMwh > 0 ? ` (${(truePerMwh / marketPerMwh).toFixed(1)}× the bill)` : ''}

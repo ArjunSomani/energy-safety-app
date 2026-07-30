@@ -15,13 +15,13 @@ export default function CountedVsModeled({ compact = false }: { compact?: boolea
           <svg viewBox="0 0 180 96" width="100%" style={{ height: 'auto', display: 'block' }} role="img" aria-label="A few identifiable, counted deaths">
             {[30, 62, 94, 126, 84].map((x, i) => (
               <g key={i}>
-                <circle cx={x} cy={i === 4 ? 60 : 40} r={7} fill="#1f52ad" />
+                <circle cx={x} cy={i === 4 ? 60 : 40} r={7} fill="var(--risk-3)" />
               </g>
             ))}
           </svg>
           <figcaption style={{ marginTop: '0.4rem' }}>
             <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4rem' }}>
-              <span className="swatch" style={{ background: '#1f52ad' }} /> <b>Counted</b>
+              <span className="swatch" style={{ background: 'var(--risk-3)' }} /> <b>Counted</b>
             </span>
             <p className="text-sm text-[var(--ink-soft)]" style={{ margin: '0.25rem 0 0' }}>
               A fall, a mine collapse, a dam failure. Identifiable people — you could list them.

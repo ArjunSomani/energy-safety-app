@@ -4,8 +4,8 @@
 // changes; the conclusion survives.
 
 const rows = [
-  { label: 'Coal', deaths: '~250,000', deathsW: 100, power: '~10,000 TWh', powerW: 100, rate: '25', rateW: 100, color: '#3f3a34' },
-  { label: 'Solar', deaths: '~40', deathsW: 1.5, power: '~2,000 TWh', powerW: 20, rate: '0.02', rateW: 0.6, color: '#eda100' },
+  { label: 'Coal', deaths: '~250,000', deathsW: 100, power: '~10,000 TWh', powerW: 100, rate: '25', rateW: 100, color: 'var(--mix-fossil)' },
+  { label: 'Solar', deaths: '~40', deathsW: 1.5, power: '~2,000 TWh', powerW: 20, rate: '0.02', rateW: 0.6, color: 'var(--mix-solar)' },
 ] as const;
 
 function Bar({ w, color, value, unit }: { w: number; color: string; value: string; unit?: string }) {
@@ -25,7 +25,22 @@ function Bar({ w, color, value, unit }: { w: number; color: string; value: strin
 export default function DivisionGraphic() {
   return (
     <div className="panel p-4">
-      <div style={{ display: 'grid', gridTemplateColumns: '3.2rem 1fr 1.1rem 1fr 0.9rem 5.5rem', gap: '0.5rem 0.6rem', alignItems: 'center' }}>
+      {/* The fixed columns total 10.7rem; add the gaps and a 375px phone leaves
+          ~38px for each 1fr, which the "= Deaths / TWh" heading and the "25 /TWh"
+          figures cannot shrink into — they pushed the page 22px wider than the
+          viewport. minmax(0, 1fr) lets the flexible columns actually shrink, and
+          the whole grid scrolls inside the panel rather than the page if the
+          minimums still do not fit. */}
+      <div className="overflow-auto">
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '3.2rem minmax(0, 1fr) 1.1rem minmax(0, 1fr) 0.9rem minmax(4.2rem, 5.5rem)',
+          gap: '0.5rem 0.6rem',
+          alignItems: 'center',
+          minWidth: 'min(100%, 17rem)',
+        }}
+      >
         <span />
         <span className="label" style={{ margin: 0 }}>Deaths / year</span>
         <span />
@@ -42,6 +57,7 @@ export default function DivisionGraphic() {
             <span className="mono" style={{ fontSize: '1rem', fontWeight: 600 }}>{r.rate}<span style={{ fontSize: '0.7rem', color: 'var(--ink-muted)' }}> /TWh</span></span>
           </div>
         ))}
+      </div>
       </div>
       <div className="grid gap-2 md:grid-cols-2" style={{ marginTop: '1rem' }}>
         <div className="panel p-3" style={{ background: 'var(--surface-2)' }}>

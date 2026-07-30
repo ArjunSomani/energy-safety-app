@@ -1,3 +1,4 @@
+import Link from 'next/link';
 export default function Page() {
   return (
     <main className="mx-auto max-w-3xl p-6">
@@ -20,7 +21,7 @@ export default function Page() {
       </p>
       <h2>Valuing a death (VSL)</h2>
       <p>
-        The <a href="/value">value-of-a-life</a> lens multiplies a source&apos;s deaths per TWh by a value of a
+        The <Link href="/value">value-of-a-life</Link> lens multiplies a source&apos;s deaths per TWh by a value of a
         statistical life (VSL) to give a mortality cost per MWh — the same shape as the LCOE figure, so the two are
         directly comparable. The presets are HHS&apos;s 2026 published range ($6.6M / $14.1M / $21.5M, constant 2025
         dollars); the slider fills the space between. This is presented as a published range, never as an endorsement of

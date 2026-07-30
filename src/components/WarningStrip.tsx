@@ -8,7 +8,7 @@ export default function WarningStrip({ warnings }: { warnings: Warning[] }) {
         <p
           key={w.id}
           className="panel p-3 text-sm"
-          style={{ borderLeft: '3px solid var(--warn)', background: 'var(--warn-soft)' }}
+          style={{ background: 'var(--warn-soft)' }}
         >
           <b style={{ color: 'var(--warn)' }}>{w.title}</b>
           {' — '}

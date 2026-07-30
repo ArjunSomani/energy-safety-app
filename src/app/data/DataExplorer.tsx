@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import citations from '@/data/citations.json';
 import sourcesData from '@/data/sources.json';
 import { fmt } from '@/lib/format';
@@ -146,17 +147,21 @@ export default function DataExplorer() {
 
   const rows = useMemo(() => {
     const col = cols.find((c) => c.key === sortKey)!;
-    const sorted = [...sourcesData].sort((a, b) => {
+    const sign = dir === 'desc' ? -1 : 1;
+    // Direction is applied inside the comparator, not by reversing afterwards.
+    // Reversing also flipped the null group to the top, so sorting Cost
+    // descending answered "which is most expensive?" with the three sources that
+    // have no cost data (hydro, biomass, oil) above nuclear's $215.
+    return [...sourcesData].sort((a, b) => {
       const va = col.sortVal(a);
       const vb = col.sortVal(b);
       // Nulls (e.g. oil's cost) always sort to the bottom, regardless of direction.
       if (va == null && vb == null) return 0;
       if (va == null) return 1;
       if (vb == null) return -1;
-      if (typeof va === 'string' || typeof vb === 'string') return String(va).localeCompare(String(vb));
-      return va - vb;
+      if (typeof va === 'string' || typeof vb === 'string') return sign * String(va).localeCompare(String(vb));
+      return sign * (va - vb);
     });
-    return dir === 'desc' ? sorted.reverse() : sorted;
   }, [sortKey, dir]);
 
   function sortBy(key: string) {
@@ -174,14 +179,15 @@ export default function DataExplorer() {
     a.href = url;
     a.download = 'level-source-coefficients.csv';
     a.click();
-    URL.revokeObjectURL(url);
+    // Deferred: revoking in the same tick can cancel the download in some browsers.
+    setTimeout(() => URL.revokeObjectURL(url), 0);
   }
 
   return (
     <section className="my-6">
       <div className="mb-3 flex flex-wrap items-end justify-between gap-3">
         <p className="label" style={{ margin: 0 }}>
-          {sourcesData.length} sources · click a column to sort
+          {sourcesData.length} sources · sort by any column
         </p>
         <button type="button" className="btn btn-ghost" style={{ padding: '0.4rem 0.9rem', fontSize: '0.8rem' }} onClick={downloadCsv}>
           ↓ Download CSV
@@ -189,20 +195,37 @@ export default function DataExplorer() {
       </div>
       <div className="overflow-auto panel">
         <table className="w-full border-collapse table-responsive">
+          <caption className="sr-only">Every coefficient the site runs on, by source, sortable by any column.</caption>
           <thead>
             <tr>
-              {cols.map((c) => (
-                <th
-                  key={c.key}
-                  onClick={() => sortBy(c.key)}
-                  aria-sort={sortKey === c.key ? (dir === 'asc' ? 'ascending' : 'descending') : 'none'}
-                  style={{ cursor: 'pointer', whiteSpace: 'nowrap', userSelect: 'none' }}
-                  title="Sort by this column"
-                >
-                  {c.label}
-                  <span style={{ color: 'var(--accent)' }}>{sortKey === c.key ? (dir === 'asc' ? ' ▲' : ' ▼') : ''}</span>
-                </th>
-              ))}
+              {/* The sort control is a real button inside the header cell, not a
+                  click handler on the cell itself: a bare th is not focusable and
+                  takes no keydown, so sorting — the only interaction on this
+                  page — was unreachable by keyboard while aria-sort still
+                  announced the current state. */}
+              {cols.map((c) => {
+                const active = sortKey === c.key;
+                return (
+                  <th
+                    key={c.key}
+                    scope="col"
+                    aria-sort={active ? (dir === 'asc' ? 'ascending' : 'descending') : 'none'}
+                    style={{ whiteSpace: 'nowrap', padding: 0 }}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => sortBy(c.key)}
+                      className="th-sort"
+                      aria-label={`${c.label}, sort ${active && dir === 'asc' ? 'descending' : 'ascending'}`}
+                    >
+                      {c.label}
+                      <span aria-hidden="true" style={{ color: active ? 'var(--accent)' : 'transparent' }}>
+                        {active && dir === 'asc' ? ' ▲' : ' ▼'}
+                      </span>
+                    </button>
+                  </th>
+                );
+              })}
             </tr>
           </thead>
           <tbody>
@@ -220,7 +243,7 @@ export default function DataExplorer() {
       </div>
       <p className="mt-3 text-sm text-[var(--ink-soft)]">
         Central estimate shown large, the low–high band beneath. Mortality cost values each source&apos;s deaths at the
-        central value of a statistical life. Land mixes two methodologies; see <a href="/methodology">Methodology</a>.
+        central value of a statistical life. Land mixes two methodologies; see <Link href="/methodology">Methodology</Link>.
       </p>
     </section>
   );

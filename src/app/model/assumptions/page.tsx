@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import eiaMeta from '@/data/eia-meta.json';
 import { DEFAULT_LEAD_TIME, DEFAULT_RETIREMENT_RAMP, DEFAULT_TECH_LIFE, type ModelTech } from '@/lib/model';
 import { DEFAULT_AVAILABILITY, DEFAULT_MARGINAL_COST, DEFAULT_STORAGE } from '@/lib/model-dispatch';
@@ -47,17 +48,19 @@ export default function AssumptionsPage() {
       </p>
       <p className="text-sm text-[var(--ink-soft)]">
         Base data: EIA {eiaMeta.baseYear}. Fleet reconciles to {(eiaMeta.nationalCapabilityMw / 1000).toFixed(0)} GW
-        national net-summer capability, {eiaMeta.reconciliationDiffPct}% off. <a href="/model">← Back to the model</a>
+        national net-summer capability, {eiaMeta.reconciliationDiffPct}% off. <Link href="/model">← Back to the model</Link>
       </p>
 
       <h2>1 · Base fleet & data</h2>
-      <table className="w-full border-collapse text-sm">
+      <div className="overflow-auto">
+          <table className="w-full border-collapse text-sm">
+        <caption className="sr-only">Base fleet and data assumptions, with sources.</caption>
         <thead>
           <tr>
-            <th>Input</th>
-            <th>Default</th>
-            <th>Source</th>
-            <th>Sensitivity</th>
+            <th scope="col">Input</th>
+            <th scope="col">Default</th>
+            <th scope="col">Source</th>
+            <th scope="col">Sensitivity</th>
           </tr>
         </thead>
         <tbody>
@@ -83,14 +86,17 @@ export default function AssumptionsPage() {
           <Row k="Demand base" v={`${eiaMeta.nationalGenerationTwh} TWh (base-year generation)`} tag="cited" s="Grown by the demand-growth knob; the single biggest driver of unserved energy." />
         </tbody>
       </table>
+          </div>
 
       <h2>2 · Retirement & construction</h2>
-      <table className="w-full border-collapse text-sm">
+      <div className="overflow-auto">
+          <table className="w-full border-collapse text-sm">
+        <caption className="sr-only">Retirement and construction assumptions, with sources.</caption>
         <thead>
           <tr>
-            <th>Technology</th>
-            <th>Service life (yr)</th>
-            <th>Lead time (yr)</th>
+            <th scope="col">Technology</th>
+            <th scope="col">Service life (yr)</th>
+            <th scope="col">Lead time (yr)</th>
           </tr>
         </thead>
         <tbody>
@@ -103,6 +109,7 @@ export default function AssumptionsPage() {
           ))}
         </tbody>
       </table>
+          </div>
       <p className="text-sm text-[var(--ink-soft)]">
         <Tag kind="site" /> Service lives are typical, not measured per plant; lead times are roughly Lazard's published
         construction times. Plants already past their nominal life at the start are retired on a{' '}
@@ -112,13 +119,15 @@ export default function AssumptionsPage() {
       </p>
 
       <h2>3 · Hourly dispatch</h2>
-      <table className="w-full border-collapse text-sm">
+      <div className="overflow-auto">
+          <table className="w-full border-collapse text-sm">
+        <caption className="sr-only">Hourly dispatch assumptions, with sources.</caption>
         <thead>
           <tr>
-            <th>Assumption</th>
-            <th>Default</th>
-            <th>Source</th>
-            <th>Sensitivity</th>
+            <th scope="col">Assumption</th>
+            <th scope="col">Default</th>
+            <th scope="col">Source</th>
+            <th scope="col">Sensitivity</th>
           </tr>
         </thead>
         <tbody>
@@ -139,15 +148,18 @@ export default function AssumptionsPage() {
           <Row k="Baseload treatment" v="Nuclear, hydro, geothermal, biomass run flat at their CF" tag="site" s="Simplification: hydro's peaking flexibility is not credited (conservative for reliability)." />
         </tbody>
       </table>
+          </div>
 
       <h2>4 · Feedbacks</h2>
-      <table className="w-full border-collapse text-sm">
+      <div className="overflow-auto">
+          <table className="w-full border-collapse text-sm">
+        <caption className="sr-only">Feedback assumptions, with sources.</caption>
         <thead>
           <tr>
-            <th>Assumption</th>
-            <th>Default</th>
-            <th>Source</th>
-            <th>Sensitivity</th>
+            <th scope="col">Assumption</th>
+            <th scope="col">Default</th>
+            <th scope="col">Source</th>
+            <th scope="col">Sensitivity</th>
           </tr>
         </thead>
         <tbody>
@@ -189,15 +201,18 @@ export default function AssumptionsPage() {
           />
         </tbody>
       </table>
+          </div>
 
       <h2>5 · Uncertainty & impact coefficients</h2>
-      <table className="w-full border-collapse text-sm">
+      <div className="overflow-auto">
+          <table className="w-full border-collapse text-sm">
+        <caption className="sr-only">Uncertainty and impact coefficients, with sources.</caption>
         <thead>
           <tr>
-            <th>Assumption</th>
-            <th>Default</th>
-            <th>Source</th>
-            <th>Sensitivity</th>
+            <th scope="col">Assumption</th>
+            <th scope="col">Default</th>
+            <th scope="col">Source</th>
+            <th scope="col">Sensitivity</th>
           </tr>
         </thead>
         <tbody>
@@ -221,6 +236,7 @@ export default function AssumptionsPage() {
           />
         </tbody>
       </table>
+          </div>
 
       <h2>6 · Out of scope — stated, not modeled</h2>
       <p className="text-sm text-[var(--ink-soft)]">
@@ -231,7 +247,7 @@ export default function AssumptionsPage() {
       </p>
 
       <p className="text-sm text-[var(--ink-soft)]" style={{ marginTop: '1.5rem' }}>
-        <a href="/model">← Back to the model</a> · <a href="/methodology">Site methodology</a> · <a href="/sources">Sources</a>
+        <Link href="/model">← Back to the model</Link> · <Link href="/methodology">Site methodology</Link> · <Link href="/sources">Sources</Link>
       </p>
     </main>
   );
